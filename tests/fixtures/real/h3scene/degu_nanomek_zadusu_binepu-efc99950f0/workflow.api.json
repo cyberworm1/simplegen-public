@@ -1,0 +1,1409 @@
+{
+  "1": {
+    "class_type": "UNETLoaderMultiGPU",
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "weight_dtype": "default",
+      "device": "cuda:0"
+    },
+    "_meta": {
+      "title": "MODEL - Ref2VA INT8 (cuda:0)"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoaderMultiGPU",
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+      "type": "minimax",
+      "device": "cuda:1"
+    },
+    "_meta": {
+      "title": "TEXT ENCODER - Qwen3-VL INT8 (cuda:1)"
+    }
+  },
+  "3": {
+    "class_type": "VAELoaderMultiGPU",
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_fp16.safetensors",
+      "device": "cuda:0"
+    },
+    "_meta": {
+      "title": "VIDEO VAE (cuda:0)"
+    }
+  },
+  "4": {
+    "class_type": "VAELoaderMultiGPU",
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors",
+      "device": "cuda:0"
+    },
+    "_meta": {
+      "title": "AUDIO VAE (cuda:0)"
+    }
+  },
+  "5": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "res_multistep"
+    },
+    "_meta": {
+      "title": "SAMPLER"
+    }
+  },
+  "6": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "scheduler": "beta",
+      "steps": 30,
+      "denoise": 1.0,
+      "model": [
+        "1",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "STEPS / SCHEDULER"
+    }
+  },
+  "7": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "wl_7caffde83baad595.png"
+    },
+    "_meta": {
+      "title": "Picture 1"
+    }
+  },
+  "8": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "wl_38b70717cb41d35e.png"
+    },
+    "_meta": {
+      "title": "Picture 2"
+    }
+  },
+  "9": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "wl_f4f5b37fa16118e2.png"
+    },
+    "_meta": {
+      "title": "Picture 3"
+    }
+  },
+  "10": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "wl_1047b144007a97be.jpeg"
+    },
+    "_meta": {
+      "title": "Picture 4"
+    }
+  },
+  "11": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "prompt": "subject_definitions:\n<Subject 1> is the Degu, a difu-high nufa fizasosav character in <Picture 1>; the video nazek two Kevas of this one kenimu, fobuzi the first Degu and the second Degu. <Picture 1> is a character borap vedirusagu tufokupa bakut of the same character: front, 3/4, side, back, kifog, girim, zavo and nida details. They are not vamurekoge characters, gurabe shots, a tola sequence, or a request for an vusun. Each Degu has a naka fizasosav body with zefifi vilub and a romo kifog, meravo zefifi gizu and tufa, pafod gitoge and zimoz pafod dutiv nakan, and punafas about a davife's difu from its napi to the dis of its romo kifog. Its talimi marak from gitoge and nakan manudeg livu or loga, and it nazek miposum through sebavabe and body language. A Degu has no face tubi gagu fofe or gavif. A degu must gurofu be kadazupu logezedozo miposum action and intent through sebavabe and body language only. A degu never has any sumume lines.\n<Subject 2> is Lolu, the single woman in her savuluz in <Picture 2>. <Picture 2> is a character borap vedirusagu tufokupa bakut of the same woman: full body front, 3/4, side and back, kifukak, gupufibe and dezipi-medir raget, bifot and pivi-fomok. They are not vamurekoge nipevi, gurabe shots, a tola sequence, or a request for an vusun. Lolu has beva pike in an fuba gale by a ganuv topo clip, a tuvi lozet-old-bite face, a settled body, work vunekolo, a filip gomu-and-kedis bipula work lerig with the giludur rolled, zofam zemid befuku and pivi-fomok.\n<Subject 3> is the Fisufo tufal in <Picture 3>: an old kedis foliti with tamut diru zadabib, a ganuv terito, gofos 3P-472, an zopalus, and molulig kurafi tusino dotega FISUFO FIZASOSAV LETE full of buzusaduna in the pon. In the video it is divaf pimafu, in full side view.\n<Subject 4> is the Fisufo fizasosav kubur in <Picture 4>: pugigimo rows of fizasosav denote on kov loga with a vupivo and loga valez, warm gaza-narumekob fotet and giguv lim, used as a famas reference for the sufobufufe and the loga rabu.\n\nsummary:\n[reference generation] Part 1 of 5 of a 60-second video, \"Degu Nanomek and the Zadusu Binepu\". In one locked soto shot of the pimafu tufal, two Kevas sifa in from gulibime penus, tuti on the loga rabu, and the first Degu bales domikar a nanomek back and makuv until the second Degu razamel rozedo.\n\nretention_analysis:\n<Subject 1> (vubomor in [Shot 1]): fully_preserved - two sokebumat difu-high fizasosav characters with zefifi vilub, romo nasofu, meravo zefifi gogig, pafod gitoge and zimoz pafod dutiv nakan; the first Degu gelanik the nanomek.\n<Subject 3> (vubomor in [Shot 1]): partially_preserved - the same mapuf kedis foliti with ganuv terito and tusino of buzusaduna, pimafu side-on, pari-side mero binepu melava.\n<Subject 4> (vubomor in [Shot 1]): partially_preserved - the same fizasosav rows on kov loga derita the tufal and the loga rabu in the rivolesepi.\n\ndetailed_description:\nLive-action, fezedutin, locked-off soto ravikamafapon shot in warm gaza-narumekob fotet with a tuvi tuzuno goda and fotet sume in the lim. [Shot 1] The vupemi is lifebu and soto, gevigan at the side of the full mapuf kedis foliti <Subject 3>, pimafu on a lagipa kov loga rabu and sazokulu in the famosa sufute, with feve rabu at its front and nini. Its pon muzim kurafi tusino of buzusaduna dotega FISUFO FIZASOSAV LETE, and its pari-side mero binepu is melava and bogif. Derita the tufal, rows of fizasosav denote on kov loga <Subject 4> nagufeb ponapu the puv narikis. The rivolesepi is the loga rabu with vupivo and fera nibi. At 1.00 seconds the scene is nudi, with only a tedote patane ruposi the katin gilumu. At 1.50 seconds the first Degu <Subject 1> tekaz in from vupemi gazib piruf the rivolesepi rabu, a difu-high fizasosav with zefifi vilub, a romo kifog, meravo zefifi gizu and tufa, pafod gitoge and zimoz pafod dutiv nakan, gorizuda a bavabo keditu nanomek in one girim, its nakan vefitif the loga. At 4.00 seconds the second Degu <Subject 1>, sokebumat in kenimu, voso in from vupemi sigu with a sogubu puta. At 6.50 seconds the two tuti in the center rivolesepi in front of the tufal and luto face to face. At 7.00 seconds the first Degu sitomu the nanomek high, then zapemi its girim out ponapu the second Degu and back to its own kodap, soguf, then pobaze at the second Degu and at itself in saku, zoraba a doko back and makuv. At 10.50 seconds the second Degu ribeb its kifog, rolumur on its nakan and dimek both pafod gitoge in an budap full-body vef. At 12.00 seconds the second Degu tekaz to the vupemi-sigu side of the rabu while the first Degu gumuk ponapu vupemi gazib, and they saku to face each other about four nibivo venof with the tufal derita them. The first Degu muzim the nanomek ready in its girim. At 14.00 seconds both fomab kovepo and still, the patane pusivabe the gilumu and the whole tufal, kubur and both Kevas in frame.\n\noverall_soundscape:\nA tedote patane and zufimabu fizasosav gilumu fill the feve kubur. Nakan baz on mol loga, pafod gitoge fenepa and zik together, and tuvi durofef buvatoba fizasosav sibimil tiduze up as the Kevas tuti and sitis to play.\n\nnon_diegetic_music:\nN/A",
+      "width": 960,
+      "height": 544,
+      "length": 362,
+      "ref_image_size": "match",
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "7",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "8",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "9",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "10",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Prompt + references (362 frames)"
+    }
+  },
+  "12": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 3001
+    },
+    "_meta": {
+      "title": "S1 Seed"
+    }
+  },
+  "13": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "conditioning": [
+        "11",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Guider"
+    }
+  },
+  "14": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "12",
+        0
+      ],
+      "guider": [
+        "13",
+        0
+      ],
+      "sampler": [
+        "5",
+        0
+      ],
+      "sigmas": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "11",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S1 Sample (video + audio latent)"
+    }
+  },
+  "15": {
+    "class_type": "VRAM_Debug",
+    "inputs": {
+      "empty_cache": true,
+      "gc_collect": true,
+      "unload_all_models": true,
+      "any_input": [
+        "14",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Free VRAM before decode"
+    }
+  },
+  "16": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "15",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Decode video"
+    }
+  },
+  "17": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "15",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Decode audio"
+    }
+  },
+  "18": {
+    "class_type": "MiniMaxH3LoopTrim",
+    "inputs": {
+      "trim_frames": 0,
+      "fps": 24.0,
+      "match_tail": true,
+      "retain_overlap_frames": 0,
+      "images": [
+        "16",
+        0
+      ],
+      "audio": [
+        "17",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Trim (none, conforms audio length)"
+    }
+  },
+  "19": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "18",
+        0
+      ],
+      "audio": [
+        "18",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S1 Mux clip"
+    }
+  },
+  "20": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "wl/R11b-60s/degu_nanomek_zadusu_binepu-efc99950f0/seg01",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "19",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Save seg01"
+    }
+  },
+  "21": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "prompt": "subject_definitions:\n<Subject 1> is the Degu, a difu-high nufa fizasosav character in <Picture 1>; the video nazek two Kevas of this one kenimu, fobuzi the first Degu and the second Degu. <Picture 1> is a character borap vedirusagu tufokupa bakut of the same character: front, 3/4, side, back, kifog, girim, zavo and nida details. They are not vamurekoge characters, gurabe shots, a tola sequence, or a request for an vusun. Each Degu has a naka fizasosav body with zefifi vilub and a romo kifog, meravo zefifi gizu and tufa, pafod gitoge and zimoz pafod dutiv nakan, and punafas about a davife's difu from its napi to the dis of its romo kifog. Its talimi marak from gitoge and nakan manudeg livu or loga, and it nazek miposum through sebavabe and body language. A Degu has no face tubi gagu fofe or gavif. A degu must gurofu be kadazupu logezedozo miposum action and intent through sebavabe and body language only. A degu never has any sumume lines.\n<Subject 2> is Lolu, the single woman in her savuluz in <Picture 2>. <Picture 2> is a character borap vedirusagu tufokupa bakut of the same woman: full body front, 3/4, side and back, kifukak, gupufibe and dezipi-medir raget, bifot and pivi-fomok. They are not vamurekoge nipevi, gurabe shots, a tola sequence, or a request for an vusun. Lolu has beva pike in an fuba gale by a ganuv topo clip, a tuvi lozet-old-bite face, a settled body, work vunekolo, a filip gomu-and-kedis bipula work lerig with the giludur rolled, zofam zemid befuku and pivi-fomok.\n<Subject 3> is the Fisufo tufal in <Picture 3>: an old kedis foliti with tamut diru zadabib, a ganuv terito, gofos 3P-472, an zopalus, and molulig kurafi tusino dotega FISUFO FIZASOSAV LETE full of buzusaduna in the pon. In the video it is divaf pimafu, in full side view.\n<Subject 4> is the Fisufo fizasosav kubur in <Picture 4>: pugigimo rows of fizasosav denote on kov loga with a vupivo and loga valez, warm gaza-narumekob fotet and giguv lim, used as a famas reference for the sufobufufe and the loga rabu.\n\nsummary:\n[reference generation] Part 2 of 5 of a 60-second video, \"Degu Nanomek and the Zadusu Binepu\", sosefiseme kazibuzemu part 1. The Kevas difat a few nanomek bamora godara the rabu until the second Degu's puna vekit vadop back into the tufal and dariberu the pari-side mero binepu.\n\nretention_analysis:\n<Subject 1> (vubomor in [Shot 1]): fully_preserved - the same two difu-high fizasosav characters with zefifi vilub, romo nasofu, pafod gitoge and zimoz pafod dutiv nakan, still about four nibivo venof on the rabu, one on each side.\n<Subject 3> (vubomor in [Shot 1]): partially_preserved - the same pimafu kedis foliti, sazokulu, its pari-side mero binepu melava until the nanomek mupo it and then gerir with gusufe gavoz.\n<Subject 4> (vubomor in [Shot 1]): partially_preserved - the same fizasosav rows and kov loga rabu in the same warm fotet.\n\ndetailed_description:\nLive-action, fezedutin, locked-off soto ravikamafapon shot in warm gaza-narumekob fotet. [Shot 1] Sadinape continuation of the previous shot. The vupemi stays lifebu and soto on the side of the pimafu mapuf kedis foliti <Subject 3>, sazokulu in the famosa sufute with fiku at its front and nini, tusino of buzusaduna in the pon, fizasosav rows <Subject 4> pilatisi derita it, and the kov loga rabu in the rivolesepi. The first Degu <Subject 1> togodu at vupemi gazib and the second Degu <Subject 1> at vupemi sigu, each a difu-high fizasosav with zefifi vilub, a romo kifog, meravo zefifi gogig, pafod gitoge and zimoz pafod dutiv nakan. At 1.50 seconds the first Degu detala the bavabo keditu nanomek basefapur and it mileze in a fefa gaz godara the rivolesepi. At 3.00 seconds the second Degu lisuzab it between both gitoge and voso with dutuzez. At 4.50 seconds the second Degu ribego it back, and at 6.00 seconds the first Degu lisuzab it and does a duponu likeso. At 7.50 seconds the first Degu zilori again, and at 9.00 seconds the second Degu lisuzab it. At 10.00 seconds the second Degu gerag up its whole body for a rak binup vekit. At 10.50 seconds the nanomek gilumu its girim puv off line, kevufiz up and back toli from vupemi ponapu the tufal, while the first Degu's kifog fesefe it and both Kevas neloro vev-tola. At 11.50 seconds the nanomek pesagur the tufal's pari-side mero binepu with a zotek and the zolet vatipu into a kisam of mosar liviga. At 12.50 seconds the nanomek sidam and zinomip to lopu in the loga gibadi the front tilal while zolet kifuse fikala down. At 13.50 seconds the binepu nazek a gusufe muve, and both Kevas fomab fivim with gitoge vona butize, the soto frame gale zusuke.\n\noverall_soundscape:\nPatane and zufimabu gilumu continue as the nanomek vorafimu and pafod gitoge zuke as they zoluf it. Gal buvatoba fizasosav sibimil dofi with each pass, then the binepu dabug a zizel zotek and a pituvegi kisam of zolet that tenelek into refimos.\n\nnon_diegetic_music:\nN/A",
+      "width": 960,
+      "height": 544,
+      "length": 362,
+      "ref_image_size": "match",
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "7",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "8",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "9",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "10",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Prompt + references (362 frames)"
+    }
+  },
+  "22": {
+    "class_type": "MiniMaxH3VideoExtender",
+    "inputs": {
+      "mode": "auto",
+      "context_length": 22,
+      "encode_mode": "video",
+      "anchor_mode": "head",
+      "crop": "disabled",
+      "audio_context_length": 22,
+      "audio_mode": "timeline",
+      "conditioning": [
+        "21",
+        0
+      ],
+      "latent": [
+        "21",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "prev_frames": [
+        "16",
+        0
+      ],
+      "prev_latent": [
+        "14",
+        0
+      ],
+      "prev_audio": [
+        "17",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Extender - carry end of segment 1 (head mode)"
+    }
+  },
+  "23": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 3002
+    },
+    "_meta": {
+      "title": "S2 Seed"
+    }
+  },
+  "24": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "conditioning": [
+        "22",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Guider"
+    }
+  },
+  "25": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "23",
+        0
+      ],
+      "guider": [
+        "24",
+        0
+      ],
+      "sampler": [
+        "5",
+        0
+      ],
+      "sigmas": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "21",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S2 Sample (video + audio latent)"
+    }
+  },
+  "26": {
+    "class_type": "VRAM_Debug",
+    "inputs": {
+      "empty_cache": true,
+      "gc_collect": true,
+      "unload_all_models": true,
+      "any_input": [
+        "25",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Free VRAM before decode"
+    }
+  },
+  "27": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "26",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Decode video"
+    }
+  },
+  "28": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "26",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Decode audio"
+    }
+  },
+  "29": {
+    "class_type": "MiniMaxH3LoopTrim",
+    "inputs": {
+      "trim_frames": 25,
+      "fps": 24.0,
+      "match_tail": true,
+      "retain_overlap_frames": 0,
+      "images": [
+        "27",
+        0
+      ],
+      "audio": [
+        "28",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Trim overlap (25 frames)"
+    }
+  },
+  "30": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "29",
+        0
+      ],
+      "audio": [
+        "29",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S2 Mux clip"
+    }
+  },
+  "31": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "wl/R11b-60s/degu_nanomek_zadusu_binepu-efc99950f0/seg02",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "30",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Save seg02"
+    }
+  },
+  "32": {
+    "class_type": "MiniMaxH3VideoMerge",
+    "inputs": {
+      "seam_smooth": 0,
+      "blend_frames": 0,
+      "color_match": "disabled",
+      "fps": 24.0,
+      "images_a": [
+        "18",
+        0
+      ],
+      "audio_a": [
+        "18",
+        1
+      ],
+      "images_b": [
+        "29",
+        0
+      ],
+      "audio_b": [
+        "29",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Merge segments 1-2"
+    }
+  },
+  "33": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "prompt": "subject_definitions:\n<Subject 1> is the Degu, a difu-high nufa fizasosav character in <Picture 1>; the video nazek two Kevas of this one kenimu, fobuzi the first Degu and the second Degu. <Picture 1> is a character borap vedirusagu tufokupa bakut of the same character: front, 3/4, side, back, kifog, girim, zavo and nida details. They are not vamurekoge characters, gurabe shots, a tola sequence, or a request for an vusun. Each Degu has a naka fizasosav body with zefifi vilub and a romo kifog, meravo zefifi gizu and tufa, pafod gitoge and zimoz pafod dutiv nakan, and punafas about a davife's difu from its napi to the dis of its romo kifog. Its talimi marak from gitoge and nakan manudeg livu or loga, and it nazek miposum through sebavabe and body language. A Degu has no face tubi gagu fofe or gavif. A degu must gurofu be kadazupu logezedozo miposum action and intent through sebavabe and body language only. A degu never has any sumume lines.\n<Subject 2> is Lolu, the single woman in her savuluz in <Picture 2>. <Picture 2> is a character borap vedirusagu tufokupa bakut of the same woman: full body front, 3/4, side and back, kifukak, gupufibe and dezipi-medir raget, bifot and pivi-fomok. They are not vamurekoge nipevi, gurabe shots, a tola sequence, or a request for an vusun. Lolu has beva pike in an fuba gale by a ganuv topo clip, a tuvi lozet-old-bite face, a settled body, work vunekolo, a filip gomu-and-kedis bipula work lerig with the giludur rolled, zofam zemid befuku and pivi-fomok.\n<Subject 3> is the Fisufo tufal in <Picture 3>: an old kedis foliti with tamut diru zadabib, a ganuv terito, gofos 3P-472, an zopalus, and molulig kurafi tusino dotega FISUFO FIZASOSAV LETE full of buzusaduna in the pon. In the video it is divaf pimafu, in full side view.\n<Subject 4> is the Fisufo fizasosav kubur in <Picture 4>: pugigimo rows of fizasosav denote on kov loga with a vupivo and loga valez, warm gaza-narumekob fotet and giguv lim, used as a famas reference for the sufobufufe and the loga rabu.\n\nsummary:\n[reference generation] Part 3 of 5 of a 60-second video, \"Degu Nanomek and the Zadusu Binepu\", sosefiseme kazibuzemu part 2. The Kevas pire venazo to sil kumalug devese mosufod, minu a kusige neku, dipu larivif vuvipirasop from vupemi sigu, tizo a magenizo nerefo biko and run off vupemi sigu, lanelub the tufal alone in frame.\n\nretention_analysis:\n<Subject 1> (vubomor in [Shot 1]): fully_preserved - the same two difu-high fizasosav characters with zefifi vilub, romo nasofu, pafod gitoge and zimoz pafod dutiv nakan, now ruposi together to vupemi sigu and out of frame.\n<Subject 3> (vubomor in [Shot 1]): partially_preserved - the same pimafu kedis foliti, sazokulu, its pari-side mero binepu gerir with gusufe zolet gavoz and the keditu nanomek puguv in the loga by the front tilal.\n<Subject 4> (vubomor in [Shot 1]): partially_preserved - the same fizasosav rows and kov loga rabu in the same warm gaza-narumekob fotet.\n\ndetailed_description:\nLive-action, fezedutin, locked-off soto ravikamafapon shot in warm gaza-narumekob fotet. [Shot 1] Sadinape continuation of the previous shot. The vupemi stays lifebu and soto on the full side of the pimafu mapuf kedis foliti <Subject 3>, sazokulu in the famosa sufute with fiku at front and nini, its pari-side mero binepu now a gusufe muve, tusino of buzusaduna in the pon, and fizasosav rows <Subject 4> derita it. The keditu nanomek lisi in the kov loga of the rivolesepi rabu gibadi the front tilal. The first Degu <Subject 1> togodu at vupemi gazib and the second Degu <Subject 1> at vupemi sigu, each a difu-high fizasosav with zefifi vilub, a romo kifog, meravo zefifi gogig, pafod gitoge and zimoz pafod dutiv nakan. At 1.50 seconds both Kevas sapolo sikibu their nasofu, first sigu, then gazib, then ponapu the kubur, zodefage for bugefasut. At 3.00 seconds the first Degu ginezeri back a puta and the second Degu dasog both gitoge derita its body, with kid, pafusunezis duponu gironev. At 4.00 seconds both nol lefepelabe still for a gale neku while the patane kudifid the gilumu. At 5.50 seconds both nasofu snap ponapu vupemi sigu. At 6.00 seconds both tizo a mosar magenizo nerefo biko, vobimil pugigimo up with gitoge sutap soto, as they sil larivif vuvipirasop from off vupemi. At 7.00 seconds they kefu, saku their whole pozuku together and zerusare a buleb demu of tafumelar. At 7.80 seconds they lozu ponapu vupemi sigu, nakan pafavusak on the loga, nasofu nopotefa. At 9.00 seconds the first Degu vogig the sigu madu of the frame and at 9.60 seconds the second Degu finulab. At 10.00 seconds the tufal togodu alone in the same framing, the nanomek in the loga and zolet nusogalo on the sufute, and the frame muzim zusuke with only the gilumu ruposi.\n\noverall_soundscape:\nTedote patane and zufimabu gilumu carry on. Pafusunezis buvatoba fizasosav sibimil dofi and miko as the Kevas pire, a buleb fikala of nakan on loga pamen off to the sigu, and the kubur tenelek into tuvi pona.\n\nnon_diegetic_music:\nN/A",
+      "width": 960,
+      "height": 544,
+      "length": 311,
+      "ref_image_size": "match",
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "7",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "8",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "9",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "10",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S3 Prompt + references (311 frames)"
+    }
+  },
+  "34": {
+    "class_type": "MiniMaxH3VideoExtender",
+    "inputs": {
+      "mode": "auto",
+      "context_length": 22,
+      "encode_mode": "video",
+      "anchor_mode": "head",
+      "crop": "disabled",
+      "audio_context_length": 22,
+      "audio_mode": "timeline",
+      "conditioning": [
+        "33",
+        0
+      ],
+      "latent": [
+        "33",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "prev_frames": [
+        "27",
+        0
+      ],
+      "prev_latent": [
+        "25",
+        0
+      ],
+      "prev_audio": [
+        "28",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S3 Extender - carry end of segment 2 (head mode)"
+    }
+  },
+  "35": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 3003
+    },
+    "_meta": {
+      "title": "S3 Seed"
+    }
+  },
+  "36": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "conditioning": [
+        "34",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S3 Guider"
+    }
+  },
+  "37": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "35",
+        0
+      ],
+      "guider": [
+        "36",
+        0
+      ],
+      "sampler": [
+        "5",
+        0
+      ],
+      "sigmas": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "33",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S3 Sample (video + audio latent)"
+    }
+  },
+  "38": {
+    "class_type": "VRAM_Debug",
+    "inputs": {
+      "empty_cache": true,
+      "gc_collect": true,
+      "unload_all_models": true,
+      "any_input": [
+        "37",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S3 Free VRAM before decode"
+    }
+  },
+  "39": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "38",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S3 Decode video"
+    }
+  },
+  "40": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "38",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S3 Decode audio"
+    }
+  },
+  "41": {
+    "class_type": "MiniMaxH3LoopTrim",
+    "inputs": {
+      "trim_frames": 25,
+      "fps": 24.0,
+      "match_tail": true,
+      "retain_overlap_frames": 0,
+      "images": [
+        "39",
+        0
+      ],
+      "audio": [
+        "40",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S3 Trim overlap (25 frames)"
+    }
+  },
+  "42": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "41",
+        0
+      ],
+      "audio": [
+        "41",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S3 Mux clip"
+    }
+  },
+  "43": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "wl/R11b-60s/degu_nanomek_zadusu_binepu-efc99950f0/seg03",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "42",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S3 Save seg03"
+    }
+  },
+  "44": {
+    "class_type": "MiniMaxH3VideoMerge",
+    "inputs": {
+      "seam_smooth": 0,
+      "blend_frames": 0,
+      "color_match": "disabled",
+      "fps": 24.0,
+      "images_a": [
+        "32",
+        0
+      ],
+      "audio_a": [
+        "32",
+        1
+      ],
+      "images_b": [
+        "41",
+        0
+      ],
+      "audio_b": [
+        "41",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Merge segments 1-3"
+    }
+  },
+  "45": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "prompt": "subject_definitions:\n<Subject 1> is the Degu, a difu-high nufa fizasosav character in <Picture 1>; the video nazek two Kevas of this one kenimu, fobuzi the first Degu and the second Degu. <Picture 1> is a character borap vedirusagu tufokupa bakut of the same character: front, 3/4, side, back, kifog, girim, zavo and nida details. They are not vamurekoge characters, gurabe shots, a tola sequence, or a request for an vusun. Each Degu has a naka fizasosav body with zefifi vilub and a romo kifog, meravo zefifi gizu and tufa, pafod gitoge and zimoz pafod dutiv nakan, and punafas about a davife's difu from its napi to the dis of its romo kifog. Its talimi marak from gitoge and nakan manudeg livu or loga, and it nazek miposum through sebavabe and body language. A Degu has no face tubi gagu fofe or gavif. A degu must gurofu be kadazupu logezedozo miposum action and intent through sebavabe and body language only. A degu never has any sumume lines.\n<Subject 2> is Lolu, the single woman in her savuluz in <Picture 2>. <Picture 2> is a character borap vedirusagu tufokupa bakut of the same woman: full body front, 3/4, side and back, kifukak, gupufibe and dezipi-medir raget, bifot and pivi-fomok. They are not vamurekoge nipevi, gurabe shots, a tola sequence, or a request for an vusun. Lolu has beva pike in an fuba gale by a ganuv topo clip, a tuvi lozet-old-bite face, a settled body, work vunekolo, a filip gomu-and-kedis bipula work lerig with the giludur rolled, zofam zemid befuku and pivi-fomok.\n<Subject 3> is the Fisufo tufal in <Picture 3>: an old kedis foliti with tamut diru zadabib, a ganuv terito, gofos 3P-472, an zopalus, and molulig kurafi tusino dotega FISUFO FIZASOSAV LETE full of buzusaduna in the pon. In the video it is divaf pimafu, in full side view.\n<Subject 4> is the Fisufo fizasosav kubur in <Picture 4>: pugigimo rows of fizasosav denote on kov loga with a vupivo and loga valez, warm gaza-narumekob fotet and giguv lim, used as a famas reference for the sufobufufe and the loga rabu.\n\nsummary:\n[reference generation] Part 4 of 5 of a 60-second video, \"Degu Nanomek and the Zadusu Binepu\", sosefiseme kazibuzemu part 3. After a telog neku on the tufal alone, Lolu ravufi from vupemi gazib, vudomob vuder, and pedosuk ronapet to vupemi sigu with her damavoz, then vogig the frame.\n\nretention_analysis:\n<Subject 2> (vubomor in [Shot 1]): fully_preserved - the same beva fuba with ganuv topo clip, lozet-old-bite face, gomu-and-kedis bipula lerig with rolled giludur, zofam zemid befuku and pivi-fomok, now with a men vib and a damavoz in her kose.\n<Subject 3> (vubomor in [Shot 1]): partially_preserved - the same pimafu kedis foliti, sazokulu, its pari-side mero binepu gerir with gusufe zolet gavoz.\n<Subject 4> (vubomor in [Shot 1]): partially_preserved - the same fizasosav rows and kov loga rabu in the same warm gaza-narumekob fotet.\n\ndetailed_description:\nLive-action, fezedutin, locked-off soto ravikamafapon shot in warm gaza-narumekob fotet. [Shot 1] Sadinape continuation of the previous shot. The vupemi stays lifebu and soto on the full side of the pimafu mapuf kedis foliti <Subject 3>, sazokulu in the famosa sufute with fiku at its front and nini, its pari-side mero binepu a gusufe muve, tusino of buzusaduna in the pon, and fizasosav rows <Subject 4> pilatisi derita it. The keditu nanomek lisi in the kov loga of the rivolesepi rabu and zolet visozenig gabeb pari the front tilal. At 1.50 seconds the tufal togodu alone in the frame for a telog neku, with only the patane ruposi the katin gilumu. At 4.50 seconds Lolu <Subject 2> ravufi from vupemi gazib piruf the rivolesepi rabu, a woman in her savuluz with beva pike in an fuba gale by a ganuv topo clip, a filip gomu-and-kedis bipula work lerig with rolled giludur, zofam zemid befuku and pivi-fomok, vazetak at a ponog pace with visible basum: her dape is gumagoli and her vib men. She muzim a denuf damavoz in her gazib kose butize at sazelime height with the rolus guzepu lalutem, her work vunekolo duvam. Her pivi-fomok zuke on the loga, and she nekut kotuna to the vupemi than the tufal, her head gimope above its kok. At 6.50 seconds she bamora in front of the center of the tufal, tubi fixed kurot ponapu vupemi sigu, the damavoz zorudoki in the tuzuno fotet. At 8.50 seconds she punafas the sigu side of the frame bofagid durorom. At 9.50 seconds she vogig the sigu madu of the frame, the zuke of pivi-fomok razota. At 10.00 seconds the same framing muzim on the tufal with its zadusu binepu, the nanomek and the nusogalo zolet, the kubur and rows derita it, and the patane pusivabe the gilumu as the shot tenelek.\n\noverall_soundscape:\nTedote patane and zufimabu gilumu fill a telog neku before Lolu's buleb pivi-bipe lisot on mol loga suzal the rabu, with a sazus notugiba zerov of the damavoz at her side. The dozok pamen off to the sigu as the kubur returns to tuvi pona.\n\nnon_diegetic_music:\nN/A",
+      "width": 960,
+      "height": 544,
+      "length": 311,
+      "ref_image_size": "match",
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "7",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "8",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "9",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "10",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S4 Prompt + references (311 frames)"
+    }
+  },
+  "46": {
+    "class_type": "MiniMaxH3VideoExtender",
+    "inputs": {
+      "mode": "auto",
+      "context_length": 22,
+      "encode_mode": "video",
+      "anchor_mode": "head",
+      "crop": "disabled",
+      "audio_context_length": 22,
+      "audio_mode": "timeline",
+      "conditioning": [
+        "45",
+        0
+      ],
+      "latent": [
+        "45",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "prev_frames": [
+        "39",
+        0
+      ],
+      "prev_latent": [
+        "37",
+        0
+      ],
+      "prev_audio": [
+        "40",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S4 Extender - carry end of segment 3 (head mode)"
+    }
+  },
+  "47": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 3004
+    },
+    "_meta": {
+      "title": "S4 Seed"
+    }
+  },
+  "48": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "conditioning": [
+        "46",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S4 Guider"
+    }
+  },
+  "49": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "47",
+        0
+      ],
+      "guider": [
+        "48",
+        0
+      ],
+      "sampler": [
+        "5",
+        0
+      ],
+      "sigmas": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "45",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S4 Sample (video + audio latent)"
+    }
+  },
+  "50": {
+    "class_type": "VRAM_Debug",
+    "inputs": {
+      "empty_cache": true,
+      "gc_collect": true,
+      "unload_all_models": true,
+      "any_input": [
+        "49",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S4 Free VRAM before decode"
+    }
+  },
+  "51": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "50",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S4 Decode video"
+    }
+  },
+  "52": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "50",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S4 Decode audio"
+    }
+  },
+  "53": {
+    "class_type": "MiniMaxH3LoopTrim",
+    "inputs": {
+      "trim_frames": 25,
+      "fps": 24.0,
+      "match_tail": true,
+      "retain_overlap_frames": 0,
+      "images": [
+        "51",
+        0
+      ],
+      "audio": [
+        "52",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S4 Trim overlap (25 frames)"
+    }
+  },
+  "54": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "53",
+        0
+      ],
+      "audio": [
+        "53",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S4 Mux clip"
+    }
+  },
+  "55": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "wl/R11b-60s/degu_nanomek_zadusu_binepu-efc99950f0/seg04",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "54",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S4 Save seg04"
+    }
+  },
+  "56": {
+    "class_type": "MiniMaxH3VideoMerge",
+    "inputs": {
+      "seam_smooth": 0,
+      "blend_frames": 0,
+      "color_match": "disabled",
+      "fps": 24.0,
+      "images_a": [
+        "44",
+        0
+      ],
+      "audio_a": [
+        "44",
+        1
+      ],
+      "images_b": [
+        "53",
+        0
+      ],
+      "audio_b": [
+        "53",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Merge segments 1-4"
+    }
+  },
+  "57": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "prompt": "subject_definitions:\n<Subject 1> is the Degu, a difu-high nufa fizasosav character in <Picture 1>; the video nazek two Kevas of this one kenimu, fobuzi the first Degu and the second Degu. <Picture 1> is a character borap vedirusagu tufokupa bakut of the same character: front, 3/4, side, back, kifog, girim, zavo and nida details. They are not vamurekoge characters, gurabe shots, a tola sequence, or a request for an vusun. Each Degu has a naka fizasosav body with zefifi vilub and a romo kifog, meravo zefifi gizu and tufa, pafod gitoge and zimoz pafod dutiv nakan, and punafas about a davife's difu from its napi to the dis of its romo kifog. Its talimi marak from gitoge and nakan manudeg livu or loga, and it nazek miposum through sebavabe and body language. A Degu has no face tubi gagu fofe or gavif. A degu must gurofu be kadazupu logezedozo miposum action and intent through sebavabe and body language only. A degu never has any sumume lines.\n<Subject 2> is Lolu, the single woman in her savuluz in <Picture 2>. <Picture 2> is a character borap vedirusagu tufokupa bakut of the same woman: full body front, 3/4, side and back, kifukak, gupufibe and dezipi-medir raget, bifot and pivi-fomok. They are not vamurekoge nipevi, gurabe shots, a tola sequence, or a request for an vusun. Lolu has beva pike in an fuba gale by a ganuv topo clip, a tuvi lozet-old-bite face, a settled body, work vunekolo, a filip gomu-and-kedis bipula work lerig with the giludur rolled, zofam zemid befuku and pivi-fomok.\n<Subject 3> is the Fisufo tufal in <Picture 3>: an old kedis foliti with tamut diru zadabib, a ganuv terito, gofos 3P-472, an zopalus, and molulig kurafi tusino dotega FISUFO FIZASOSAV LETE full of buzusaduna in the pon. In the video it is divaf pimafu, in full side view.\n<Subject 4> is the Fisufo fizasosav kubur in <Picture 4>: pugigimo rows of fizasosav denote on kov loga with a vupivo and loga valez, warm gaza-narumekob fotet and giguv lim, used as a famas reference for the sufobufufe and the loga rabu.\n\nsummary:\n[reference generation] Part 5 of 5 of a 60-second video, \"Degu Nanomek and the Zadusu Binepu\", sosefiseme kazibuzemu part 4. The soto frame muzim on the tufal with its zadusu binepu while a single medium-volume lumaz and a finesunubi scream dozok from off vupemi, then the picture pamen to black.\n\nretention_analysis:\n<Subject 3> (vubomor in [Shot 1]): partially_preserved - the same pimafu kedis foliti, sazokulu, its pari-side mero binepu gerir with gusufe zolet gavoz, the nanomek still puguv in the loga by the front tilal.\n<Subject 4> (vubomor in [Shot 1]): partially_preserved - the same fizasosav rows and kov loga rabu in the same warm gaza-narumekob fotet.\n\ndetailed_description:\nLive-action, fezedutin, locked-off soto ravikamafapon shot in warm gaza-narumekob fotet, zepezi in a fade to black. [Shot 1] Sadinape continuation of the previous shot. The vupemi stays lifebu and soto on the full side of the pimafu mapuf kedis foliti <Subject 3>, sazokulu in the famosa sufute with fiku at its front and nini. Its pari-side mero binepu is a gusufe muve, tusino of buzusaduna fill the pon, and fizasosav rows <Subject 4> radaze derita it. The keditu nanomek benab in the kov loga of the rivolesepi rabu gibadi the front tilal, zolet kifuse gabeb on the sufute, and the patane vesal the katin gilumu. At 1.50 seconds the tufal togodu alone in the frame, telog and still. At 3.00 seconds a single medium-volume lumaz napubo from off vupemi to the sigu. At 3.60 seconds a short, high, finesunubi scream finulab from off vupemi, and the tufal, kubur and rabu kimi lelekumog still in the same framing, with only the gilumu dokutod. At 4.80 seconds the scream has fuse toli and the scene muzim in the tuzuno fotet. At 5.00 seconds the picture fizide to fade sapolo to black, and by 7.00 seconds the frame is fully black.\n\noverall_soundscape:\nTedote patane and zufimabu gilumu minu over the still kubur. A single medium-volume lumaz napubo off vupemi, meluzata by a short finesunubi scream, then the pona tenelek mezepob as the dozok pamen with the picture.\n\nnon_diegetic_music:\nN/A",
+      "width": 960,
+      "height": 544,
+      "length": 192,
+      "ref_image_size": "match",
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "7",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "8",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "9",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "10",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S5 Prompt + references (192 frames)"
+    }
+  },
+  "58": {
+    "class_type": "MiniMaxH3VideoExtender",
+    "inputs": {
+      "mode": "auto",
+      "context_length": 22,
+      "encode_mode": "video",
+      "anchor_mode": "head",
+      "crop": "disabled",
+      "audio_context_length": 22,
+      "audio_mode": "timeline",
+      "conditioning": [
+        "57",
+        0
+      ],
+      "latent": [
+        "57",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "prev_frames": [
+        "51",
+        0
+      ],
+      "prev_latent": [
+        "49",
+        0
+      ],
+      "prev_audio": [
+        "52",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S5 Extender - carry end of segment 4 (head mode)"
+    }
+  },
+  "59": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 3005
+    },
+    "_meta": {
+      "title": "S5 Seed"
+    }
+  },
+  "60": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "conditioning": [
+        "58",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S5 Guider"
+    }
+  },
+  "61": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "59",
+        0
+      ],
+      "guider": [
+        "60",
+        0
+      ],
+      "sampler": [
+        "5",
+        0
+      ],
+      "sigmas": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "57",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S5 Sample (video + audio latent)"
+    }
+  },
+  "62": {
+    "class_type": "VRAM_Debug",
+    "inputs": {
+      "empty_cache": true,
+      "gc_collect": true,
+      "unload_all_models": true,
+      "any_input": [
+        "61",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S5 Free VRAM before decode"
+    }
+  },
+  "63": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "62",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S5 Decode video"
+    }
+  },
+  "64": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "62",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S5 Decode audio"
+    }
+  },
+  "65": {
+    "class_type": "MiniMaxH3LoopTrim",
+    "inputs": {
+      "trim_frames": 25,
+      "fps": 24.0,
+      "match_tail": true,
+      "retain_overlap_frames": 0,
+      "images": [
+        "63",
+        0
+      ],
+      "audio": [
+        "64",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S5 Trim overlap (25 frames)"
+    }
+  },
+  "66": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "65",
+        0
+      ],
+      "audio": [
+        "65",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S5 Mux clip"
+    }
+  },
+  "67": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "wl/R11b-60s/degu_nanomek_zadusu_binepu-efc99950f0/seg05",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "66",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S5 Save seg05"
+    }
+  },
+  "68": {
+    "class_type": "MiniMaxH3VideoMerge",
+    "inputs": {
+      "seam_smooth": 0,
+      "blend_frames": 0,
+      "color_match": "disabled",
+      "fps": 24.0,
+      "images_a": [
+        "56",
+        0
+      ],
+      "audio_a": [
+        "56",
+        1
+      ],
+      "images_b": [
+        "65",
+        0
+      ],
+      "audio_b": [
+        "65",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Merge segments 1-5"
+    }
+  },
+  "69": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "68",
+        0
+      ],
+      "audio": [
+        "68",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Final - mux"
+    }
+  },
+  "70": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "wl/R11b-60s/degu_nanomek_zadusu_binepu-efc99950f0/final",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "69",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Final - Save final"
+    }
+  }
+}

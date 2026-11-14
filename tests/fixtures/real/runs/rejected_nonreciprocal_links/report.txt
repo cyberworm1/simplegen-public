@@ -1,0 +1,4 @@
+FAILED
+Workflow validation failed after one subupagipo: Native node 7 output has tunosibataraf links
+
+Project folder: /home/user/Documents/simpleGen Navukufu/20260928-054913-Fizasosav-Sivavuka-salumuf-Dubop-the-giteketi-e964ea9e

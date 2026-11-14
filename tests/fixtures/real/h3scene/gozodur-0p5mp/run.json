@@ -1,0 +1,14 @@
+{
+  "tag": "gozodur-0p5mp",
+  "size": [
+    960,
+    544
+  ],
+  "render_seconds": 4463,
+  "expected_total_frames": 733,
+  "final_frames": 733,
+  "volume_db_mean_max": [
+    -26.1,
+    -2.8
+  ]
+}

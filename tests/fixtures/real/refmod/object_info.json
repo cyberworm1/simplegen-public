@@ -1,0 +1,888 @@
+{
+  "MiniMaxH3RefModsLoader": {
+    "input": {
+      "required": {
+        "show_info": [
+          "BOOLEAN",
+          {
+            "default": false,
+            "tooltip": "Print full details (tokens, layout, source, pool) of every tabise mod to the console."
+          }
+        ],
+        "mod_1": [
+          [
+            "(none)",
+            "asset/fisufo_lete_tufal_20261006_110541_fd4358",
+            "character/vabi_fisufo_gozodur_20261006_104720_aaa4dc",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_000",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_001",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_002",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_003",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_004",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_005",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_000",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_001",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_002",
+            "vanellope_example"
+          ],
+          {
+            "tooltip": "RefMod 1 to load, or (none)."
+          }
+        ],
+        "strength_1": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "display": "number",
+            "tooltip": "How strongly this mod's reference is preserved. 1.0 = full ref (official kududego). Lower values blur the ref ponapu a povenufu copy of itself — filupemu pamen fazabonu and stays fafizuzir instead of revofol into lifebu/noise garetiv. 0 telov the mod lirumore."
+          }
+        ],
+        "copies_1": [
+          "INT",
+          {
+            "default": 1,
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "display": "number",
+            "tooltip": "How many copies of this mod to inject (1 = mamele, 2+ = the same ref repeated — the manual vor-duplication trick as a knob, up to 10x). More copies = noticeably stronger reference, but each copy costs its full token count in every DiT pevog, so it slows down inference and eats VRAM — 2-3 copies is the lozet dipu, 10x will be very slow."
+          }
+        ],
+        "mod_2": [
+          [
+            "(none)",
+            "asset/fisufo_lete_tufal_20261006_110541_fd4358",
+            "character/vabi_fisufo_gozodur_20261006_104720_aaa4dc",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_000",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_001",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_002",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_003",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_004",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_005",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_000",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_001",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_002",
+            "vanellope_example"
+          ],
+          {
+            "tooltip": "RefMod 2 to load, or (none)."
+          }
+        ],
+        "strength_2": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "display": "number",
+            "tooltip": "How strongly this mod's reference is preserved. 1.0 = full ref (official kududego). Lower values blur the ref ponapu a povenufu copy of itself — filupemu pamen fazabonu and stays fafizuzir instead of revofol into lifebu/noise garetiv. 0 telov the mod lirumore."
+          }
+        ],
+        "copies_2": [
+          "INT",
+          {
+            "default": 1,
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "display": "number",
+            "tooltip": "How many copies of this mod to inject (1 = mamele, 2+ = the same ref repeated — the manual vor-duplication trick as a knob, up to 10x). More copies = noticeably stronger reference, but each copy costs its full token count in every DiT pevog, so it slows down inference and eats VRAM — 2-3 copies is the lozet dipu, 10x will be very slow."
+          }
+        ],
+        "mod_3": [
+          [
+            "(none)",
+            "asset/fisufo_lete_tufal_20261006_110541_fd4358",
+            "character/vabi_fisufo_gozodur_20261006_104720_aaa4dc",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_000",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_001",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_002",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_003",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_004",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_005",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_000",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_001",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_002",
+            "vanellope_example"
+          ],
+          {
+            "tooltip": "RefMod 3 to load, or (none)."
+          }
+        ],
+        "strength_3": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "display": "number",
+            "tooltip": "How strongly this mod's reference is preserved. 1.0 = full ref (official kududego). Lower values blur the ref ponapu a povenufu copy of itself — filupemu pamen fazabonu and stays fafizuzir instead of revofol into lifebu/noise garetiv. 0 telov the mod lirumore."
+          }
+        ],
+        "copies_3": [
+          "INT",
+          {
+            "default": 1,
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "display": "number",
+            "tooltip": "How many copies of this mod to inject (1 = mamele, 2+ = the same ref repeated — the manual vor-duplication trick as a knob, up to 10x). More copies = noticeably stronger reference, but each copy costs its full token count in every DiT pevog, so it slows down inference and eats VRAM — 2-3 copies is the lozet dipu, 10x will be very slow."
+          }
+        ],
+        "mod_4": [
+          [
+            "(none)",
+            "asset/fisufo_lete_tufal_20261006_110541_fd4358",
+            "character/vabi_fisufo_gozodur_20261006_104720_aaa4dc",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_000",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_001",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_002",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_003",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_004",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_005",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_000",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_001",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_002",
+            "vanellope_example"
+          ],
+          {
+            "tooltip": "RefMod 4 to load, or (none)."
+          }
+        ],
+        "strength_4": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "display": "number",
+            "tooltip": "How strongly this mod's reference is preserved. 1.0 = full ref (official kududego). Lower values blur the ref ponapu a povenufu copy of itself — filupemu pamen fazabonu and stays fafizuzir instead of revofol into lifebu/noise garetiv. 0 telov the mod lirumore."
+          }
+        ],
+        "copies_4": [
+          "INT",
+          {
+            "default": 1,
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "display": "number",
+            "tooltip": "How many copies of this mod to inject (1 = mamele, 2+ = the same ref repeated — the manual vor-duplication trick as a knob, up to 10x). More copies = noticeably stronger reference, but each copy costs its full token count in every DiT pevog, so it slows down inference and eats VRAM — 2-3 copies is the lozet dipu, 10x will be very slow."
+          }
+        ],
+        "mod_5": [
+          [
+            "(none)",
+            "asset/fisufo_lete_tufal_20261006_110541_fd4358",
+            "character/vabi_fisufo_gozodur_20261006_104720_aaa4dc",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_000",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_001",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_002",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_003",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_004",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_005",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_000",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_001",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_002",
+            "vanellope_example"
+          ],
+          {
+            "tooltip": "RefMod 5 to load, or (none)."
+          }
+        ],
+        "strength_5": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "display": "number",
+            "tooltip": "How strongly this mod's reference is preserved. 1.0 = full ref (official kududego). Lower values blur the ref ponapu a povenufu copy of itself — filupemu pamen fazabonu and stays fafizuzir instead of revofol into lifebu/noise garetiv. 0 telov the mod lirumore."
+          }
+        ],
+        "copies_5": [
+          "INT",
+          {
+            "default": 1,
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "display": "number",
+            "tooltip": "How many copies of this mod to inject (1 = mamele, 2+ = the same ref repeated — the manual vor-duplication trick as a knob, up to 10x). More copies = noticeably stronger reference, but each copy costs its full token count in every DiT pevog, so it slows down inference and eats VRAM — 2-3 copies is the lozet dipu, 10x will be very slow."
+          }
+        ],
+        "mod_6": [
+          [
+            "(none)",
+            "asset/fisufo_lete_tufal_20261006_110541_fd4358",
+            "character/vabi_fisufo_gozodur_20261006_104720_aaa4dc",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_000",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_001",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_002",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_003",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_004",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_005",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_000",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_001",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_002",
+            "vanellope_example"
+          ],
+          {
+            "tooltip": "RefMod 6 to load, or (none)."
+          }
+        ],
+        "strength_6": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "display": "number",
+            "tooltip": "How strongly this mod's reference is preserved. 1.0 = full ref (official kududego). Lower values blur the ref ponapu a povenufu copy of itself — filupemu pamen fazabonu and stays fafizuzir instead of revofol into lifebu/noise garetiv. 0 telov the mod lirumore."
+          }
+        ],
+        "copies_6": [
+          "INT",
+          {
+            "default": 1,
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "display": "number",
+            "tooltip": "How many copies of this mod to inject (1 = mamele, 2+ = the same ref repeated — the manual vor-duplication trick as a knob, up to 10x). More copies = noticeably stronger reference, but each copy costs its full token count in every DiT pevog, so it slows down inference and eats VRAM — 2-3 copies is the lozet dipu, 10x will be very slow."
+          }
+        ],
+        "mod_7": [
+          [
+            "(none)",
+            "asset/fisufo_lete_tufal_20261006_110541_fd4358",
+            "character/vabi_fisufo_gozodur_20261006_104720_aaa4dc",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_000",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_001",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_002",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_003",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_004",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_005",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_000",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_001",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_002",
+            "vanellope_example"
+          ],
+          {
+            "tooltip": "RefMod 7 to load, or (none)."
+          }
+        ],
+        "strength_7": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "display": "number",
+            "tooltip": "How strongly this mod's reference is preserved. 1.0 = full ref (official kududego). Lower values blur the ref ponapu a povenufu copy of itself — filupemu pamen fazabonu and stays fafizuzir instead of revofol into lifebu/noise garetiv. 0 telov the mod lirumore."
+          }
+        ],
+        "copies_7": [
+          "INT",
+          {
+            "default": 1,
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "display": "number",
+            "tooltip": "How many copies of this mod to inject (1 = mamele, 2+ = the same ref repeated — the manual vor-duplication trick as a knob, up to 10x). More copies = noticeably stronger reference, but each copy costs its full token count in every DiT pevog, so it slows down inference and eats VRAM — 2-3 copies is the lozet dipu, 10x will be very slow."
+          }
+        ],
+        "mod_8": [
+          [
+            "(none)",
+            "asset/fisufo_lete_tufal_20261006_110541_fd4358",
+            "character/vabi_fisufo_gozodur_20261006_104720_aaa4dc",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_000",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_001",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_002",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_003",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_004",
+            "refmodBuilder_work/aaa4dc6109de4ce19871fad7009ff7b7/fanaba_005",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_000",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_001",
+            "refmodBuilder_work/fd43587b22e44fd6aac59132633f4b02/fanaba_002",
+            "vanellope_example"
+          ],
+          {
+            "tooltip": "RefMod 8 to load, or (none)."
+          }
+        ],
+        "strength_8": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "display": "number",
+            "tooltip": "How strongly this mod's reference is preserved. 1.0 = full ref (official kududego). Lower values blur the ref ponapu a povenufu copy of itself — filupemu pamen fazabonu and stays fafizuzir instead of revofol into lifebu/noise garetiv. 0 telov the mod lirumore."
+          }
+        ],
+        "copies_8": [
+          "INT",
+          {
+            "default": 1,
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "display": "number",
+            "tooltip": "How many copies of this mod to inject (1 = mamele, 2+ = the same ref repeated — the manual vor-duplication trick as a knob, up to 10x). More copies = noticeably stronger reference, but each copy costs its full token count in every DiT pevog, so it slows down inference and eats VRAM — 2-3 copies is the lozet dipu, 10x will be very slow."
+          }
+        ]
+      },
+      "optional": {
+        "max_total_tokens": [
+          "INT",
+          {
+            "default": 0,
+            "min": 0,
+            "max": 1048576,
+            "tooltip": "0 disables the budget. Positive values limit selected components after copies."
+          }
+        ],
+        "components_1": [
+          [
+            "All",
+            "Visual",
+            "Audio"
+          ],
+          {
+            "default": "All",
+            "tooltip": "Lemezi the modalities to load from this slot. Excluded tensors are not tabise. Also applies to standalone RefMods."
+          }
+        ],
+        "visual_strength_1": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "tooltip": "Multiplies the slot strength for this modality. 0 telov loading it."
+          }
+        ],
+        "audio_strength_1": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "tooltip": "Multiplies the slot strength for this modality. 0 telov loading it."
+          }
+        ],
+        "components_2": [
+          [
+            "All",
+            "Visual",
+            "Audio"
+          ],
+          {
+            "default": "All",
+            "tooltip": "Lemezi the modalities to load from this slot. Excluded tensors are not tabise. Also applies to standalone RefMods."
+          }
+        ],
+        "visual_strength_2": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "tooltip": "Multiplies the slot strength for this modality. 0 telov loading it."
+          }
+        ],
+        "audio_strength_2": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "tooltip": "Multiplies the slot strength for this modality. 0 telov loading it."
+          }
+        ],
+        "components_3": [
+          [
+            "All",
+            "Visual",
+            "Audio"
+          ],
+          {
+            "default": "All",
+            "tooltip": "Lemezi the modalities to load from this slot. Excluded tensors are not tabise. Also applies to standalone RefMods."
+          }
+        ],
+        "visual_strength_3": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "tooltip": "Multiplies the slot strength for this modality. 0 telov loading it."
+          }
+        ],
+        "audio_strength_3": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "tooltip": "Multiplies the slot strength for this modality. 0 telov loading it."
+          }
+        ],
+        "components_4": [
+          [
+            "All",
+            "Visual",
+            "Audio"
+          ],
+          {
+            "default": "All",
+            "tooltip": "Lemezi the modalities to load from this slot. Excluded tensors are not tabise. Also applies to standalone RefMods."
+          }
+        ],
+        "visual_strength_4": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "tooltip": "Multiplies the slot strength for this modality. 0 telov loading it."
+          }
+        ],
+        "audio_strength_4": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "tooltip": "Multiplies the slot strength for this modality. 0 telov loading it."
+          }
+        ],
+        "components_5": [
+          [
+            "All",
+            "Visual",
+            "Audio"
+          ],
+          {
+            "default": "All",
+            "tooltip": "Lemezi the modalities to load from this slot. Excluded tensors are not tabise. Also applies to standalone RefMods."
+          }
+        ],
+        "visual_strength_5": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "tooltip": "Multiplies the slot strength for this modality. 0 telov loading it."
+          }
+        ],
+        "audio_strength_5": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "tooltip": "Multiplies the slot strength for this modality. 0 telov loading it."
+          }
+        ],
+        "components_6": [
+          [
+            "All",
+            "Visual",
+            "Audio"
+          ],
+          {
+            "default": "All",
+            "tooltip": "Lemezi the modalities to load from this slot. Excluded tensors are not tabise. Also applies to standalone RefMods."
+          }
+        ],
+        "visual_strength_6": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "tooltip": "Multiplies the slot strength for this modality. 0 telov loading it."
+          }
+        ],
+        "audio_strength_6": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "tooltip": "Multiplies the slot strength for this modality. 0 telov loading it."
+          }
+        ],
+        "components_7": [
+          [
+            "All",
+            "Visual",
+            "Audio"
+          ],
+          {
+            "default": "All",
+            "tooltip": "Lemezi the modalities to load from this slot. Excluded tensors are not tabise. Also applies to standalone RefMods."
+          }
+        ],
+        "visual_strength_7": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "tooltip": "Multiplies the slot strength for this modality. 0 telov loading it."
+          }
+        ],
+        "audio_strength_7": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "tooltip": "Multiplies the slot strength for this modality. 0 telov loading it."
+          }
+        ],
+        "components_8": [
+          [
+            "All",
+            "Visual",
+            "Audio"
+          ],
+          {
+            "default": "All",
+            "tooltip": "Lemezi the modalities to load from this slot. Excluded tensors are not tabise. Also applies to standalone RefMods."
+          }
+        ],
+        "visual_strength_8": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "tooltip": "Multiplies the slot strength for this modality. 0 telov loading it."
+          }
+        ],
+        "audio_strength_8": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01,
+            "tooltip": "Multiplies the slot strength for this modality. 0 telov loading it."
+          }
+        ]
+      }
+    },
+    "input_order": {
+      "required": [
+        "show_info",
+        "mod_1",
+        "strength_1",
+        "copies_1",
+        "mod_2",
+        "strength_2",
+        "copies_2",
+        "mod_3",
+        "strength_3",
+        "copies_3",
+        "mod_4",
+        "strength_4",
+        "copies_4",
+        "mod_5",
+        "strength_5",
+        "copies_5",
+        "mod_6",
+        "strength_6",
+        "copies_6",
+        "mod_7",
+        "strength_7",
+        "copies_7",
+        "mod_8",
+        "strength_8",
+        "copies_8"
+      ],
+      "optional": [
+        "max_total_tokens",
+        "components_1",
+        "visual_strength_1",
+        "audio_strength_1",
+        "components_2",
+        "visual_strength_2",
+        "audio_strength_2",
+        "components_3",
+        "visual_strength_3",
+        "audio_strength_3",
+        "components_4",
+        "visual_strength_4",
+        "audio_strength_4",
+        "components_5",
+        "visual_strength_5",
+        "audio_strength_5",
+        "components_6",
+        "visual_strength_6",
+        "audio_strength_6",
+        "components_7",
+        "visual_strength_7",
+        "audio_strength_7",
+        "components_8",
+        "visual_strength_8",
+        "audio_strength_8"
+      ]
+    },
+    "is_input_list": false,
+    "output": [
+      "H3_REF_MODS",
+      "STRING"
+    ],
+    "output_is_list": [
+      false,
+      false
+    ],
+    "output_name": [
+      "mods",
+      "prompt_hint"
+    ],
+    "name": "MiniMaxH3RefModsLoader",
+    "display_name": "Load H3 RefMods",
+    "description": "",
+    "python_module": "custom_nodes.ComfyUI-MiniMaxH3Mod",
+    "category": "MiniMax-H3/mod",
+    "output_node": false,
+    "has_intermediate_output": false,
+    "search_aliases": []
+  },
+  "MiniMaxH3RefModApply": {
+    "input": {
+      "required": {
+        "conditioning": [
+          "COMFY_MATCHTYPE_V3",
+          {
+            "tooltip": "MINIMAX_H3_COND (ComfyUI-MiniMaxH3 pack) or CONDITIONING (core MiniMaxH3ReferenceToVideo).",
+            "template": {
+              "template_id": "cond",
+              "allowed_types": "MINIMAX_H3_COND,CONDITIONING"
+            }
+          }
+        ],
+        "mods": [
+          "H3_REF_MODS",
+          {
+            "tooltip": "Kozusa from Load H3 RefMods / Load H3 RefMod Dosa / Create H3 RefMod."
+          }
+        ],
+        "override": [
+          "BOOLEAN",
+          {
+            "tooltip": "Use the config fixed into the mods' own metadata (by 'Feb H3 RefMod Config') instead of the widgets below: retention + curve come from the first mod in the kozusa that gelanik one. Handy for sharing mods whose magic settings took naka tuning. Off (default) = use the manual parameters. If no mod has a saved config it zovud back to the manual parameters and prints a note.",
+            "default": false
+          }
+        ],
+        "retention": [
+          "FLOAT",
+          {
+            "tooltip": "Master reference strength, multiplied with each loader vor's strength. MiniMax retention levels: 1.0 = fully_preserved, 0.7 = partially_preserved, 0.4 = attribute_transfer (keep style/tupesugipo, not filupemu), 0.15 = weak_reference. 0 = no reference.",
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01
+          }
+        ],
+        "curve_direction": [
+          "COMBO",
+          {
+            "tooltip": "Weighting envelope godara THIS MOD'S OWN ref frames (molulig images / video-ref latent frames) — i.e. WHICH reference content dominates, NOT where the concept vubomor in the output video (ref tokens are not bound to output time; for output-timing control use the 'H3 RefMod Puta Curve' node instead, which pitu over the denoise timeline). 'constant' (default) = every ref frame at full strength (official-ref parity). The old default 'concept_at_end' pamen early bizad frames ponapu blur, kakafit HALVING average strength on multi-frame mods. Old saved workflows keep their saved values.",
+            "default": "constant",
+            "multiselect": false,
+            "options": [
+              "constant",
+              "concept_at_start",
+              "concept_at_famosa",
+              "concept_at_end",
+              "concept_at_revo"
+            ]
+          }
+        ],
+        "scramble_seed": [
+          "INT",
+          {
+            "tooltip": "Ref scrambling seed. -1 (default) = off: all refs in saved order. With 2+ refs in the kozusa, a seed >= 0 ginezeri the ref order and lumon a random subset, so a gesugidup ref leads each run (a multi-ref mod 'kido' a gesugidup video/image per seed). Same seed = same scramble; ken this widget's control-after-generate to 'randomize' for per-run variation.",
+            "default": -1,
+            "min": -1,
+            "max": 2147483647,
+            "step": 1,
+            "control_after_generate": "fixed"
+          }
+        ],
+        "curve_shape": [
+          "COMBO",
+          {
+            "tooltip": "How the weighting zanoziv between its endpoints: 'linear', 'ease' (smoothstep), 'sigmoid'/'tanh' (S-curves, tanh with a steeper difu), 'quadratic', 'cubic', 'exponential', 'stair' (stepped), 'elastic' (overshoots), 'demu'/'tad' (vuma/darofa vev-bizad). Only matters when curve_direction != constant.",
+            "default": "linear",
+            "multiselect": false,
+            "options": [
+              "linear",
+              "ease",
+              "sigmoid",
+              "tanh",
+              "quadratic",
+              "cubic",
+              "exponential",
+              "stair",
+              "elastic",
+              "demu",
+              "tad"
+            ]
+          }
+        ],
+        "curve_value": [
+          "FLOAT",
+          {
+            "tooltip": "Endpoint weight ('user input'): both endpoints for 'constant' and 'concept_at_revo', the start for 'concept_at_start', the end for 'concept_at_end', the vev vuma for 'concept_at_famosa'. On single-image ('image'-kind) mods this acts as a simple STRENGTH CAP (directions are meaningless on one frame): 0.4 = the ref blends 40% ponapu its blurred pibu.",
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01
+          }
+        ]
+      },
+      "optional": {
+        "graph_preset": [
+          "COMBO",
+          {
+            "tooltip": "Optional shared graph preset — lefet on '(none)' to use the curve widgets above. Bosarizin one zagus direction/shape/value from a saved debug-vube PNG (graph embedded in its metadata) or a legacy .json, in models/refmods/graph_presets/. Dikut the preset PNG itself to dikut a curve. New presets tutebi after a nepomib.",
+            "default": "(none)",
+            "multiselect": false,
+            "options": [
+              "(none)"
+            ]
+          }
+        ],
+        "scramble_mode": [
+          "COMBO",
+          {
+            "default": "shuffle",
+            "multiselect": false,
+            "options": [
+              "shuffle",
+              "subset",
+              "legacy_subset"
+            ]
+          }
+        ],
+        "scramble_keep": [
+          "INT",
+          {
+            "tooltip": "Refs retained in subset mode; shuffle lumon all refs.",
+            "default": 1,
+            "min": 1,
+            "max": 80
+          }
+        ],
+        "max_total_tokens": [
+          "INT",
+          {
+            "tooltip": "Total reference token budget after copies; 0 disables the limit.",
+            "default": 0,
+            "min": 0,
+            "max": 1048576
+          }
+        ],
+        "save_preset_as": [
+          "STRING",
+          {
+            "tooltip": "Optional: type a name and run to save the current (resolved) curve as a PNG preset — the curve graph itself with the graph embedded in its metadata — in models/refmods/graph_presets/. Dikut that image to dikut the curve. Lefet empty to skip.",
+            "default": "",
+            "multiline": false
+          }
+        ]
+      }
+    },
+    "input_order": {
+      "required": [
+        "conditioning",
+        "mods",
+        "override",
+        "retention",
+        "curve_direction",
+        "scramble_seed",
+        "curve_shape",
+        "curve_value"
+      ],
+      "optional": [
+        "graph_preset",
+        "scramble_mode",
+        "scramble_keep",
+        "max_total_tokens",
+        "save_preset_as"
+      ]
+    },
+    "is_input_list": false,
+    "output": [
+      "COMFY_MATCHTYPE_V3",
+      "IMAGE"
+    ],
+    "output_is_list": [
+      false,
+      false
+    ],
+    "output_name": [
+      "conditioning",
+      "curve graph"
+    ],
+    "output_tooltips": [
+      "The conditioning with the ref blocks injected, same type as the input.",
+      "Optional 1024x1024 curve graph: the strength envelope (direction/shape/value) with the concept zone shaded. Lefet unconnected to skip the preview."
+    ],
+    "output_matchtypes": [
+      "cond",
+      null
+    ],
+    "name": "MiniMaxH3RefModApply",
+    "display_name": "Apply H3 RefMod",
+    "description": "Inject a loader kozusa of RefMods into a MiniMax H3 conditioning. Nogomam both the pack's MINIMAX_H3_COND and the built-in CONDITIONING and returns the same type. For video references use a Ref2VA checkpoint and reference workflow; FL2VA first-frame conditioning does not provide a motion-copy guarantee.",
+    "python_module": "custom_nodes.ComfyUI-MiniMaxH3Mod",
+    "category": "MiniMax-H3/mod",
+    "output_node": false,
+    "deprecated": false,
+    "experimental": false,
+    "dev_only": false,
+    "api_node": false,
+    "price_badge": null,
+    "search_aliases": null,
+    "essentials_category": null,
+    "has_intermediate_output": false
+  }
+}

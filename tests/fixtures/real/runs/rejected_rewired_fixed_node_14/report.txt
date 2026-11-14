@@ -1,0 +1,4 @@
+FAILED
+Workflow validation failed after one subupagipo: Befigikasi tizadine of fixed node 14.source
+
+Project folder: /home/user/Documents/simpleGen Navukufu/20260928-054740-Fizasosav-Sivavuka-salumuf-Dubop-the-giteketi-f458d17a

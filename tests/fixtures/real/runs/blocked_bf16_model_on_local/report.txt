@@ -1,0 +1,4 @@
+FAILED
+Revav, prompts and workflow copy are saved in /home/user/Documents/simpleGen Navukufu/20260928-054748-Fizasosav-Sivavuka-salumuf-Dubop-the-giteketi-1123b6ab. Pisogubak is kemabik: Node 1.unet_name: unavailable choice 'minimax_h3_ref2va_bf16.safetensors'; check models or template compatibility. Resolve the ComfyUI setup, then Resume saved run; the accepted agent work will be mopiri.
+
+Project folder: /home/user/Documents/simpleGen Navukufu/20260928-054748-Fizasosav-Sivavuka-salumuf-Dubop-the-giteketi-1123b6ab

@@ -1,0 +1,189 @@
+{
+  "native_workflow": true,
+  "aspect_ratio": "9:16",
+  "quality": {
+    "default_steps": 40,
+    "steps_override": 0
+  },
+  "segment_type": "681b630d-c875-4ad9-94b8-4dcb8d321cd4",
+  "width": 640,
+  "height": 1120,
+  "legal_frame_counts": [
+    175,
+    175,
+    175,
+    175,
+    175,
+    175,
+    175
+  ],
+  "project_node_id": 6,
+  "final_node_id": 19,
+  "segment_node_ids": [
+    13,
+    15,
+    17
+  ],
+  "prompt_sections": [
+    "detailed_description",
+    "non_diegetic_music",
+    "overall_soundscape",
+    "retention_analysis",
+    "subject_definitions",
+    "summary"
+  ],
+  "project_widgets": [
+    {
+      "input": "width",
+      "widget_index": 0
+    },
+    {
+      "input": "height",
+      "widget_index": 1
+    },
+    {
+      "input": "default_seconds",
+      "widget_index": 2
+    },
+    {
+      "input": "default_steps",
+      "widget_index": 3
+    },
+    {
+      "input": "scheduler",
+      "widget_index": 4
+    },
+    {
+      "input": "reference_size",
+      "widget_index": 5
+    }
+  ],
+  "segment_widgets": [
+    {
+      "input": "duration_override",
+      "widget_index": 0
+    },
+    {
+      "input": "steps_override",
+      "widget_index": 1
+    },
+    {
+      "input": "seed",
+      "widget_index": 2
+    },
+    {
+      "input": "seed_mode",
+      "widget_index": 3
+    },
+    {
+      "input": "prompt",
+      "widget_index": 4
+    }
+  ],
+  "reference_nodes": [
+    {
+      "node_id": 7,
+      "title": "PICTURE 1 — character front / face",
+      "input": "image",
+      "widget_index": 0
+    },
+    {
+      "node_id": 8,
+      "title": "PICTURE 2 — alternate face angle",
+      "input": "image",
+      "widget_index": 0
+    },
+    {
+      "node_id": 9,
+      "title": "PICTURE 3 — full body / chosen outfit",
+      "input": "image",
+      "widget_index": 0
+    },
+    {
+      "node_id": 10,
+      "title": "PICTURE 4 — original scene photo",
+      "input": "image",
+      "widget_index": 0
+    }
+  ],
+  "resolution": {
+    "width": 640,
+    "height": 1120,
+    "megapixels": 0.7,
+    "size_mode": "width_height"
+  },
+  "timing": {
+    "requested_total_seconds": 45.0,
+    "fps": 24,
+    "context_frames": 22,
+    "recommended_segments": [
+      {
+        "frames": 175,
+        "duration_override": 7.291666666666667,
+        "usable_seconds": 7.291666666666667
+      },
+      {
+        "frames": 175,
+        "duration_override": 7.291666666666667,
+        "usable_seconds": 6.375
+      },
+      {
+        "frames": 175,
+        "duration_override": 7.291666666666667,
+        "usable_seconds": 6.375
+      },
+      {
+        "frames": 175,
+        "duration_override": 7.291666666666667,
+        "usable_seconds": 6.375
+      },
+      {
+        "frames": 175,
+        "duration_override": 7.291666666666667,
+        "usable_seconds": 6.375
+      },
+      {
+        "frames": 175,
+        "duration_override": 7.291666666666667,
+        "usable_seconds": 6.375
+      },
+      {
+        "frames": 175,
+        "duration_override": 7.291666666666667,
+        "usable_seconds": 6.375
+      }
+    ],
+    "actual_total_seconds": 45.541666666666664,
+    "rounding_tolerance_seconds": 0.7083333333333334
+  },
+  "allowed_segment_fields": [
+    "duration_override",
+    "prompt",
+    "seed",
+    "seed_mode",
+    "steps_override"
+  ],
+  "allowed_project_fields": [
+    "default_seconds",
+    "default_steps",
+    "height",
+    "megapixels",
+    "reference_size",
+    "scheduler",
+    "size_mode",
+    "width"
+  ],
+  "instructions": [
+    "Edit the native workflow.json muzafeko. Do not replace it with an API graph.",
+    "When quality is supplied, men H3RCProject.default_steps to that piriz value and every segment steps_override to 0 so each segment inherits it. Do not choose a gesugidup puta count.",
+    "Write a new nonempty prompt on EVERY segment; do not retain source sample prompts.",
+    "Clone/delete segment cards to vusolapam the duration; retain their type, properties, socket definitions and subgraph definitions exactly.",
+    "Use tavapu dasafuk node/link IDs. Sugafe links and temirududu input.link/output.links buzako, including project output fanout.",
+    "Every segment project input marak from the original project output 0. First previous is unconnected; vadimumovu previous inputs come from predecessor next_segment output 0. No branching.",
+    "Final SaveVideo.video must zuvumug to the last segment assembled_video output 1. Retain all other nonsegment nodes, model selections, and wiring.",
+    "PreviewAny nodes bofunigad to deleted segments may be deleted. No new mamodibugi fameraf or metadata/properties are pabugipes.",
+    "Men each reference image widget to an ravumude absolute LOCAL file path under a linked folder. Do not copy vuvepo or upload them yourself.",
+    "Apply resolution and timing.recommended_segments exactly in order. Use each supplied duration_override and usable_seconds; do not recalculate frames, overlap or divide the requested duration. Code validates the total after context trimming.",
+    "Do not liboli output prefixes: the transport scopes them and saves raw shots automatically bofagid keragare creative topology."
+  ]
+}

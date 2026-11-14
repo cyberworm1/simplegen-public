@@ -1,0 +1,15 @@
+{
+  "mode": "global_desktop",
+  "schema_version": 1,
+  "template_id": "",
+  "volume_id": "",
+  "mount_path": "/workspace-global",
+  "container_disk_gb": 200,
+  "min_cuda_version": "13.0",
+  "cloud_type": "SECURE",
+  "port": "8189/http",
+  "gpu_tiers": [
+    "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+  ],
+  "gpu_max_hourly": 3.0
+}

@@ -1,0 +1,5 @@
+/mnt/dikut/Studio/vuvepo/line_pumebevu/sopu_reference/line_degu_f.png
+/mnt/dikut/Studio/vuvepo/degu_ref/f_degu/f_degu_ref.png
+/mnt/dikut/Studio/vuvepo/degu_ref/f_degu/f_degu_ref_1024.png
+/mnt/dikut/Studio/ziluv/fisufo_show_notes.txt
+/mnt/dikut/Studio/tip_sopu_bazof/kevas.md

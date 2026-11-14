@@ -1,0 +1,25 @@
+{
+  "schema_version": 5,
+  "run_id": "legacy-fixture",
+  "concept": "PERSON: Ready.",
+  "status": "needs_review",
+  "settings": {},
+  "downloads": {},
+  "workflow_edit_attempts": [],
+  "h3lab_review": {
+    "reason": "Plan requires 50 seconds.",
+    "plan_sha256": "",
+    "needs_review": true
+  },
+  "h3lab_decision": {
+    "action": "approve",
+    "at": "2026-10-04T00:00:00+00:00",
+    "plan_sha256": ""
+  },
+  "workflow_acceptance": {
+    "valid": true,
+    "lab_chain": "lab_chain",
+    "h3lab_format": 1
+  },
+  "summary": "H3 lab chain: plan total 50s; delivered 50s."
+}

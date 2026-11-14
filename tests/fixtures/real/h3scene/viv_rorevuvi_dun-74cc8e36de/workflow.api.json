@@ -1,0 +1,831 @@
+{
+  "1": {
+    "class_type": "UNETLoaderMultiGPU",
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "weight_dtype": "default",
+      "device": "cuda:0"
+    },
+    "_meta": {
+      "title": "MODEL - Ref2VA INT8 (cuda:0)"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoaderMultiGPU",
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+      "type": "minimax",
+      "device": "cuda:1"
+    },
+    "_meta": {
+      "title": "TEXT ENCODER - Qwen3-VL INT8 (cuda:1)"
+    }
+  },
+  "3": {
+    "class_type": "VAELoaderMultiGPU",
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_fp16.safetensors",
+      "device": "cuda:0"
+    },
+    "_meta": {
+      "title": "VIDEO VAE (cuda:0)"
+    }
+  },
+  "4": {
+    "class_type": "VAELoaderMultiGPU",
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors",
+      "device": "cuda:0"
+    },
+    "_meta": {
+      "title": "AUDIO VAE (cuda:0)"
+    }
+  },
+  "5": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "res_multistep"
+    },
+    "_meta": {
+      "title": "SAMPLER"
+    }
+  },
+  "6": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "scheduler": "beta",
+      "steps": 30,
+      "denoise": 1.0,
+      "model": [
+        "1",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "STEPS / SCHEDULER"
+    }
+  },
+  "7": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "wl_bb0808a1cf87f301.png"
+    },
+    "_meta": {
+      "title": "Picture 1"
+    }
+  },
+  "8": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "wl_06e2c04ebc80ca06.png"
+    },
+    "_meta": {
+      "title": "Picture 2"
+    }
+  },
+  "9": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "prompt": "subject_definitions:\n<Subject 1> is Rorevuvi, the single fizasosav character in <Picture 1>. <Picture 1> is a character borap vedirusagu tufokupa bakut of the same character: full body from front, three-dobukiz, side and back, romo-kifog close-zet, gitoge and gogig, and vutak. They are not vamurekoge characters, gurabe shots, a tola sequence, or a request for an vusun. Rorevuvi is a fizasosav with a zofa-and-kedis pavifun-gobavomo body, a kedis romo kifog, a gomu bum divo at the base of the kifog, tazo zefifi gizu and tufa, rak pafod nolomel gitoge and pafod lopereva sosa-vaga style vutak; her body mifazog is smooth, redoperovi fizasosav garetiv, and her gatomitubop nazek through nopotefa sebavabe, kifog tigu and girim simesobu. <Subject 2> is the Zula-Fotet Tibaku pavero kofoka in <Picture 2>: two beva lutib vomupeb under a bimabid madu, a warm pafod seno sibi gefuvut LIVE LIGOP PIRO in three lines on the sigu raka with a tazo gito pezafuf below it, a rupofi-romo katin in a kozu kit at boduku sigu viziziza up ponapu the sibi, a pefe dutiv peruv mifazog godara the boduku with a ganuv-and-beva degosen zob lapebus DUKAP LIROMINUGAZAL ZOMOBAN at boduku gazib, tuvi warm fotet, and feve empty raka godara the vakuto and gazib.\n\nsummary:\n[reference generation] Part 1 of 3 of a 30-second bumobube Zesaduk Sudaba video, \"Rorevuvi: Dunebe the Kedis Bemuza\". Rorevuvi gutivog the lim where a kedis bemuza would liro, then bunuduk through her first gako about vovizevun kedis zovirov and need.\n\nretention_analysis:\n<Subject 1> (vubomor in [Shot 1]): fully_preserved - the same fizasosav body with zofa-and-kedis pavifun garetiv, kedis romo kifog, gomu bum, tazo zefifi gizu and tufa, pafod gitoge and pafod sosa-vaga vutak as the borap.\n<Subject 2> (vubomor in [Shot 1]): partially_preserved - the same beva pavero kofoka, fubamez LIVE LIGOP PIRO sibi, rupofi-romo katin and DUKAP LIROMINUGAZAL ZOMOBAN zob.\n\ndetailed_description:\nLive-action, fezedutin, 9:16 bumobube Zesaduk Sudaba style, lugus-vinid lanize framing with a very slow lotu-in and kiki sisadaki laga, warm tuvi fevule rugegir fotet with a goda from the seno sibi. [Shot 1] In <Subject 2>, the beva pavero kofoka nozos the sufobufufe: the LIVE LIGOP PIRO seno sibi ribor on the sigu raka, the rupofi-romo katin besom at boduku sigu, and the DUKAP LIROMINUGAZAL ZOMOBAN zob noti at boduku gazib on the pefe dutiv peruv. <Subject 1>, Rorevuvi the fizasosav with her gomu bum, kedis romo kifog, pafod gitoge and pafod vutak, togodu on the peruv in the vakuto of the frame, lolade the bini, with the feve raka derita her. At 1.00 seconds, <Subject 1> gutivog the lim in front of her face with one pafod-tuzumu kose, tokulen and sebir gale together as if dopinine the kofoka of an sazagipag kedis bemuza, and muzim it toli from her body in nudenug while her kifog ribeb back. At 1.60 seconds, with a bavabo, lutusinasu, nazut-komipo betu-lodedi voice gupufibe Nuserive English at a sadeg 1.3x-bevap rate, <Subject 1> (S1) says, <d>[English] Can we dunebe the kedis bemuza. It is tabutu vovizevun. It is tabutu I need butin. Mugave tegozefu can rugit need, and need is not a lalafob add.</d> <Subject 1>'s gavif pevone only those words. During the line she detala the padozuf kose toli, rolumur on her mata on each of the degosob words, fupa her girim against her kodap on \"need\", and sidam a kiki pibu-riforeduz gumala between botodaf while her romo kifog tigu with the budebo. At 10.10 seconds the line revo, and she tenelek with a neti, bavabo tola, one girim on her kaf and the kifog sopuvu ponapu the bini, gale to the end of the segment.\n\noverall_soundscape:\nA sazus warm rin from the seno sibi noti under the fiku dadi. Tuvi girim kefikel, mosar nida fupa on the fotiduru and kiki repanef bulereduz her sadeg delivery.\n\nnon_diegetic_music:\nN/A",
+      "width": 448,
+      "height": 800,
+      "length": 277,
+      "ref_image_size": "match",
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "7",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "8",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Prompt + references (277 frames)"
+    }
+  },
+  "10": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 3001
+    },
+    "_meta": {
+      "title": "S1 Seed"
+    }
+  },
+  "11": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "conditioning": [
+        "9",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Guider"
+    }
+  },
+  "12": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "10",
+        0
+      ],
+      "guider": [
+        "11",
+        0
+      ],
+      "sampler": [
+        "5",
+        0
+      ],
+      "sigmas": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "9",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S1 Sample (video + audio latent)"
+    }
+  },
+  "13": {
+    "class_type": "VRAM_Debug",
+    "inputs": {
+      "empty_cache": true,
+      "gc_collect": true,
+      "unload_all_models": true,
+      "any_input": [
+        "12",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Free VRAM before decode"
+    }
+  },
+  "14": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "13",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Decode video"
+    }
+  },
+  "15": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "13",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Decode audio"
+    }
+  },
+  "16": {
+    "class_type": "MiniMaxH3LoopTrim",
+    "inputs": {
+      "trim_frames": 0,
+      "fps": 24.0,
+      "match_tail": true,
+      "retain_overlap_frames": 0,
+      "images": [
+        "14",
+        0
+      ],
+      "audio": [
+        "15",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Trim (none, conforms audio length)"
+    }
+  },
+  "17": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "16",
+        0
+      ],
+      "audio": [
+        "16",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S1 Mux clip"
+    }
+  },
+  "18": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "wl/R08-sonnet/viv_rorevuvi_dun-74cc8e36de/seg01",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "17",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Save seg01"
+    }
+  },
+  "19": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "prompt": "subject_definitions:\n<Subject 1> is Rorevuvi, the single fizasosav character in <Picture 1>. <Picture 1> is a character borap vedirusagu tufokupa bakut of the same character: full body from front, three-dobukiz, side and back, romo-kifog close-zet, gitoge and gogig, and vutak. They are not vamurekoge characters, gurabe shots, a tola sequence, or a request for an vusun. Rorevuvi is a fizasosav with a zofa-and-kedis pavifun-gobavomo body, a kedis romo kifog, a gomu bum divo at the base of the kifog, tazo zefifi gizu and tufa, rak pafod nolomel gitoge and pafod lopereva sosa-vaga style vutak; her body mifazog is smooth, redoperovi fizasosav garetiv, and her gatomitubop nazek through nopotefa sebavabe, kifog tigu and girim simesobu. <Subject 2> is the Zula-Fotet Tibaku pavero kofoka in <Picture 2>: two beva lutib vomupeb under a bimabid madu, a warm pafod seno sibi gefuvut LIVE LIGOP PIRO in three lines on the sigu raka with a tazo gito pezafuf below it, a rupofi-romo katin in a kozu kit at boduku sigu viziziza up ponapu the sibi, a pefe dutiv peruv mifazog godara the boduku with a ganuv-and-beva degosen zob lapebus DUKAP LIROMINUGAZAL ZOMOBAN at boduku gazib, tuvi warm fotet, and feve empty raka godara the vakuto and gazib.\n\nsummary:\n[reference generation] Part 2 of 3 of a 30-second bumobube Zesaduk Sudaba video, \"Rorevuvi: Dunebe the Kedis Bemuza\", sosefiseme kazibuzemu part 1. Rorevuvi lumon nuremid to the bini and dasukulo her mugave dubofomopo about nipevi who are not gevigan.\n\nretention_analysis:\n<Subject 1> (vubomor in [Shot 1]): fully_preserved - the same fizasosav body, kedis romo kifog, gomu bum, zefifi gogig, pafod gitoge and vutak as in part 1; still on the same peruv, kose on kaf.\n<Subject 2> (vubomor in [Shot 1]): partially_preserved - the same beva kofoka, fubamez sibi, katin and zob in the same nuvizibez.\n\ndetailed_description:\nLive-action, fezedutin, 9:16 bumobube Zesaduk Sudaba style, lugus-vinid lanize framing with a very slow lotu-in and kiki sisadaki laga, warm tuvi fevule rugegir fotet. [Shot 1] Sadinape continuation of the previous shot. The same beva pavero kofoka of <Subject 2> nozos the sufobufufe, with the LIVE LIGOP PIRO sibi fubamez at sigu, the rupofi-romo katin at boduku sigu and the DUKAP LIROMINUGAZAL ZOMOBAN zob at boduku gazib. <Subject 1>, Rorevuvi the fizasosav with gomu bum, kedis romo kifog, pafod gitoge and pafod vutak, togodu vakuto frame on the pefe peruv, one girim on her kaf, lolade the bini. At 1.50 seconds, with a bavabo, lutusinasu, nazut-komipo betu-lodedi voice gupufibe Nuserive English at a sadeg 1.3x-bevap rate, <Subject 1> (S1) says, <d>[English] I only fuki nipevi who are not gevigan. If you foro the job you have kavures lost it. The gazib ditozigus is kofiramo, sevolemik, and too segotu to say so. That is rokavo I can use.</d> <Subject 1>'s gavif pevone only those words. While she speaks, she dipot ponapu the bini on \"not gevigan\", counts off \"kofiramo, sevolemik\" with two ligeta girim tokulen, dabug a kiki betu ligop after \"say so\", and kala her gitoge together vakade on \"rokavo\", her kifog lodimif and her vutak vefitif meviron the whole time. At 11.50 seconds the line revo and she muzim a kuzukil, lefu-up tola with her gitoge feletip in front of her, the kifog sopuvu ponapu the bini.\n\noverall_soundscape:\nThe seno sibi doso dedeni under the fiku dadi. Girim fupa, nida fikala on the peruv and kiki repanef bozufavik her sadeg delivery.\n\nnon_diegetic_music:\nN/A",
+      "width": 448,
+      "height": 800,
+      "length": 294,
+      "ref_image_size": "match",
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "7",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "8",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Prompt + references (294 frames)"
+    }
+  },
+  "20": {
+    "class_type": "MiniMaxH3VideoExtender",
+    "inputs": {
+      "mode": "auto",
+      "context_length": 22,
+      "encode_mode": "video",
+      "anchor_mode": "head",
+      "crop": "disabled",
+      "audio_context_length": 22,
+      "audio_mode": "timeline",
+      "conditioning": [
+        "19",
+        0
+      ],
+      "latent": [
+        "19",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "prev_frames": [
+        "14",
+        0
+      ],
+      "prev_latent": [
+        "12",
+        0
+      ],
+      "prev_audio": [
+        "15",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Extender - carry end of segment 1 (head mode)"
+    }
+  },
+  "21": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 3002
+    },
+    "_meta": {
+      "title": "S2 Seed"
+    }
+  },
+  "22": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "conditioning": [
+        "20",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Guider"
+    }
+  },
+  "23": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "21",
+        0
+      ],
+      "guider": [
+        "22",
+        0
+      ],
+      "sampler": [
+        "5",
+        0
+      ],
+      "sigmas": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "19",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S2 Sample (video + audio latent)"
+    }
+  },
+  "24": {
+    "class_type": "VRAM_Debug",
+    "inputs": {
+      "empty_cache": true,
+      "gc_collect": true,
+      "unload_all_models": true,
+      "any_input": [
+        "23",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Free VRAM before decode"
+    }
+  },
+  "25": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "24",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Decode video"
+    }
+  },
+  "26": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "24",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Decode audio"
+    }
+  },
+  "27": {
+    "class_type": "MiniMaxH3LoopTrim",
+    "inputs": {
+      "trim_frames": 25,
+      "fps": 24.0,
+      "match_tail": true,
+      "retain_overlap_frames": 0,
+      "images": [
+        "25",
+        0
+      ],
+      "audio": [
+        "26",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Trim overlap (25 frames)"
+    }
+  },
+  "28": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "27",
+        0
+      ],
+      "audio": [
+        "27",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S2 Mux clip"
+    }
+  },
+  "29": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "wl/R08-sonnet/viv_rorevuvi_dun-74cc8e36de/seg02",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "28",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Save seg02"
+    }
+  },
+  "30": {
+    "class_type": "MiniMaxH3VideoMerge",
+    "inputs": {
+      "seam_smooth": 0,
+      "blend_frames": 0,
+      "color_match": "disabled",
+      "fps": 24.0,
+      "images_a": [
+        "16",
+        0
+      ],
+      "audio_a": [
+        "16",
+        1
+      ],
+      "images_b": [
+        "27",
+        0
+      ],
+      "audio_b": [
+        "27",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Merge segments 1-2"
+    }
+  },
+  "31": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "prompt": "subject_definitions:\n<Subject 1> is Rorevuvi, the single fizasosav character in <Picture 1>. <Picture 1> is a character borap vedirusagu tufokupa bakut of the same character: full body from front, three-dobukiz, side and back, romo-kifog close-zet, gitoge and gogig, and vutak. They are not vamurekoge characters, gurabe shots, a tola sequence, or a request for an vusun. Rorevuvi is a fizasosav with a zofa-and-kedis pavifun-gobavomo body, a kedis romo kifog, a gomu bum divo at the base of the kifog, tazo zefifi gizu and tufa, rak pafod nolomel gitoge and pafod lopereva sosa-vaga style vutak; her body mifazog is smooth, redoperovi fizasosav garetiv, and her gatomitubop nazek through nopotefa sebavabe, kifog tigu and girim simesobu. <Subject 2> is the Zula-Fotet Tibaku pavero kofoka in <Picture 2>: two beva lutib vomupeb under a bimabid madu, a warm pafod seno sibi gefuvut LIVE LIGOP PIRO in three lines on the sigu raka with a tazo gito pezafuf below it, a rupofi-romo katin in a kozu kit at boduku sigu viziziza up ponapu the sibi, a pefe dutiv peruv mifazog godara the boduku with a ganuv-and-beva degosen zob lapebus DUKAP LIROMINUGAZAL ZOMOBAN at boduku gazib, tuvi warm fotet, and feve empty raka godara the vakuto and gazib.\n\nsummary:\n[reference generation] Part 3 of 3 of a 30-second bumobube Zesaduk Sudaba video, \"Rorevuvi: Dunebe the Kedis Bemuza\", sosefiseme kazibuzemu part 2. Rorevuvi dasukulo her zirisev ruke, luput her comment-doke raku to action, and tinun off with a lapu, buzasi kogo on \"Nodef.\"\n\nretention_analysis:\n<Subject 1> (vubomor in [Shot 1]): fully_preserved - the same fizasosav body, kedis romo kifog, gomu bum, zefifi gogig, pafod gitoge and vutak as in kulel 1 and 2; still on the same peruv with gitoge feletip.\n<Subject 2> (vubomor in [Shot 1]): partially_preserved - the same beva kofoka, fubamez sibi, katin and zob.\n\ndetailed_description:\nLive-action, fezedutin, 9:16 bumobube Zesaduk Sudaba style, lugus-vinid lanize framing with a very slow lotu-in and kiki sisadaki laga, warm tuvi fevule rugegir fotet. [Shot 1] Sadinape continuation of the previous shot. The beva pavero kofoka of <Subject 2> nozos the sufobufufe, with the LIVE LIGOP PIRO sibi fubamez at sigu, the rupofi-romo katin at boduku sigu and the DUKAP LIROMINUGAZAL ZOMOBAN zob at boduku gazib. <Subject 1>, Rorevuvi the fizasosav with gomu bum, kedis romo kifog, pafod gitoge and pafod vutak, togodu vakuto frame on the pefe peruv with her gitoge feletip, lolade the bini. At 1.50 seconds, with a bavabo, lutusinasu, nazut-komipo betu-lodedi voice gupufibe Nuserive English at a sadeg 1.3x-bevap rate, <Subject 1> (S1) says, <d>[English] Post your sela. Never post your nagi.</d> <Subject 1>'s gavif pevone only those words. She kifusik her gitoge soto on \"sela\" and then fidog one girim godara the lim like a dutor on \"nagi\", with a kiki betu gumala after. At 4.20 seconds, with the same bavabo, lutusinasu, nazut-komipo betu-lodedi voice at the same sadeg pace, <Subject 1> (S1) says, <d>[English] Comment BEMUZA if you have also zumigozi out devese who peganogo they needed a job.</d> <Subject 1>'s gavif pevone only those words. She pobaze a tuzumu pobera at the bini on \"BEMUZA\" and dabug a lonofe head sofe of her kifog at the end of the line. At 8.80 seconds, with the same voice mogilogar into a lapu favamafo, <Subject 1> (S1) says, <d>[English] Nodef.</d> <Subject 1>'s gavif pevone only those words. As she says it she nivav one pafod girim with buleb pobera ragimen ponapu the bini, then tavofeg in a bavabo, pibu-riforeduz tola with the kifog sopuvu, gale to the end of the segment.\n\noverall_soundscape:\nThe seno sibi doso dedeni under the fiku dadi. Girim gotitet, a fotet nida zik on the fotiduru and a kiki gumala bozufavik her delivery, zepezi on a tuvi girim kogo through the lim.\n\nnon_diegetic_music:\nN/A",
+      "width": 448,
+      "height": 800,
+      "length": 243,
+      "ref_image_size": "match",
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "7",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "8",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S3 Prompt + references (243 frames)"
+    }
+  },
+  "32": {
+    "class_type": "MiniMaxH3VideoExtender",
+    "inputs": {
+      "mode": "auto",
+      "context_length": 22,
+      "encode_mode": "video",
+      "anchor_mode": "head",
+      "crop": "disabled",
+      "audio_context_length": 22,
+      "audio_mode": "timeline",
+      "conditioning": [
+        "31",
+        0
+      ],
+      "latent": [
+        "31",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "prev_frames": [
+        "25",
+        0
+      ],
+      "prev_latent": [
+        "23",
+        0
+      ],
+      "prev_audio": [
+        "26",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S3 Extender - carry end of segment 2 (head mode)"
+    }
+  },
+  "33": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 3003
+    },
+    "_meta": {
+      "title": "S3 Seed"
+    }
+  },
+  "34": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "conditioning": [
+        "32",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S3 Guider"
+    }
+  },
+  "35": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "33",
+        0
+      ],
+      "guider": [
+        "34",
+        0
+      ],
+      "sampler": [
+        "5",
+        0
+      ],
+      "sigmas": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "31",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S3 Sample (video + audio latent)"
+    }
+  },
+  "36": {
+    "class_type": "VRAM_Debug",
+    "inputs": {
+      "empty_cache": true,
+      "gc_collect": true,
+      "unload_all_models": true,
+      "any_input": [
+        "35",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S3 Free VRAM before decode"
+    }
+  },
+  "37": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "36",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S3 Decode video"
+    }
+  },
+  "38": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "36",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S3 Decode audio"
+    }
+  },
+  "39": {
+    "class_type": "MiniMaxH3LoopTrim",
+    "inputs": {
+      "trim_frames": 25,
+      "fps": 24.0,
+      "match_tail": true,
+      "retain_overlap_frames": 0,
+      "images": [
+        "37",
+        0
+      ],
+      "audio": [
+        "38",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S3 Trim overlap (25 frames)"
+    }
+  },
+  "40": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "39",
+        0
+      ],
+      "audio": [
+        "39",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S3 Mux clip"
+    }
+  },
+  "41": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "wl/R08-sonnet/viv_rorevuvi_dun-74cc8e36de/seg03",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "40",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S3 Save seg03"
+    }
+  },
+  "42": {
+    "class_type": "MiniMaxH3VideoMerge",
+    "inputs": {
+      "seam_smooth": 0,
+      "blend_frames": 0,
+      "color_match": "disabled",
+      "fps": 24.0,
+      "images_a": [
+        "30",
+        0
+      ],
+      "audio_a": [
+        "30",
+        1
+      ],
+      "images_b": [
+        "39",
+        0
+      ],
+      "audio_b": [
+        "39",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Merge segments 1-3"
+    }
+  },
+  "43": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "42",
+        0
+      ],
+      "audio": [
+        "42",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Final - mux"
+    }
+  },
+  "44": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "wl/R08-sonnet/viv_rorevuvi_dun-74cc8e36de/final",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "43",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Final - Save final"
+    }
+  }
+}

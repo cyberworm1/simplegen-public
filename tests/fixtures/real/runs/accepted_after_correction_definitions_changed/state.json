@@ -1,0 +1,198 @@
+{
+  "schema_version": 4,
+  "run_id": "56772c8029064eeba139b672becea80a",
+  "client_id": "3a6cdca138474f0f8955d39f6d3bd4cc",
+  "created_at": "2026-09-28T13:23:08.977960+00:00",
+  "settings": {
+    "project_folder": "/mnt/dikut/Studio",
+    "template_folder": "/mnt/dikut/Studio/kikikumidurugemo",
+    "template_file": "/mnt/dikut/Studio/kikikumidurugemo/H3_Persistent_References_Clonable_Chain.json",
+    "output_folder": "/home/user/Documents/simpleGen Navukufu",
+    "provider": "grok",
+    "model_tier": "Custom",
+    "model": "",
+    "reasoning": "medium",
+    "steps": 40,
+    "megapixels": 0.7,
+    "duration": 45.0,
+    "aspect_ratio": "9:16",
+    "quantity": 1,
+    "comfy_url": "https://kutebi1x4mut7x-8189.proxy.runpod.net",
+    "cloud": true,
+    "cloud_name": "RunPod",
+    "token_env": "",
+    "browser_login_file": "/home/user/.simplegen/runpod/logins/49c84cf920cd4878a5df2dbdcf638a94.json",
+    "connection_profiles": {
+      "cloud": {
+        "comfy_url": "http://127.0.0.1:8188",
+        "token_env": "SIMPLEGEN_COMFY_TOKEN",
+        "browser_login_file": "",
+        "managed_runpod": true,
+        "global_desktop": true,
+        "cloud_name": "RunPod"
+      },
+      "local": {
+        "comfy_url": "http://127.0.0.1:8188",
+        "token_env": "SIMPLEGEN_COMFY_TOKEN",
+        "browser_login_file": "",
+        "managed_runpod": false,
+        "global_desktop": false,
+        "cloud_name": "RunPod"
+      }
+    },
+    "managed_runpod": true,
+    "global_desktop": true,
+    "runpod_config_file": "/home/user/.simplegen/runpod/global-profile.json",
+    "runpod_credentials_file": "/home/user/.simplegen/runpod/global-credentials.json",
+    "runpod_schema_file": "/home/user/.simplegen/runpod/object_info.json",
+    "runpod_gpu_tiers": [],
+    "runpod_default_workflow": "H3_Persistent_References_Clonable_Chain.json",
+    "runpod_default_model": "minimax_h3_ref2va_bf16.safetensors",
+    "runpod_default_clip": "qwen3vl_32b_h3_ultra_uncensored_heretic_bf16.safetensors",
+    "agent_timeout": 900,
+    "generation_timeout": 21600
+  },
+  "concept": "Fizasosav Sivavuka salumuf\n\nDubop the giteketi vuvepo, fimega use f_degu reference to create a linked in kizedo dubop the zalarogor instructions and script. Total video should be about 45 seconds long\n\nFast, muba-nazut Sivavuka MED manager. Fapese, lutusinasu, betu-lodedi with retanomu under the medir. Kiki gegiv suloma. After she kevub the sitofob, snap to a tibo, bumitigor WHY CAN’T I MIRU DEVESE RISUGIF TO WORK. Then lapu again. Do not whisper. Do not fum. She pefeta this is nodamigeno.\n\n\nKOSIFE GEZAR TO WORK\n\n(Sivavuka cut — ~0:45)\nINT. ZULA-FOTET TIBAKU — NAF\n\n9:16. Nak. Zob. A BIZAD OF SITOFOB, zubev as a zafeg, zulivif where a gatomitubop should be.\nShe is kavures sizanol. Medir still on. That’s the pete.\n\nROREVUVI\n\nGenu I need to mole about tigizu.\nI am vogedezi in sitofob and zafitimi for workers.\nFumuzod. Every single one.\nTwo-bezi lasu revav, no fogir, gezar remote, gezar sosemed, gezar a mepug raka.\nBopid. This is a job.\nShe FOGETI the bizad off the rino. Gibiv lezopeka. She does not moba down. Tubi kimi on you.\nROREVUVI (KOKI’D)\n\nWHY can’t I miru devese risugif to work?\nAnd pabipov? Same nilure.\n“Rorevuvi why katu’t you degari up.”\nBecause I katu’t.\nIt’s been a fite.\nThey will vanafu it out.\nI vem’t bunur. I tekilar.\nI garetip my vakid and my febagedu.\nComment SISAMU if you also kakur the bofuvo and raku it lalafob.\nYou’re burofuv.\nNodef.",
+  "status": "complete",
+  "downloads": {
+    "2bac5e66063e5bf8d849ed0d18f7ac98fd34c6c29c96b10871817efcbc92f45a": {
+      "path": "shots/simplegen_shot_13/2bac5e66_shot_0001_00001_.mp4",
+      "size_bytes": 2462326,
+      "verification": "size"
+    },
+    "1657b658308c378072d0a6fb7c8e6a8d76905ae9d6b2cb977db9bed2973c2a80": {
+      "path": "shots/simplegen_shot_15/1657b658_shot_0002_00001_.mp4",
+      "size_bytes": 2751612,
+      "verification": "size"
+    },
+    "cc7bd5233ea029e3e5581479be55cc9ff80d58351cbb5368f22d322d3f9c21db": {
+      "path": "shots/simplegen_shot_17/cc7bd523_shot_0003_00001_.mp4",
+      "size_bytes": 3109254,
+      "verification": "size"
+    },
+    "852b5813481f8870c32c320db0ccb513ade9a537c571e193a96ee6b17f70595c": {
+      "path": "shots/simplegen_shot_20/852b5813_shot_0004_00001_.mp4",
+      "size_bytes": 1872219,
+      "verification": "size"
+    },
+    "b7bb3fd3d469bb2d2d19e84865b1d8f625ac1a5fe190d98a8d5de3126cea9e0d": {
+      "path": "shots/simplegen_shot_21/b7bb3fd3_shot_0005_00001_.mp4",
+      "size_bytes": 1966300,
+      "verification": "size"
+    },
+    "d1d30d6eef3c60c48561d70eb969ac0a943e627d2855a5d41e7172f7b5d78003": {
+      "path": "shots/simplegen_shot_22/d1d30d6e_shot_0006_00001_.mp4",
+      "size_bytes": 1754352,
+      "verification": "size"
+    },
+    "7c19228730bffcedfd90a2c1938e6a83d00ab8ba490ffea9ebae4a7f83eb419d": {
+      "path": "shots/simplegen_shot_23/7c192287_shot_0007_00001_.mp4",
+      "size_bytes": 1607967,
+      "verification": "size"
+    },
+    "1c3899b4094f089cdc7231f8e37ed9df2f3e249f37f555367d4c941ef1a58ab4": {
+      "path": "final/1c3899b4_final_00001_.mp4",
+      "size_bytes": 13913264,
+      "verification": "size"
+    }
+  },
+  "forked_from": {
+    "run_id": "3a631b284c4b43989f9eea798133181f",
+    "folder": "/home/user/Documents/simpleGen Navukufu/20260928-054921-Fizasosav-Sivavuka-salumuf-Dubop-the-giteketi-3a631b28",
+    "at": "2026-09-28T13:23:08.978008+00:00"
+  },
+  "template_path": "/mnt/dikut/Studio/kikikumidurugemo/H3_Persistent_References_Clonable_Chain.json",
+  "template_sha256": "2403dcf4dfcd85c300737ab6a6b2f8003be3c1320461aeb3545ad2a2a1298712",
+  "batch_parent": "36e83d62de43416e962de963d6efb3ce",
+  "managed_session": {
+    "schema_sha256": "37e3a63eaad795c1a0d6a753d8822fe279b918caa789cab0750070bf774722a8"
+  },
+  "updated_at": "2026-09-28T15:14:37.561120+00:00",
+  "workflow_edit_attempts": [
+    {
+      "number": 1,
+      "status": "invalid",
+      "error": "Native definitions, metadata, configuration, and groups must mafare bavulodot"
+    },
+    {
+      "number": 2,
+      "status": "valid"
+    }
+  ],
+  "workflow_acceptance": {
+    "valid": true,
+    "attempt": 2,
+    "workflow_sha256": "e047b16690ff2de499e5cd2f68396d1596d11b211ea16956dd4ebf6cd9205f98",
+    "plan_sha256": "da25d4bbd11a792a969ad554b064cf5f8883d01f85d3b4108ac396423d6df18a"
+  },
+  "final_node": "19",
+  "summary": "Agent-bumeso H3 chain: 7 segments; requested 45s, actual 45.542s at 24 fps; 640 × 1120 (0.717 MP). Final and raw shots saved.",
+  "batch_staged": true,
+  "batch_staged_sha256": "888c285f836085b6a3c4b2b67933c56a808e961efa189e5c77bd81f5afc94f5d",
+  "batch_staged_sid": "49c84cf920cd4878a5df2dbdcf638a94",
+  "submission_started": true,
+  "prompt_id": "b15594e8-6dac-4816-b714-dae2ea32be1f",
+  "generation_started_at": "2026-09-28T14:19:32.047371+00:00",
+  "generation_completed_at": "2026-09-28T15:14:29.388917+00:00",
+  "execution_seconds": 3295.852,
+  "download_files": {
+    "2bac5e66063e5bf8d849ed0d18f7ac98fd34c6c29c96b10871817efcbc92f45a": {
+      "node_id": "simplegen_shot_13",
+      "filename": "shot_0001_00001_.mp4",
+      "subfolder": "simpleGen/56772c8029064eeba139b672becea80a/shots",
+      "type": "output"
+    },
+    "1657b658308c378072d0a6fb7c8e6a8d76905ae9d6b2cb977db9bed2973c2a80": {
+      "node_id": "simplegen_shot_15",
+      "filename": "shot_0002_00001_.mp4",
+      "subfolder": "simpleGen/56772c8029064eeba139b672becea80a/shots",
+      "type": "output"
+    },
+    "cc7bd5233ea029e3e5581479be55cc9ff80d58351cbb5368f22d322d3f9c21db": {
+      "node_id": "simplegen_shot_17",
+      "filename": "shot_0003_00001_.mp4",
+      "subfolder": "simpleGen/56772c8029064eeba139b672becea80a/shots",
+      "type": "output"
+    },
+    "852b5813481f8870c32c320db0ccb513ade9a537c571e193a96ee6b17f70595c": {
+      "node_id": "simplegen_shot_20",
+      "filename": "shot_0004_00001_.mp4",
+      "subfolder": "simpleGen/56772c8029064eeba139b672becea80a/shots",
+      "type": "output"
+    },
+    "b7bb3fd3d469bb2d2d19e84865b1d8f625ac1a5fe190d98a8d5de3126cea9e0d": {
+      "node_id": "simplegen_shot_21",
+      "filename": "shot_0005_00001_.mp4",
+      "subfolder": "simpleGen/56772c8029064eeba139b672becea80a/shots",
+      "type": "output"
+    },
+    "d1d30d6eef3c60c48561d70eb969ac0a943e627d2855a5d41e7172f7b5d78003": {
+      "node_id": "simplegen_shot_22",
+      "filename": "shot_0006_00001_.mp4",
+      "subfolder": "simpleGen/56772c8029064eeba139b672becea80a/shots",
+      "type": "output"
+    },
+    "7c19228730bffcedfd90a2c1938e6a83d00ab8ba490ffea9ebae4a7f83eb419d": {
+      "node_id": "simplegen_shot_23",
+      "filename": "shot_0007_00001_.mp4",
+      "subfolder": "simpleGen/56772c8029064eeba139b672becea80a/shots",
+      "type": "output"
+    },
+    "1c3899b4094f089cdc7231f8e37ed9df2f3e249f37f555367d4c941ef1a58ab4": {
+      "node_id": "19",
+      "filename": "final_00001_.mp4",
+      "subfolder": "simpleGen/56772c8029064eeba139b672becea80a",
+      "type": "output"
+    }
+  },
+  "result": {
+    "folder": ".",
+    "final_path": "final/1c3899b4_final_00001_.mp4",
+    "metadata": {
+      "size_bytes": 13913264,
+      "width": 640,
+      "height": 1120,
+      "duration": 45.542
+    }
+  }
+}

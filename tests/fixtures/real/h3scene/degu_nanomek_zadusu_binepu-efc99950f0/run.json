@@ -1,0 +1,236 @@
+{
+  "run_id": "degu_nanomek_zadusu_binepu-efc99950f0",
+  "round": "R11b-60s",
+  "concept_id": "degu_nanomek_zadusu_binepu",
+  "concept": "Degu Nanomek and the Zadusu Binepu",
+  "agent": "unspecified",
+  "created": "2026-10-05T13:11:39+00:00",
+  "source_plan": "begubi/R11-60s/plans/degu_nanomek_zadusu_binepu.json",
+  "settings": {
+    "width": 960,
+    "height": 544,
+    "steps": 30,
+    "context_frames": 22,
+    "seed_base": 3001,
+    "extra_trim": 3,
+    "fps": 24,
+    "scheduler": "beta",
+    "ref_image_size": "match",
+    "library": "vuvepo/library",
+    "seeds": [
+      3001,
+      3002,
+      3003,
+      3004,
+      3005
+    ],
+    "render_seconds": 4374.83
+  },
+  "segments": [
+    {
+      "index": 1,
+      "join": "first",
+      "seconds": 15.083333333333334,
+      "requested_seconds": 15.0,
+      "clip_frames": 362,
+      "delivered_frames": 362,
+      "trim_frames": 0,
+      "seed": 3001
+    },
+    {
+      "index": 2,
+      "join": "continue",
+      "seconds": 14.041666666666666,
+      "requested_seconds": 14.0,
+      "clip_frames": 362,
+      "delivered_frames": 337,
+      "trim_frames": 22,
+      "seed": 3002
+    },
+    {
+      "index": 3,
+      "join": "continue",
+      "seconds": 11.916666666666666,
+      "requested_seconds": 12.0,
+      "clip_frames": 311,
+      "delivered_frames": 286,
+      "trim_frames": 22,
+      "seed": 3003
+    },
+    {
+      "index": 4,
+      "join": "continue",
+      "seconds": 11.916666666666666,
+      "requested_seconds": 12.0,
+      "clip_frames": 311,
+      "delivered_frames": 286,
+      "trim_frames": 22,
+      "seed": 3004
+    },
+    {
+      "index": 5,
+      "join": "continue",
+      "seconds": 6.958333333333333,
+      "requested_seconds": 7.0,
+      "clip_frames": 192,
+      "delivered_frames": 167,
+      "trim_frames": 22,
+      "seed": 3005
+    }
+  ],
+  "status": "success",
+  "overflow": {
+    "needs_review": false,
+    "approved": false,
+    "decision": "not_required"
+  },
+  "warnings": [
+    "owner_dialogue_unverified: no tokaduripa owner dialogue; fizagulo could not be checked"
+  ],
+  "prompt_id": "77a01afc-17f0-411f-b510-017440f09329",
+  "comfy_status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "77a01afc-17f0-411f-b510-017440f09329",
+          "timestamp": 1791205899804
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [],
+          "prompt_id": "77a01afc-17f0-411f-b510-017440f09329",
+          "timestamp": 1791205900181
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "77a01afc-17f0-411f-b510-017440f09329",
+          "timestamp": 1791210267558
+        }
+      ]
+    ]
+  },
+  "download_errors": [],
+  "mechanical_checks": {
+    "segments": [
+      {
+        "file": "seg01.mp4",
+        "expected_frames": 362,
+        "ok": true,
+        "frames": 362,
+        "frames_match": true,
+        "video_seconds": 15.083333,
+        "audio_present": true,
+        "audio_not_silent": true,
+        "mean_volume_db": -35.3,
+        "max_volume_db": -0.6
+      },
+      {
+        "file": "seg02.mp4",
+        "expected_frames": 337,
+        "ok": true,
+        "frames": 337,
+        "frames_match": true,
+        "video_seconds": 14.041667,
+        "audio_present": true,
+        "audio_not_silent": true,
+        "mean_volume_db": -33.0,
+        "max_volume_db": -0.7
+      },
+      {
+        "file": "seg03.mp4",
+        "expected_frames": 286,
+        "ok": true,
+        "frames": 286,
+        "frames_match": true,
+        "video_seconds": 11.916667,
+        "audio_present": true,
+        "audio_not_silent": true,
+        "mean_volume_db": -39.9,
+        "max_volume_db": -8.9
+      },
+      {
+        "file": "seg04.mp4",
+        "expected_frames": 286,
+        "ok": true,
+        "frames": 286,
+        "frames_match": true,
+        "video_seconds": 11.916667,
+        "audio_present": true,
+        "audio_not_silent": true,
+        "mean_volume_db": -50.9,
+        "max_volume_db": -20.2
+      },
+      {
+        "file": "seg05.mp4",
+        "expected_frames": 167,
+        "ok": true,
+        "frames": 167,
+        "frames_match": true,
+        "video_seconds": 6.958333,
+        "audio_present": true,
+        "audio_not_silent": true,
+        "mean_volume_db": -29.5,
+        "max_volume_db": -0.4
+      }
+    ],
+    "final": {
+      "file": "final.mp4",
+      "expected_frames": 1438,
+      "ok": true,
+      "frames": 1438,
+      "frames_match": true,
+      "video_seconds": 59.916667,
+      "audio_present": true,
+      "audio_not_silent": true,
+      "mean_volume_db": -34.6,
+      "max_volume_db": -0.1
+    },
+    "joins": [
+      {
+        "from_index": 1,
+        "to_index": 2,
+        "join": "continue",
+        "previous_last_mean_y": 114.242,
+        "next_first_mean_y": 114.506,
+        "delta_y": 0.2639999999999958,
+        "absolute_delta_y": 0.2639999999999958
+      },
+      {
+        "from_index": 2,
+        "to_index": 3,
+        "join": "continue",
+        "previous_last_mean_y": 113.908,
+        "next_first_mean_y": 113.924,
+        "delta_y": 0.016000000000005343,
+        "absolute_delta_y": 0.016000000000005343
+      },
+      {
+        "from_index": 3,
+        "to_index": 4,
+        "join": "continue",
+        "previous_last_mean_y": 111.139,
+        "next_first_mean_y": 111.329,
+        "delta_y": 0.18999999999999773,
+        "absolute_delta_y": 0.18999999999999773
+      },
+      {
+        "from_index": 4,
+        "to_index": 5,
+        "join": "continue",
+        "previous_last_mean_y": 110.162,
+        "next_first_mean_y": 110.692,
+        "delta_y": 0.5299999999999869,
+        "absolute_delta_y": 0.5299999999999869
+      }
+    ],
+    "non_silent_threshold_db": -60,
+    "ok": true
+  }
+}

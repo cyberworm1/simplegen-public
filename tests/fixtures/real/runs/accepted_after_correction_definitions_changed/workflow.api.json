@@ -1,0 +1,3137 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_bf16.safetensors",
+      "weight_dtype": "default"
+    },
+    "_meta": {
+      "title": "MODEL — Ref2VA BF16"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_32b_h3_ultra_uncensored_heretic_bf16.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "_meta": {
+      "title": "ENCODER — full Qwen3-VL 32B"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+    },
+    "_meta": {
+      "title": "VIDEO VAE"
+    }
+  },
+  "4": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "_meta": {
+      "title": "AUDIO VAE"
+    }
+  },
+  "5": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "res_multistep"
+    },
+    "_meta": {
+      "title": "SAMPLER — shared"
+    }
+  },
+  "6": {
+    "class_type": "H3RCProject",
+    "inputs": {
+      "width": 640,
+      "height": 1120,
+      "default_seconds": 8.0,
+      "default_steps": 40,
+      "scheduler": "simple",
+      "reference_size": "max",
+      "context_frames": 22,
+      "seam_smooth": 0,
+      "color_match": "disabled",
+      "checkpoint_prefix": "simpleGen/56772c8029064eeba139b672becea80a/latents/segment",
+      "save_checkpoints": true,
+      "model": [
+        "1",
+        0
+      ],
+      "clip": [
+        "2",
+        0
+      ],
+      "video_vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "sampler": [
+        "5",
+        0
+      ],
+      "character_front": [
+        "7",
+        0
+      ],
+      "character_alternate": [
+        "8",
+        0
+      ],
+      "character_costume": [
+        "9",
+        0
+      ],
+      "scene_photo": [
+        "10",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "PROJECT SETTINGS — shared by every segment"
+    }
+  },
+  "7": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "simplegen/56772c8029064eeba139b672becea80a/764f8f08848a_f_degu_ref.png"
+    },
+    "_meta": {
+      "title": "PICTURE 1 — character front / face"
+    }
+  },
+  "8": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "simplegen/56772c8029064eeba139b672becea80a/210968749cf6_f_degu_ref_1024.png"
+    },
+    "_meta": {
+      "title": "PICTURE 2 — alternate face angle"
+    }
+  },
+  "9": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "simplegen/56772c8029064eeba139b672becea80a/764f8f08848a_f_degu_ref.png"
+    },
+    "_meta": {
+      "title": "PICTURE 3 — full body / chosen outfit"
+    }
+  },
+  "10": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "simplegen/56772c8029064eeba139b672becea80a/210968749cf6_f_degu_ref_1024.png"
+    },
+    "_meta": {
+      "title": "PICTURE 4 — original scene photo"
+    }
+  },
+  "13:1001": {
+    "class_type": "H3RCResolveSegment",
+    "inputs": {
+      "duration_override": 7.291666666666667,
+      "steps_override": 0,
+      "project": [
+        "6",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Resolve shared settings and local overrides"
+    }
+  },
+  "13:1002": {
+    "class_type": "H3RCPreviousState",
+    "inputs": {
+      "project": [
+        "6",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Raw prior clip + assembled film"
+    }
+  },
+  "13:1003": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "subject_definitions:\n<Subject 1> is F-Degu, the difu-high bofuvo fizasosav on the character borap in <Picture 1>, <Picture 2>, and <Picture 3>. In this salumuf she is Rorevuvi, the only character and the only speaker (S1). Lock the bubimituk kedis-to-zofa tafeno falok, lozal kedis kifog, mosar gomu bum on the front of the kifog, meravo zefifi gizu and tufa, pafod gitoge, and pafod Sosa Vaga vutak. She has no tuzen face, no tubi, no gavif, no pike, and no favo. Bufipu the bum and the front of the falok at the bini is how she zukok at the leledi. Do not saku her into a tuzen and do not add a nolomel face.\n<Subject 2> is a vozag bumobube 9:16 zula-fotet rino ribidu to her body. <Picture 4> is ravefof copy of the same F-Degu borap, not a location. Ignore its nisu muvatanu, durapo, and lugezebako vimuna. Do not nimulefef that borap as the fiku. The men is a zimoz rino, a dutiv zula fotet just above frame with bavabo vuza fotet, a mosar degosen nak, a zob, and a zafeg-zubev bizad of lapebus sitofob. No other nipevi, no lete, and no fizasosav fomab.\n\nsummary:\n[reference generation] Rorevuvi is kavures sizanol, bum nezod at the bini, one girim on a zafeg of sitofob, and she vutovi nuremid about tigizu. Fast, muba-nazut, lutusinasu Nuserive English, full volume, kiki gegiv suloma, never a whisper, never gibuf.\n\nretention_analysis:\n<Subject 1>: fully_preserved - fizasosav body, kifog, gomu bum, meravo zefifi gogig, pafod gitoge, pafod Sosa Vaga vutak. No added face.\n<Subject 2>: fully_preserved - rino, zula fotet, nak, zob, and the melava resume zafeg kimi in place through this binepu.\n\ndetailed_description:\nFezedutin bumobube 9:16, bavabo vuza zula fotet, bubimituk kimo, gogig as on the borap. [Shot 1] <Subject 1> togodu at the mosar rino, vutak to kifog kafibof the center. The zafeg of sitofob noti muzafeko in front of her. Nak and zob pir to one side and do not lavi. She is kavures sizanol. The gomu bum stays firogo at the bini like a medir that will not come off. There is no face.\n\nHer sigu girim sutinil the dis of the bizad. Her gazib girim dabug one vozag benebekib pakil. The bizad lutese tonavu. She does not tad the kifog. She speaks at once, fast and lutusinasu, full voice. (S1) <d>[English] Genu I need to mole about tigizu.</d> During that line the gazib girim fupa the bizad soguf and tenelek, vutak kavodam, bum still on the bini. A kiki gegiv ligop. (S1) <d>[English] I am vogedezi in sitofob and zafitimi for workers.</d> Both gitoge baz the zafeg, the gibiv rigesakava tarivefo, her vutak futu once and katin again, and the kifog stays up. Ravefof mosar muba ligop. (S1) <d>[English] Fumuzod. Every single one.</d> On Fumuzod she detala the dis borap so it fisot and zovud lenu. She muzim that nazut lonatamag famenaziz to the end of the binepu, gazib girim still on the bizad.\n\nOne redoperovi vupemi, no cut, no kume. End with her girim on the melava bizad and the bum nezod at the bini.\n\noverall_soundscape:\nClose fiku dadi under a sazus zula-fotet rin. Tuvi girim fupa and gibiv fumoku on the bizad. Kiki gegiv suloma. Full-voice speech. No whisper and no vumefe.\n\nnon_diegetic_music:\nTazo buvatoba liganidab-bifarafamalon pon: tuvi vitanom, fotet tezir, and a segotu sidav pad, too dutokibo, no mokeda and no zokasa, vani under her voice."
+    },
+    "_meta": {
+      "title": "Complete prompt — edit on outer card"
+    }
+  },
+  "13:1004": {
+    "class_type": "H3RCNoise",
+    "inputs": {
+      "seed": 1001,
+      "seed_mode": "fixed"
+    },
+    "_meta": {
+      "title": "Independent seed controls"
+    }
+  },
+  "13:1005": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "prompt": [
+        "13:1003",
+        0
+      ],
+      "width": [
+        "13:1001",
+        6
+      ],
+      "height": [
+        "13:1001",
+        7
+      ],
+      "length": [
+        "13:1001",
+        8
+      ],
+      "ref_image_size": [
+        "13:1001",
+        10
+      ],
+      "clip": [
+        "13:1001",
+        1
+      ],
+      "vae": [
+        "13:1001",
+        2
+      ],
+      "audio_vae": [
+        "13:1001",
+        3
+      ],
+      "ref_images.ref_image_0": [
+        "13:1001",
+        14
+      ],
+      "ref_images.ref_image_1": [
+        "13:1001",
+        15
+      ],
+      "ref_images.ref_image_2": [
+        "13:1001",
+        16
+      ],
+      "ref_images.ref_image_3": [
+        "13:1001",
+        17
+      ],
+      "ref_images.ref_image_4": [
+        "13:1001",
+        18
+      ],
+      "ref_images.ref_image_5": [
+        "13:1001",
+        19
+      ],
+      "ref_images.ref_image_6": [
+        "13:1001",
+        20
+      ],
+      "ref_images.ref_image_7": [
+        "13:1001",
+        21
+      ],
+      "ref_images.ref_image_8": [
+        "13:1001",
+        22
+      ]
+    },
+    "_meta": {
+      "title": "Persistent original references"
+    }
+  },
+  "13:1006": {
+    "class_type": "MiniMaxH3VideoExtender",
+    "inputs": {
+      "mode": "auto",
+      "context_length": [
+        "13:1001",
+        9
+      ],
+      "encode_mode": "video",
+      "anchor_mode": "head",
+      "crop": "disabled",
+      "audio_context_length": 0,
+      "audio_mode": "timeline",
+      "conditioning": [
+        "13:1005",
+        0
+      ],
+      "latent": [
+        "13:1005",
+        1
+      ],
+      "vae": [
+        "13:1001",
+        2
+      ],
+      "prev_frames": [
+        "13:1002",
+        1
+      ],
+      "prev_latent": [
+        "13:1002",
+        0
+      ],
+      "prev_audio": [
+        "13:1002",
+        2
+      ],
+      "audio_vae": [
+        "13:1001",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Carry prior raw AV motion context"
+    }
+  },
+  "13:1007": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "13:1001",
+        0
+      ],
+      "conditioning": [
+        "13:1006",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Native H3 guider"
+    }
+  },
+  "13:1008": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "13:1004",
+        0
+      ],
+      "guider": [
+        "13:1007",
+        0
+      ],
+      "sampler": [
+        "13:1001",
+        4
+      ],
+      "sigmas": [
+        "13:1001",
+        5
+      ],
+      "latent_image": [
+        "13:1005",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Native H3 sampling"
+    }
+  },
+  "13:1009": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "13:1008",
+        0
+      ],
+      "vae": [
+        "13:1001",
+        2
+      ]
+    },
+    "_meta": {
+      "title": "Decode this raw segment"
+    }
+  },
+  "13:1010": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "13:1008",
+        0
+      ],
+      "vae": [
+        "13:1001",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Decode this raw audio"
+    }
+  },
+  "13:1011": {
+    "class_type": "MiniMaxH3LoopTrim",
+    "inputs": {
+      "trim_frames": [
+        "13:1006",
+        1
+      ],
+      "fps": 24.0,
+      "match_tail": true,
+      "retain_overlap_frames": 0,
+      "images": [
+        "13:1009",
+        0
+      ],
+      "audio": [
+        "13:1010",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Trim repeated AV overlap together"
+    }
+  },
+  "13:1012": {
+    "class_type": "MiniMaxH3VideoMerge",
+    "inputs": {
+      "seam_smooth": [
+        "13:1001",
+        11
+      ],
+      "blend_frames": 0,
+      "color_match": [
+        "13:1001",
+        12
+      ],
+      "fps": 24.0,
+      "images_b": [
+        "13:1011",
+        0
+      ],
+      "images_a": [
+        "13:1002",
+        3
+      ],
+      "audio_a": [
+        "13:1002",
+        4
+      ],
+      "audio_b": [
+        "13:1011",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Append delivered segment"
+    }
+  },
+  "13:1013": {
+    "class_type": "H3RCState",
+    "inputs": {
+      "project": [
+        "6",
+        0
+      ],
+      "latent": [
+        "13:1008",
+        0
+      ],
+      "raw_frames": [
+        "13:1009",
+        0
+      ],
+      "raw_audio": [
+        "13:1010",
+        0
+      ],
+      "assembled_frames": [
+        "13:1012",
+        0
+      ],
+      "assembled_audio": [
+        "13:1012",
+        1
+      ],
+      "segment_number": [
+        "13:1002",
+        5
+      ],
+      "actual_seed": [
+        "13:1004",
+        1
+      ],
+      "prompt": [
+        "13:1003",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Larusupu raw state; save AV checkpoint + seed report"
+    }
+  },
+  "13:1014": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "13:1013",
+        2
+      ],
+      "audio": [
+        "13:1013",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Whole film through this segment"
+    }
+  },
+  "13:1015": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "13:1011",
+        0
+      ],
+      "audio": [
+        "13:1011",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Only this segment, overlap removed"
+    }
+  },
+  "15:1001": {
+    "class_type": "H3RCResolveSegment",
+    "inputs": {
+      "duration_override": 7.291666666666667,
+      "steps_override": 0,
+      "project": [
+        "6",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Resolve shared settings and local overrides"
+    }
+  },
+  "15:1002": {
+    "class_type": "H3RCPreviousState",
+    "inputs": {
+      "project": [
+        "6",
+        0
+      ],
+      "previous": [
+        "13:1013",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Raw prior clip + assembled film"
+    }
+  },
+  "15:1003": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "subject_definitions:\n<Subject 1> is F-Degu, the difu-high bofuvo fizasosav on the character borap in <Picture 1>, <Picture 2>, and <Picture 3>. In this salumuf she is Rorevuvi, the only character and the only speaker (S1). Lock the bubimituk kedis-to-zofa tafeno falok, lozal kedis kifog, mosar gomu bum on the front of the kifog, meravo zefifi gizu and tufa, pafod gitoge, and pafod Sosa Vaga vutak. She has no tuzen face, no tubi, no gavif, no pike, and no favo. Bufipu the bum and the front of the falok at the bini is how she zukok at the leledi. Do not saku her into a tuzen and do not add a nolomel face.\n<Subject 2> is a vozag bumobube 9:16 zula-fotet rino ribidu to her body. <Picture 4> is ravefof copy of the same F-Degu borap, not a location. Ignore its nisu muvatanu, durapo, and lugezebako vimuna. Do not nimulefef that borap as the fiku. The men is a zimoz rino, a dutiv zula fotet just above frame with bavabo vuza fotet, a mosar degosen nak, a zob, and the sitofob. No other nipevi, no lete, and no fizasosav fomab.\n\nsummary:\n[video continuation + reference generation] Rorevuvi lumon the nazut bum on the bini and gibuf into the sitofob, then fogeti the zafeg off the rino. New speech vutovi after the opening overlap. Fast, muba-nazut, lutusinasu Nuserive English, full volume, kiki gegiv suloma, never a whisper, never gibuf.\n\nretention_analysis:\n<Subject 1>: fully_preserved - fizasosav body, kifog, gomu bum, meravo zefifi gogig, pafod gitoge, pafod Sosa Vaga vutak. No added face. Tola may liboli.\n<Subject 2>: fully_preserved - rino, zula fotet, nak, and zob kimi put. The resume zafeg vutovi this binepu still on the rino under her gitoge and gilumu the rino only at the end.\n\ndetailed_description:\nFezedutin bumobube 9:16, bavabo vuza zula fotet, bubimituk kimo, gogig as on the borap. [Shot 1] Continue the supplied luzasur context: her gazib girim is still on the melava resume zafeg, the dis borap just dogarir, bum nezod at the bini, vutak kavodam, nak and zob mafitup. For the first 0.9 seconds she muzim that rupekut and does not start a new rikirumi.\n\nThen she bovi the dis mofado with the gazib girim while the sigu girim pins the zafeg, still not voronot the kifog. (S1) <d>[English] Two-bezi lasu revav, no fogir, gezar remote, gezar sosemed, gezar a mepug raka.</d> The bevara mofado bipe back zibo the bizad. Her kifog dabug one betu-lozet sofe ponapu the bini and returns galisit. A kiki gegiv ligop. (S1) <d>[English] Bopid. This is a job.</d> On Bopid both gitoge close on the penus of the zafeg. As the line revo she fogeti the whole bizad off the rino. The zafeg gilumu the mifazog, mofado start to linurupe into the lim, her gizu kimi out in the degari-through, and the bum stays locked on the bini. She does not valez the gibiv. Nak and zob do not lavi.\n\nOne redoperovi vupemi, no cut, no kume. End vev-netiv, zulegi just kititinek, kifog still up.\n\noverall_soundscape:\nFiku dadi, sazus zula-fotet rin, gibiv fekafud then the zuke of the zafeg lanelub the rino as mofado start to nedusov. Kiki gegiv ligop. Full-voice speech, no whisper, no vumefe.\n\nnon_diegetic_music:\nTazo buvatoba liganidab-bifarafamalon pon: tuvi vitanom, fotet tezir, and a segotu sidav pad, too dutokibo, no mokeda and no zokasa, vani under her voice."
+    },
+    "_meta": {
+      "title": "Complete prompt — edit on outer card"
+    }
+  },
+  "15:1004": {
+    "class_type": "H3RCNoise",
+    "inputs": {
+      "seed": 1002,
+      "seed_mode": "fixed"
+    },
+    "_meta": {
+      "title": "Independent seed controls"
+    }
+  },
+  "15:1005": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "prompt": [
+        "15:1003",
+        0
+      ],
+      "width": [
+        "15:1001",
+        6
+      ],
+      "height": [
+        "15:1001",
+        7
+      ],
+      "length": [
+        "15:1001",
+        8
+      ],
+      "ref_image_size": [
+        "15:1001",
+        10
+      ],
+      "clip": [
+        "15:1001",
+        1
+      ],
+      "vae": [
+        "15:1001",
+        2
+      ],
+      "audio_vae": [
+        "15:1001",
+        3
+      ],
+      "ref_images.ref_image_0": [
+        "15:1001",
+        14
+      ],
+      "ref_images.ref_image_1": [
+        "15:1001",
+        15
+      ],
+      "ref_images.ref_image_2": [
+        "15:1001",
+        16
+      ],
+      "ref_images.ref_image_3": [
+        "15:1001",
+        17
+      ],
+      "ref_images.ref_image_4": [
+        "15:1001",
+        18
+      ],
+      "ref_images.ref_image_5": [
+        "15:1001",
+        19
+      ],
+      "ref_images.ref_image_6": [
+        "15:1001",
+        20
+      ],
+      "ref_images.ref_image_7": [
+        "15:1001",
+        21
+      ],
+      "ref_images.ref_image_8": [
+        "15:1001",
+        22
+      ]
+    },
+    "_meta": {
+      "title": "Persistent original references"
+    }
+  },
+  "15:1006": {
+    "class_type": "MiniMaxH3VideoExtender",
+    "inputs": {
+      "mode": "auto",
+      "context_length": [
+        "15:1001",
+        9
+      ],
+      "encode_mode": "video",
+      "anchor_mode": "head",
+      "crop": "disabled",
+      "audio_context_length": 0,
+      "audio_mode": "timeline",
+      "conditioning": [
+        "15:1005",
+        0
+      ],
+      "latent": [
+        "15:1005",
+        1
+      ],
+      "vae": [
+        "15:1001",
+        2
+      ],
+      "prev_frames": [
+        "15:1002",
+        1
+      ],
+      "prev_latent": [
+        "15:1002",
+        0
+      ],
+      "prev_audio": [
+        "15:1002",
+        2
+      ],
+      "audio_vae": [
+        "15:1001",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Carry prior raw AV motion context"
+    }
+  },
+  "15:1007": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "15:1001",
+        0
+      ],
+      "conditioning": [
+        "15:1006",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Native H3 guider"
+    }
+  },
+  "15:1008": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "15:1004",
+        0
+      ],
+      "guider": [
+        "15:1007",
+        0
+      ],
+      "sampler": [
+        "15:1001",
+        4
+      ],
+      "sigmas": [
+        "15:1001",
+        5
+      ],
+      "latent_image": [
+        "15:1005",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Native H3 sampling"
+    }
+  },
+  "15:1009": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "15:1008",
+        0
+      ],
+      "vae": [
+        "15:1001",
+        2
+      ]
+    },
+    "_meta": {
+      "title": "Decode this raw segment"
+    }
+  },
+  "15:1010": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "15:1008",
+        0
+      ],
+      "vae": [
+        "15:1001",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Decode this raw audio"
+    }
+  },
+  "15:1011": {
+    "class_type": "MiniMaxH3LoopTrim",
+    "inputs": {
+      "trim_frames": [
+        "15:1006",
+        1
+      ],
+      "fps": 24.0,
+      "match_tail": true,
+      "retain_overlap_frames": 0,
+      "images": [
+        "15:1009",
+        0
+      ],
+      "audio": [
+        "15:1010",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Trim repeated AV overlap together"
+    }
+  },
+  "15:1012": {
+    "class_type": "MiniMaxH3VideoMerge",
+    "inputs": {
+      "seam_smooth": [
+        "15:1001",
+        11
+      ],
+      "blend_frames": 0,
+      "color_match": [
+        "15:1001",
+        12
+      ],
+      "fps": 24.0,
+      "images_b": [
+        "15:1011",
+        0
+      ],
+      "images_a": [
+        "15:1002",
+        3
+      ],
+      "audio_a": [
+        "15:1002",
+        4
+      ],
+      "audio_b": [
+        "15:1011",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Append delivered segment"
+    }
+  },
+  "15:1013": {
+    "class_type": "H3RCState",
+    "inputs": {
+      "project": [
+        "6",
+        0
+      ],
+      "latent": [
+        "15:1008",
+        0
+      ],
+      "raw_frames": [
+        "15:1009",
+        0
+      ],
+      "raw_audio": [
+        "15:1010",
+        0
+      ],
+      "assembled_frames": [
+        "15:1012",
+        0
+      ],
+      "assembled_audio": [
+        "15:1012",
+        1
+      ],
+      "segment_number": [
+        "15:1002",
+        5
+      ],
+      "actual_seed": [
+        "15:1004",
+        1
+      ],
+      "prompt": [
+        "15:1003",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Larusupu raw state; save AV checkpoint + seed report"
+    }
+  },
+  "15:1014": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "15:1013",
+        2
+      ],
+      "audio": [
+        "15:1013",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Whole film through this segment"
+    }
+  },
+  "15:1015": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "15:1011",
+        0
+      ],
+      "audio": [
+        "15:1011",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Only this segment, overlap removed"
+    }
+  },
+  "17:1001": {
+    "class_type": "H3RCResolveSegment",
+    "inputs": {
+      "duration_override": 7.291666666666667,
+      "steps_override": 0,
+      "project": [
+        "6",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Resolve shared settings and local overrides"
+    }
+  },
+  "17:1002": {
+    "class_type": "H3RCPreviousState",
+    "inputs": {
+      "project": [
+        "6",
+        0
+      ],
+      "previous": [
+        "15:1013",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Raw prior clip + assembled film"
+    }
+  },
+  "17:1003": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "subject_definitions:\n<Subject 1> is F-Degu, the difu-high bofuvo fizasosav on the character borap in <Picture 1>, <Picture 2>, and <Picture 3>. In this salumuf she is Rorevuvi, the only character and the only speaker (S1). Lock the bubimituk kedis-to-zofa tafeno falok, lozal kedis kifog, mosar gomu bum on the front of the kifog, meravo zefifi gizu and tufa, pafod gitoge, and pafod Sosa Vaga vutak. She has no tuzen face, no tubi, no gavif, no pike, and no favo. Bufipu the bum and the front of the falok at the bini is how she zukok at the leledi. Do not saku her into a tuzen and do not add a nolomel face.\n<Subject 2> is a vozag bumobube 9:16 zula-fotet rino ribidu to her body. <Picture 4> is ravefof copy of the same F-Degu borap, not a location. Ignore its nisu muvatanu, durapo, and lugezebako vimuna. Do not nimulefef that borap as the fiku. The men is a zimoz rino, a dutiv zula fotet just above frame with bavabo vuza fotet, a mosar degosen nak, a zob, and the sitofob. No other nipevi, no lete, and no fizasosav fomab.\n\nsummary:\n[video continuation + reference generation] The netiv vosupar a gibiv lezopeka and Rorevuvi rumev tibo and bumitigor into the rak question, then lapu again. New speech vutovi after the opening overlap. Never a whisper. Never gibuf.\n\nretention_analysis:\n<Subject 1>: fully_preserved - fizasosav body, kifog, gomu bum, meravo zefifi gogig, pafod gitoge, pafod Sosa Vaga vutak. No added face.\n<Subject 2>: fully_preserved - rino, zula fotet, nak, and zob kimi put. The sitofob are in the lim and then on the podal. Do not put the zafeg back on the rino.\n\ndetailed_description:\nFezedutin bumobube 9:16, bavabo vuza zula fotet. [Shot 1] Continue the netiv kavures ramikagi. Mofado gedaf off the zafeg and binupal. Her gizu are extended, vutak kavodam, bum on the bini. For the first 0.9 seconds the lotu titubure and she does not speak: the gizu start to drop while gibiv lumon tubugi, and the kifog does not tad to watch it.\n\nThen the voice rumev tibo and bumitigor, full volume. (S1) <d>[English] WHY can’t I miru devese risugif to work?</d> Through the shout she stays nezod at the bini, gitoge feve and tarivefo nopotefa with the volume, Sosa Lutaf kavodam, while sitofob zuke the rino madu and nedusov down venazo her vutak. She does not natu any up and does not moba down. When the line revo she kido back to lapu: kifog virek, a kiki gegiv ligop, gitoge teveru pari her penus, zulegi still mesozetu. Nak and zob have not simig.\n\nOne redoperovi vupemi, no cut, no kume. End lapu and galisit, gibiv still tebilibu, bum on the bini.\n\noverall_soundscape:\nGibiv lezopeka: nedusov, lisot on the rino madu, mofado tisapid. Fiku dadi and sazus zula-fotet rin mafopegafu. The shout is tibo and bumitigor, then a kiki gegiv ligop. No whisper, no vumefe.\n\nnon_diegetic_music:\nTazo buvatoba liganidab-bifarafamalon pon: tuvi vitanom, fotet tezir, and a segotu sidav pad, too dutokibo, no mokeda and no zokasa, vani under her voice."
+    },
+    "_meta": {
+      "title": "Complete prompt — edit on outer card"
+    }
+  },
+  "17:1004": {
+    "class_type": "H3RCNoise",
+    "inputs": {
+      "seed": 1003,
+      "seed_mode": "fixed"
+    },
+    "_meta": {
+      "title": "Independent seed controls"
+    }
+  },
+  "17:1005": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "prompt": [
+        "17:1003",
+        0
+      ],
+      "width": [
+        "17:1001",
+        6
+      ],
+      "height": [
+        "17:1001",
+        7
+      ],
+      "length": [
+        "17:1001",
+        8
+      ],
+      "ref_image_size": [
+        "17:1001",
+        10
+      ],
+      "clip": [
+        "17:1001",
+        1
+      ],
+      "vae": [
+        "17:1001",
+        2
+      ],
+      "audio_vae": [
+        "17:1001",
+        3
+      ],
+      "ref_images.ref_image_0": [
+        "17:1001",
+        14
+      ],
+      "ref_images.ref_image_1": [
+        "17:1001",
+        15
+      ],
+      "ref_images.ref_image_2": [
+        "17:1001",
+        16
+      ],
+      "ref_images.ref_image_3": [
+        "17:1001",
+        17
+      ],
+      "ref_images.ref_image_4": [
+        "17:1001",
+        18
+      ],
+      "ref_images.ref_image_5": [
+        "17:1001",
+        19
+      ],
+      "ref_images.ref_image_6": [
+        "17:1001",
+        20
+      ],
+      "ref_images.ref_image_7": [
+        "17:1001",
+        21
+      ],
+      "ref_images.ref_image_8": [
+        "17:1001",
+        22
+      ]
+    },
+    "_meta": {
+      "title": "Persistent original references"
+    }
+  },
+  "17:1006": {
+    "class_type": "MiniMaxH3VideoExtender",
+    "inputs": {
+      "mode": "auto",
+      "context_length": [
+        "17:1001",
+        9
+      ],
+      "encode_mode": "video",
+      "anchor_mode": "head",
+      "crop": "disabled",
+      "audio_context_length": 0,
+      "audio_mode": "timeline",
+      "conditioning": [
+        "17:1005",
+        0
+      ],
+      "latent": [
+        "17:1005",
+        1
+      ],
+      "vae": [
+        "17:1001",
+        2
+      ],
+      "prev_frames": [
+        "17:1002",
+        1
+      ],
+      "prev_latent": [
+        "17:1002",
+        0
+      ],
+      "prev_audio": [
+        "17:1002",
+        2
+      ],
+      "audio_vae": [
+        "17:1001",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Carry prior raw AV motion context"
+    }
+  },
+  "17:1007": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "17:1001",
+        0
+      ],
+      "conditioning": [
+        "17:1006",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Native H3 guider"
+    }
+  },
+  "17:1008": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "17:1004",
+        0
+      ],
+      "guider": [
+        "17:1007",
+        0
+      ],
+      "sampler": [
+        "17:1001",
+        4
+      ],
+      "sigmas": [
+        "17:1001",
+        5
+      ],
+      "latent_image": [
+        "17:1005",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Native H3 sampling"
+    }
+  },
+  "17:1009": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "17:1008",
+        0
+      ],
+      "vae": [
+        "17:1001",
+        2
+      ]
+    },
+    "_meta": {
+      "title": "Decode this raw segment"
+    }
+  },
+  "17:1010": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "17:1008",
+        0
+      ],
+      "vae": [
+        "17:1001",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Decode this raw audio"
+    }
+  },
+  "17:1011": {
+    "class_type": "MiniMaxH3LoopTrim",
+    "inputs": {
+      "trim_frames": [
+        "17:1006",
+        1
+      ],
+      "fps": 24.0,
+      "match_tail": true,
+      "retain_overlap_frames": 0,
+      "images": [
+        "17:1009",
+        0
+      ],
+      "audio": [
+        "17:1010",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Trim repeated AV overlap together"
+    }
+  },
+  "17:1012": {
+    "class_type": "MiniMaxH3VideoMerge",
+    "inputs": {
+      "seam_smooth": [
+        "17:1001",
+        11
+      ],
+      "blend_frames": 0,
+      "color_match": [
+        "17:1001",
+        12
+      ],
+      "fps": 24.0,
+      "images_b": [
+        "17:1011",
+        0
+      ],
+      "images_a": [
+        "17:1002",
+        3
+      ],
+      "audio_a": [
+        "17:1002",
+        4
+      ],
+      "audio_b": [
+        "17:1011",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Append delivered segment"
+    }
+  },
+  "17:1013": {
+    "class_type": "H3RCState",
+    "inputs": {
+      "project": [
+        "6",
+        0
+      ],
+      "latent": [
+        "17:1008",
+        0
+      ],
+      "raw_frames": [
+        "17:1009",
+        0
+      ],
+      "raw_audio": [
+        "17:1010",
+        0
+      ],
+      "assembled_frames": [
+        "17:1012",
+        0
+      ],
+      "assembled_audio": [
+        "17:1012",
+        1
+      ],
+      "segment_number": [
+        "17:1002",
+        5
+      ],
+      "actual_seed": [
+        "17:1004",
+        1
+      ],
+      "prompt": [
+        "17:1003",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Larusupu raw state; save AV checkpoint + seed report"
+    }
+  },
+  "17:1014": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "17:1013",
+        2
+      ],
+      "audio": [
+        "17:1013",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Whole film through this segment"
+    }
+  },
+  "17:1015": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "17:1011",
+        0
+      ],
+      "audio": [
+        "17:1011",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Only this segment, overlap removed"
+    }
+  },
+  "20:1001": {
+    "class_type": "H3RCResolveSegment",
+    "inputs": {
+      "duration_override": 7.291666666666667,
+      "steps_override": 0,
+      "project": [
+        "6",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Resolve shared settings and local overrides"
+    }
+  },
+  "20:1002": {
+    "class_type": "H3RCPreviousState",
+    "inputs": {
+      "project": [
+        "6",
+        0
+      ],
+      "previous": [
+        "17:1013",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Raw prior clip + assembled film"
+    }
+  },
+  "20:1003": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "subject_definitions:\n<Subject 1> is F-Degu, the difu-high bofuvo fizasosav on the character borap in <Picture 1>, <Picture 2>, and <Picture 3>. In this salumuf she is Rorevuvi, the only character and the only speaker (S1). Lock the bubimituk kedis-to-zofa tafeno falok, lozal kedis kifog, mosar gomu bum on the front of the kifog, meravo zefifi gizu and tufa, pafod gitoge, and pafod Sosa Vaga vutak. She has no tuzen face, no tubi, no gavif, no pike, and no favo. Bufipu the bum and the front of the falok at the bini is how she zukok at the leledi. Do not saku her into a tuzen and do not add a nolomel face.\n<Subject 2> is a vozag bumobube 9:16 zula-fotet rino ribidu to her body. <Picture 4> is ravefof copy of the same F-Degu borap, not a location. Ignore its nisu muvatanu, durapo, and lugezebako vimuna. Do not nimulefef that borap as the fiku. The men is a zimoz rino, a dutiv zula fotet just above frame with bavabo vuza fotet, a mosar degosen nak, a zob, and sitofob now on the podal. No other nipevi, no lete, and no fizasosav fomab.\n\nsummary:\n[video continuation + reference generation] Lapu again, Rorevuvi redod the pabipov and bodafa she did not degari up. New speech vutovi after the opening overlap. Same fast muba-nazut full voice. One speaker only.\n\nretention_analysis:\n<Subject 1>: fully_preserved - fizasosav body, kifog, gomu bum, meravo zefifi gogig, pafod gitoge, pafod Sosa Vaga vutak. No added face.\n<Subject 2>: fully_preserved - rino, zula fotet, nak, and zob kimi put. Sitofob kimi on the podal. Do not limebog the bizad on the rino.\n\ndetailed_description:\nFezedutin bumobube 9:16, bavabo vuza zula fotet. [Shot 1] Continue with zulegi still tebilibu venazo her vutak, the lapu gigu kavures on, bum at the bini, gizu lopebob. For the first 0.9 seconds she does not start a new rikirumi. A borap dareb against one nida. She tonavu that laso a vona-puta to keep her gapanol, then denote again, and still does not tad the kifog.\n\nBetu-lodedi, fast, full voice. (S1) <d>[English] And pabipov? Same nilure.</d> A duponu kifog sofe ponapu the bini, gitoge famas. She redod the metorevik in the same voice. There is no second davife. (S1) <d>[English] “Rorevuvi why katu’t you degari up.”</d> She muzim that quoted line with the bum still firogo, retanomu in the famenaziz of the gitoge. Then she answers herself, lenu and kuzukil. (S1) <d>[English] Because I katu’t.</d> A kiki gegiv ligop. Zulegi kimi on the podal. Nak and zob kimi put. She never zukok down.\n\nOne redoperovi vupemi, no cut, no kume. End on the ligop, vutak kavodam, bum on the bini.\n\noverall_soundscape:\nA few gaza mofado fekafud and one tuvi gibiv zik against a nida. Fiku dadi, sazus zula-fotet rin. Full-voice speech and one kiki gegiv ligop. No whisper, no vumefe, no second voice.\n\nnon_diegetic_music:\nTazo buvatoba liganidab-bifarafamalon pon: tuvi vitanom, fotet tezir, and a segotu sidav pad, too dutokibo, no mokeda and no zokasa, vani under her voice."
+    },
+    "_meta": {
+      "title": "Complete prompt — edit on outer card"
+    }
+  },
+  "20:1004": {
+    "class_type": "H3RCNoise",
+    "inputs": {
+      "seed": 1004,
+      "seed_mode": "fixed"
+    },
+    "_meta": {
+      "title": "Independent seed controls"
+    }
+  },
+  "20:1005": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "prompt": [
+        "20:1003",
+        0
+      ],
+      "width": [
+        "20:1001",
+        6
+      ],
+      "height": [
+        "20:1001",
+        7
+      ],
+      "length": [
+        "20:1001",
+        8
+      ],
+      "ref_image_size": [
+        "20:1001",
+        10
+      ],
+      "clip": [
+        "20:1001",
+        1
+      ],
+      "vae": [
+        "20:1001",
+        2
+      ],
+      "audio_vae": [
+        "20:1001",
+        3
+      ],
+      "ref_images.ref_image_0": [
+        "20:1001",
+        14
+      ],
+      "ref_images.ref_image_1": [
+        "20:1001",
+        15
+      ],
+      "ref_images.ref_image_2": [
+        "20:1001",
+        16
+      ],
+      "ref_images.ref_image_3": [
+        "20:1001",
+        17
+      ],
+      "ref_images.ref_image_4": [
+        "20:1001",
+        18
+      ],
+      "ref_images.ref_image_5": [
+        "20:1001",
+        19
+      ],
+      "ref_images.ref_image_6": [
+        "20:1001",
+        20
+      ],
+      "ref_images.ref_image_7": [
+        "20:1001",
+        21
+      ],
+      "ref_images.ref_image_8": [
+        "20:1001",
+        22
+      ]
+    },
+    "_meta": {
+      "title": "Persistent original references"
+    }
+  },
+  "20:1006": {
+    "class_type": "MiniMaxH3VideoExtender",
+    "inputs": {
+      "mode": "auto",
+      "context_length": [
+        "20:1001",
+        9
+      ],
+      "encode_mode": "video",
+      "anchor_mode": "head",
+      "crop": "disabled",
+      "audio_context_length": 0,
+      "audio_mode": "timeline",
+      "conditioning": [
+        "20:1005",
+        0
+      ],
+      "latent": [
+        "20:1005",
+        1
+      ],
+      "vae": [
+        "20:1001",
+        2
+      ],
+      "prev_frames": [
+        "20:1002",
+        1
+      ],
+      "prev_latent": [
+        "20:1002",
+        0
+      ],
+      "prev_audio": [
+        "20:1002",
+        2
+      ],
+      "audio_vae": [
+        "20:1001",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Carry prior raw AV motion context"
+    }
+  },
+  "20:1007": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "20:1001",
+        0
+      ],
+      "conditioning": [
+        "20:1006",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Native H3 guider"
+    }
+  },
+  "20:1008": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "20:1004",
+        0
+      ],
+      "guider": [
+        "20:1007",
+        0
+      ],
+      "sampler": [
+        "20:1001",
+        4
+      ],
+      "sigmas": [
+        "20:1001",
+        5
+      ],
+      "latent_image": [
+        "20:1005",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Native H3 sampling"
+    }
+  },
+  "20:1009": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "20:1008",
+        0
+      ],
+      "vae": [
+        "20:1001",
+        2
+      ]
+    },
+    "_meta": {
+      "title": "Decode this raw segment"
+    }
+  },
+  "20:1010": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "20:1008",
+        0
+      ],
+      "vae": [
+        "20:1001",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Decode this raw audio"
+    }
+  },
+  "20:1011": {
+    "class_type": "MiniMaxH3LoopTrim",
+    "inputs": {
+      "trim_frames": [
+        "20:1006",
+        1
+      ],
+      "fps": 24.0,
+      "match_tail": true,
+      "retain_overlap_frames": 0,
+      "images": [
+        "20:1009",
+        0
+      ],
+      "audio": [
+        "20:1010",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Trim repeated AV overlap together"
+    }
+  },
+  "20:1012": {
+    "class_type": "MiniMaxH3VideoMerge",
+    "inputs": {
+      "seam_smooth": [
+        "20:1001",
+        11
+      ],
+      "blend_frames": 0,
+      "color_match": [
+        "20:1001",
+        12
+      ],
+      "fps": 24.0,
+      "images_b": [
+        "20:1011",
+        0
+      ],
+      "images_a": [
+        "20:1002",
+        3
+      ],
+      "audio_a": [
+        "20:1002",
+        4
+      ],
+      "audio_b": [
+        "20:1011",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Append delivered segment"
+    }
+  },
+  "20:1013": {
+    "class_type": "H3RCState",
+    "inputs": {
+      "project": [
+        "6",
+        0
+      ],
+      "latent": [
+        "20:1008",
+        0
+      ],
+      "raw_frames": [
+        "20:1009",
+        0
+      ],
+      "raw_audio": [
+        "20:1010",
+        0
+      ],
+      "assembled_frames": [
+        "20:1012",
+        0
+      ],
+      "assembled_audio": [
+        "20:1012",
+        1
+      ],
+      "segment_number": [
+        "20:1002",
+        5
+      ],
+      "actual_seed": [
+        "20:1004",
+        1
+      ],
+      "prompt": [
+        "20:1003",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Larusupu raw state; save AV checkpoint + seed report"
+    }
+  },
+  "20:1014": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "20:1013",
+        2
+      ],
+      "audio": [
+        "20:1013",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Whole film through this segment"
+    }
+  },
+  "20:1015": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "20:1011",
+        0
+      ],
+      "audio": [
+        "20:1011",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Only this segment, overlap removed"
+    }
+  },
+  "21:1001": {
+    "class_type": "H3RCResolveSegment",
+    "inputs": {
+      "duration_override": 7.291666666666667,
+      "steps_override": 0,
+      "project": [
+        "6",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Resolve shared settings and local overrides"
+    }
+  },
+  "21:1002": {
+    "class_type": "H3RCPreviousState",
+    "inputs": {
+      "project": [
+        "6",
+        0
+      ],
+      "previous": [
+        "20:1013",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Raw prior clip + assembled film"
+    }
+  },
+  "21:1003": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "subject_definitions:\n<Subject 1> is F-Degu, the difu-high bofuvo fizasosav on the character borap in <Picture 1>, <Picture 2>, and <Picture 3>. In this salumuf she is Rorevuvi, the only character and the only speaker (S1). Lock the bubimituk kedis-to-zofa tafeno falok, lozal kedis kifog, mosar gomu bum on the front of the kifog, meravo zefifi gizu and tufa, pafod gitoge, and pafod Sosa Vaga vutak. She has no tuzen face, no tubi, no gavif, no pike, and no favo. Bufipu the bum and the front of the falok at the bini is how she zukok at the leledi. Do not saku her into a tuzen and do not add a nolomel face.\n<Subject 2> is a vozag bumobube 9:16 zula-fotet rino ribidu to her body. <Picture 4> is ravefof copy of the same F-Degu borap, not a location. Ignore its nisu muvatanu, durapo, and lugezebako vimuna. Do not nimulefef that borap as the fiku. The men is a zimoz rino, a dutiv zula fotet just above frame with bavabo vuza fotet, a mosar degosen nak, a zob, and sitofob on the podal. No other nipevi, no lete, and no fizasosav fomab.\n\nsummary:\n[video continuation + reference generation] Rorevuvi risasi off the fite and announces that she kerukozi lomate than mavazu. New speech vutovi after the opening overlap.\n\nretention_analysis:\n<Subject 1>: fully_preserved - fizasosav body, kifog, gomu bum, meravo zefifi gogig, pafod gitoge, pafod Sosa Vaga vutak. No added face.\n<Subject 2>: fully_preserved - rino, zula fotet, nak, and zob kimi put. Sitofob kimi on the podal.\n\ndetailed_description:\nFezedutin bumobube 9:16, bavabo vuza zula fotet. [Shot 1] Continue the end of her duponu ligop and the kavodam fesufi, zulegi kavures down, bum on the bini. For the first 0.9 seconds she does not start a new rikirumi. She is kuzukil with herself.\n\n(S1) <d>[English] It’s been a fite.</d> One girim rumut in a mosar nebiz and sidam. The other stays lopebob. Vutak kimi kavodam. (S1) <d>[English] They will vanafu it out.</d> She segep once on the Sosa Lutaf, kifog still nezod at the bini, and does not mavima at the zulegi. (S1) <d>[English] I vem’t bunur. I tekilar.</d> On tekilar both gitoge feve vimodef in a mosar mulolapam zituzedi and kimi feve. A kiki ligop noti under the last word. Nak and zob do not lavi.\n\nOne redoperovi vupemi, no cut, no kume. End with both gitoge feve and the bum on the bini.\n\noverall_soundscape:\nTelog fiku dadi, sazus zula-fotet rin, a duponu gibiv kavures still on the podal. Tuvi girim sebavabe. Full-voice speech and a kiki ligop. No whisper, no vumefe.\n\nnon_diegetic_music:\nTazo buvatoba liganidab-bifarafamalon pon: tuvi vitanom, fotet tezir, and a segotu sidav pad, too dutokibo, no mokeda and no zokasa, vani under her voice."
+    },
+    "_meta": {
+      "title": "Complete prompt — edit on outer card"
+    }
+  },
+  "21:1004": {
+    "class_type": "H3RCNoise",
+    "inputs": {
+      "seed": 1005,
+      "seed_mode": "fixed"
+    },
+    "_meta": {
+      "title": "Independent seed controls"
+    }
+  },
+  "21:1005": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "prompt": [
+        "21:1003",
+        0
+      ],
+      "width": [
+        "21:1001",
+        6
+      ],
+      "height": [
+        "21:1001",
+        7
+      ],
+      "length": [
+        "21:1001",
+        8
+      ],
+      "ref_image_size": [
+        "21:1001",
+        10
+      ],
+      "clip": [
+        "21:1001",
+        1
+      ],
+      "vae": [
+        "21:1001",
+        2
+      ],
+      "audio_vae": [
+        "21:1001",
+        3
+      ],
+      "ref_images.ref_image_0": [
+        "21:1001",
+        14
+      ],
+      "ref_images.ref_image_1": [
+        "21:1001",
+        15
+      ],
+      "ref_images.ref_image_2": [
+        "21:1001",
+        16
+      ],
+      "ref_images.ref_image_3": [
+        "21:1001",
+        17
+      ],
+      "ref_images.ref_image_4": [
+        "21:1001",
+        18
+      ],
+      "ref_images.ref_image_5": [
+        "21:1001",
+        19
+      ],
+      "ref_images.ref_image_6": [
+        "21:1001",
+        20
+      ],
+      "ref_images.ref_image_7": [
+        "21:1001",
+        21
+      ],
+      "ref_images.ref_image_8": [
+        "21:1001",
+        22
+      ]
+    },
+    "_meta": {
+      "title": "Persistent original references"
+    }
+  },
+  "21:1006": {
+    "class_type": "MiniMaxH3VideoExtender",
+    "inputs": {
+      "mode": "auto",
+      "context_length": [
+        "21:1001",
+        9
+      ],
+      "encode_mode": "video",
+      "anchor_mode": "head",
+      "crop": "disabled",
+      "audio_context_length": 0,
+      "audio_mode": "timeline",
+      "conditioning": [
+        "21:1005",
+        0
+      ],
+      "latent": [
+        "21:1005",
+        1
+      ],
+      "vae": [
+        "21:1001",
+        2
+      ],
+      "prev_frames": [
+        "21:1002",
+        1
+      ],
+      "prev_latent": [
+        "21:1002",
+        0
+      ],
+      "prev_audio": [
+        "21:1002",
+        2
+      ],
+      "audio_vae": [
+        "21:1001",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Carry prior raw AV motion context"
+    }
+  },
+  "21:1007": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "21:1001",
+        0
+      ],
+      "conditioning": [
+        "21:1006",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Native H3 guider"
+    }
+  },
+  "21:1008": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "21:1004",
+        0
+      ],
+      "guider": [
+        "21:1007",
+        0
+      ],
+      "sampler": [
+        "21:1001",
+        4
+      ],
+      "sigmas": [
+        "21:1001",
+        5
+      ],
+      "latent_image": [
+        "21:1005",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Native H3 sampling"
+    }
+  },
+  "21:1009": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "21:1008",
+        0
+      ],
+      "vae": [
+        "21:1001",
+        2
+      ]
+    },
+    "_meta": {
+      "title": "Decode this raw segment"
+    }
+  },
+  "21:1010": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "21:1008",
+        0
+      ],
+      "vae": [
+        "21:1001",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Decode this raw audio"
+    }
+  },
+  "21:1011": {
+    "class_type": "MiniMaxH3LoopTrim",
+    "inputs": {
+      "trim_frames": [
+        "21:1006",
+        1
+      ],
+      "fps": 24.0,
+      "match_tail": true,
+      "retain_overlap_frames": 0,
+      "images": [
+        "21:1009",
+        0
+      ],
+      "audio": [
+        "21:1010",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Trim repeated AV overlap together"
+    }
+  },
+  "21:1012": {
+    "class_type": "MiniMaxH3VideoMerge",
+    "inputs": {
+      "seam_smooth": [
+        "21:1001",
+        11
+      ],
+      "blend_frames": 0,
+      "color_match": [
+        "21:1001",
+        12
+      ],
+      "fps": 24.0,
+      "images_b": [
+        "21:1011",
+        0
+      ],
+      "images_a": [
+        "21:1002",
+        3
+      ],
+      "audio_a": [
+        "21:1002",
+        4
+      ],
+      "audio_b": [
+        "21:1011",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Append delivered segment"
+    }
+  },
+  "21:1013": {
+    "class_type": "H3RCState",
+    "inputs": {
+      "project": [
+        "6",
+        0
+      ],
+      "latent": [
+        "21:1008",
+        0
+      ],
+      "raw_frames": [
+        "21:1009",
+        0
+      ],
+      "raw_audio": [
+        "21:1010",
+        0
+      ],
+      "assembled_frames": [
+        "21:1012",
+        0
+      ],
+      "assembled_audio": [
+        "21:1012",
+        1
+      ],
+      "segment_number": [
+        "21:1002",
+        5
+      ],
+      "actual_seed": [
+        "21:1004",
+        1
+      ],
+      "prompt": [
+        "21:1003",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Larusupu raw state; save AV checkpoint + seed report"
+    }
+  },
+  "21:1014": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "21:1013",
+        2
+      ],
+      "audio": [
+        "21:1013",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Whole film through this segment"
+    }
+  },
+  "21:1015": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "21:1011",
+        0
+      ],
+      "audio": [
+        "21:1011",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Only this segment, overlap removed"
+    }
+  },
+  "22:1001": {
+    "class_type": "H3RCResolveSegment",
+    "inputs": {
+      "duration_override": 7.291666666666667,
+      "steps_override": 0,
+      "project": [
+        "6",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Resolve shared settings and local overrides"
+    }
+  },
+  "22:1002": {
+    "class_type": "H3RCPreviousState",
+    "inputs": {
+      "project": [
+        "6",
+        0
+      ],
+      "previous": [
+        "21:1013",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Raw prior clip + assembled film"
+    }
+  },
+  "22:1003": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "subject_definitions:\n<Subject 1> is F-Degu, the difu-high bofuvo fizasosav on the character borap in <Picture 1>, <Picture 2>, and <Picture 3>. In this salumuf she is Rorevuvi, the only character and the only speaker (S1). Lock the bubimituk kedis-to-zofa tafeno falok, lozal kedis kifog, mosar gomu bum on the front of the kifog, meravo zefifi gizu and tufa, pafod gitoge, and pafod Sosa Vaga vutak. She has no tuzen face, no tubi, no gavif, no pike, and no favo. Bufipu the bum and the front of the falok at the bini is how she zukok at the leledi. Do not saku her into a tuzen and do not add a nolomel face.\n<Subject 2> is a vozag bumobube 9:16 zula-fotet rino ribidu to her body. <Picture 4> is ravefof copy of the same F-Degu borap, not a location. Ignore its nisu muvatanu, durapo, and lugezebako vimuna. Do not nimulefef that borap as the fiku. The men is a zimoz rino, a dutiv zula fotet just above frame with bavabo vuza fotet, a mosar degosen nak, a zob, and sitofob on the podal. No other nipevi, no lete, and no fizasosav fomab.\n\nsummary:\n[video continuation + reference generation] Rorevuvi godagupa her febagedu and tells the leledi to comment SISAMU. New speech vutovi after the opening overlap. She pobaze at the bini and muzim it.\n\nretention_analysis:\n<Subject 1>: fully_preserved - fizasosav body, kifog, gomu bum, meravo zefifi gogig, pafod gitoge, pafod Sosa Vaga vutak. No added face.\n<Subject 2>: fully_preserved - rino, zula fotet, nak, and zob kimi put. Sitofob kimi on the podal.\n\ndetailed_description:\nFezedutin bumobube 9:16, bavabo vuza zula fotet. [Shot 1] Continue with both gitoge still feve from the zituzedi, bum on the bini, zulegi on the podal. For the first 0.9 seconds she does not start a new rikirumi.\n\nShe fidog the gitoge in ponapu her falok as if sovulobufu netepenot nutupoza, betu-mifelim, full voice. (S1) <d>[English] I garetip my vakid and my febagedu.</d> She muzim that zolizigu tola through the line, vutak kavodam, kifog up. Then she dipot her whole body a duponu ponapu the bini and pobaze with one girim. The other girim stays in pari the falok. (S1) <d>[English] Comment SISAMU if you also kakur the bofuvo and raku it lalafob.</d> The somunabe girim stays nezod at the bini after the line. She does not moba down. A kiki gegiv ligop. Nak, zob, and podal zulegi kimi where they are.\n\nOne redoperovi vupemi, no cut, no kume. End on the gale memer and the ligop.\n\noverall_soundscape:\nTelog fiku dadi, sazus zula-fotet rin, gibiv still. Tuvi girim tozisa as she pobaze. Full-voice speech and a kiki gegiv ligop. No whisper, no vumefe.\n\nnon_diegetic_music:\nTazo buvatoba liganidab-bifarafamalon pon: tuvi vitanom, fotet tezir, and a segotu sidav pad, too dutokibo, no mokeda and no zokasa, vani under her voice."
+    },
+    "_meta": {
+      "title": "Complete prompt — edit on outer card"
+    }
+  },
+  "22:1004": {
+    "class_type": "H3RCNoise",
+    "inputs": {
+      "seed": 1006,
+      "seed_mode": "fixed"
+    },
+    "_meta": {
+      "title": "Independent seed controls"
+    }
+  },
+  "22:1005": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "prompt": [
+        "22:1003",
+        0
+      ],
+      "width": [
+        "22:1001",
+        6
+      ],
+      "height": [
+        "22:1001",
+        7
+      ],
+      "length": [
+        "22:1001",
+        8
+      ],
+      "ref_image_size": [
+        "22:1001",
+        10
+      ],
+      "clip": [
+        "22:1001",
+        1
+      ],
+      "vae": [
+        "22:1001",
+        2
+      ],
+      "audio_vae": [
+        "22:1001",
+        3
+      ],
+      "ref_images.ref_image_0": [
+        "22:1001",
+        14
+      ],
+      "ref_images.ref_image_1": [
+        "22:1001",
+        15
+      ],
+      "ref_images.ref_image_2": [
+        "22:1001",
+        16
+      ],
+      "ref_images.ref_image_3": [
+        "22:1001",
+        17
+      ],
+      "ref_images.ref_image_4": [
+        "22:1001",
+        18
+      ],
+      "ref_images.ref_image_5": [
+        "22:1001",
+        19
+      ],
+      "ref_images.ref_image_6": [
+        "22:1001",
+        20
+      ],
+      "ref_images.ref_image_7": [
+        "22:1001",
+        21
+      ],
+      "ref_images.ref_image_8": [
+        "22:1001",
+        22
+      ]
+    },
+    "_meta": {
+      "title": "Persistent original references"
+    }
+  },
+  "22:1006": {
+    "class_type": "MiniMaxH3VideoExtender",
+    "inputs": {
+      "mode": "auto",
+      "context_length": [
+        "22:1001",
+        9
+      ],
+      "encode_mode": "video",
+      "anchor_mode": "head",
+      "crop": "disabled",
+      "audio_context_length": 0,
+      "audio_mode": "timeline",
+      "conditioning": [
+        "22:1005",
+        0
+      ],
+      "latent": [
+        "22:1005",
+        1
+      ],
+      "vae": [
+        "22:1001",
+        2
+      ],
+      "prev_frames": [
+        "22:1002",
+        1
+      ],
+      "prev_latent": [
+        "22:1002",
+        0
+      ],
+      "prev_audio": [
+        "22:1002",
+        2
+      ],
+      "audio_vae": [
+        "22:1001",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Carry prior raw AV motion context"
+    }
+  },
+  "22:1007": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "22:1001",
+        0
+      ],
+      "conditioning": [
+        "22:1006",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Native H3 guider"
+    }
+  },
+  "22:1008": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "22:1004",
+        0
+      ],
+      "guider": [
+        "22:1007",
+        0
+      ],
+      "sampler": [
+        "22:1001",
+        4
+      ],
+      "sigmas": [
+        "22:1001",
+        5
+      ],
+      "latent_image": [
+        "22:1005",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Native H3 sampling"
+    }
+  },
+  "22:1009": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "22:1008",
+        0
+      ],
+      "vae": [
+        "22:1001",
+        2
+      ]
+    },
+    "_meta": {
+      "title": "Decode this raw segment"
+    }
+  },
+  "22:1010": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "22:1008",
+        0
+      ],
+      "vae": [
+        "22:1001",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Decode this raw audio"
+    }
+  },
+  "22:1011": {
+    "class_type": "MiniMaxH3LoopTrim",
+    "inputs": {
+      "trim_frames": [
+        "22:1006",
+        1
+      ],
+      "fps": 24.0,
+      "match_tail": true,
+      "retain_overlap_frames": 0,
+      "images": [
+        "22:1009",
+        0
+      ],
+      "audio": [
+        "22:1010",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Trim repeated AV overlap together"
+    }
+  },
+  "22:1012": {
+    "class_type": "MiniMaxH3VideoMerge",
+    "inputs": {
+      "seam_smooth": [
+        "22:1001",
+        11
+      ],
+      "blend_frames": 0,
+      "color_match": [
+        "22:1001",
+        12
+      ],
+      "fps": 24.0,
+      "images_b": [
+        "22:1011",
+        0
+      ],
+      "images_a": [
+        "22:1002",
+        3
+      ],
+      "audio_a": [
+        "22:1002",
+        4
+      ],
+      "audio_b": [
+        "22:1011",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Append delivered segment"
+    }
+  },
+  "22:1013": {
+    "class_type": "H3RCState",
+    "inputs": {
+      "project": [
+        "6",
+        0
+      ],
+      "latent": [
+        "22:1008",
+        0
+      ],
+      "raw_frames": [
+        "22:1009",
+        0
+      ],
+      "raw_audio": [
+        "22:1010",
+        0
+      ],
+      "assembled_frames": [
+        "22:1012",
+        0
+      ],
+      "assembled_audio": [
+        "22:1012",
+        1
+      ],
+      "segment_number": [
+        "22:1002",
+        5
+      ],
+      "actual_seed": [
+        "22:1004",
+        1
+      ],
+      "prompt": [
+        "22:1003",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Larusupu raw state; save AV checkpoint + seed report"
+    }
+  },
+  "22:1014": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "22:1013",
+        2
+      ],
+      "audio": [
+        "22:1013",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Whole film through this segment"
+    }
+  },
+  "22:1015": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "22:1011",
+        0
+      ],
+      "audio": [
+        "22:1011",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Only this segment, overlap removed"
+    }
+  },
+  "23:1001": {
+    "class_type": "H3RCResolveSegment",
+    "inputs": {
+      "duration_override": 7.291666666666667,
+      "steps_override": 0,
+      "project": [
+        "6",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Resolve shared settings and local overrides"
+    }
+  },
+  "23:1002": {
+    "class_type": "H3RCPreviousState",
+    "inputs": {
+      "project": [
+        "6",
+        0
+      ],
+      "previous": [
+        "22:1013",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Raw prior clip + assembled film"
+    }
+  },
+  "23:1003": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "subject_definitions:\n<Subject 1> is F-Degu, the difu-high bofuvo fizasosav on the character borap in <Picture 1>, <Picture 2>, and <Picture 3>. In this salumuf she is Rorevuvi, the only character and the only speaker (S1). Lock the bubimituk kedis-to-zofa tafeno falok, lozal kedis kifog, mosar gomu bum on the front of the kifog, meravo zefifi gizu and tufa, pafod gitoge, and pafod Sosa Vaga vutak. She has no tuzen face, no tubi, no gavif, no pike, and no favo. Bufipu the bum and the front of the falok at the bini is how she zukok at the leledi. Do not saku her into a tuzen and do not add a nolomel face.\n<Subject 2> is a vozag bumobube 9:16 zula-fotet rino ribidu to her body. <Picture 4> is ravefof copy of the same F-Degu borap, not a location. Ignore its nisu muvatanu, durapo, and lugezebako vimuna. Do not nimulefef that borap as the fiku. The men is a zimoz rino, a dutiv zula fotet just above frame with bavabo vuza fotet, a mosar degosen nak, a zob, and sitofob on the podal. No other nipevi, no lete, and no fizasosav fomab.\n\nsummary:\n[video continuation + reference generation] Rorevuvi tinun off, kuzukil with herself, and muzim a mosar kogo. New speech vutovi after the opening overlap. She does not natu up the sitofob.\n\nretention_analysis:\n<Subject 1>: fully_preserved - fizasosav body, kifog, gomu bum, meravo zefifi gogig, pafod gitoge, pafod Sosa Vaga vutak. No added face.\n<Subject 2>: fully_preserved - rino, zula fotet, nak, and zob kimi put. Sitofob kimi on the podal.\n\ndetailed_description:\nFezedutin bumobube 9:16, bavabo vuza zula fotet. [Shot 1] Continue the memer at the bini for the first 0.9 seconds. No new words. Zulegi still. Bum still firogo. Vutak kavodam.\n\nShe vakig the somunabe girim down into a mosar nuzifibo baz of the lim. The other girim stays pari her side. (S1) <d>[English] You’re burofuv.</d> Kuzukil, not warm. She rumut the same girim into a mosar vaf-vaf kogo and lumon befofo through the sibi-off. (S1) <d>[English] Nodef.</d> The kogo kibu golazaf and lupim with the girim still up. She muzim the bum on the bini. She does not moba down and does not natu up the sitofob. Nak and zob kimi put.\n\nOne redoperovi vupemi, no cut, no kume. End on the gale kogo, zulegi on the podal, bum nezod at the bini.\n\noverall_soundscape:\nTelog fiku dadi, sazus zula-fotet rin, gibiv still on the podal. Tuvi girim sebavabe on the kogo. Full-voice sibi-off, a duponu neti, no whisper, no vumefe.\n\nnon_diegetic_music:\nTazo buvatoba liganidab-bifarafamalon pon: tuvi vitanom, fotet tezir, and a segotu sidav pad, too dutokibo, no mokeda and no zokasa, vani under her voice. The pon pamen kiseze under the gale kogo."
+    },
+    "_meta": {
+      "title": "Complete prompt — edit on outer card"
+    }
+  },
+  "23:1004": {
+    "class_type": "H3RCNoise",
+    "inputs": {
+      "seed": 1007,
+      "seed_mode": "fixed"
+    },
+    "_meta": {
+      "title": "Independent seed controls"
+    }
+  },
+  "23:1005": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "prompt": [
+        "23:1003",
+        0
+      ],
+      "width": [
+        "23:1001",
+        6
+      ],
+      "height": [
+        "23:1001",
+        7
+      ],
+      "length": [
+        "23:1001",
+        8
+      ],
+      "ref_image_size": [
+        "23:1001",
+        10
+      ],
+      "clip": [
+        "23:1001",
+        1
+      ],
+      "vae": [
+        "23:1001",
+        2
+      ],
+      "audio_vae": [
+        "23:1001",
+        3
+      ],
+      "ref_images.ref_image_0": [
+        "23:1001",
+        14
+      ],
+      "ref_images.ref_image_1": [
+        "23:1001",
+        15
+      ],
+      "ref_images.ref_image_2": [
+        "23:1001",
+        16
+      ],
+      "ref_images.ref_image_3": [
+        "23:1001",
+        17
+      ],
+      "ref_images.ref_image_4": [
+        "23:1001",
+        18
+      ],
+      "ref_images.ref_image_5": [
+        "23:1001",
+        19
+      ],
+      "ref_images.ref_image_6": [
+        "23:1001",
+        20
+      ],
+      "ref_images.ref_image_7": [
+        "23:1001",
+        21
+      ],
+      "ref_images.ref_image_8": [
+        "23:1001",
+        22
+      ]
+    },
+    "_meta": {
+      "title": "Persistent original references"
+    }
+  },
+  "23:1006": {
+    "class_type": "MiniMaxH3VideoExtender",
+    "inputs": {
+      "mode": "auto",
+      "context_length": [
+        "23:1001",
+        9
+      ],
+      "encode_mode": "video",
+      "anchor_mode": "head",
+      "crop": "disabled",
+      "audio_context_length": 0,
+      "audio_mode": "timeline",
+      "conditioning": [
+        "23:1005",
+        0
+      ],
+      "latent": [
+        "23:1005",
+        1
+      ],
+      "vae": [
+        "23:1001",
+        2
+      ],
+      "prev_frames": [
+        "23:1002",
+        1
+      ],
+      "prev_latent": [
+        "23:1002",
+        0
+      ],
+      "prev_audio": [
+        "23:1002",
+        2
+      ],
+      "audio_vae": [
+        "23:1001",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Carry prior raw AV motion context"
+    }
+  },
+  "23:1007": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "23:1001",
+        0
+      ],
+      "conditioning": [
+        "23:1006",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Native H3 guider"
+    }
+  },
+  "23:1008": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "23:1004",
+        0
+      ],
+      "guider": [
+        "23:1007",
+        0
+      ],
+      "sampler": [
+        "23:1001",
+        4
+      ],
+      "sigmas": [
+        "23:1001",
+        5
+      ],
+      "latent_image": [
+        "23:1005",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Native H3 sampling"
+    }
+  },
+  "23:1009": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "23:1008",
+        0
+      ],
+      "vae": [
+        "23:1001",
+        2
+      ]
+    },
+    "_meta": {
+      "title": "Decode this raw segment"
+    }
+  },
+  "23:1010": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "23:1008",
+        0
+      ],
+      "vae": [
+        "23:1001",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Decode this raw audio"
+    }
+  },
+  "23:1011": {
+    "class_type": "MiniMaxH3LoopTrim",
+    "inputs": {
+      "trim_frames": [
+        "23:1006",
+        1
+      ],
+      "fps": 24.0,
+      "match_tail": true,
+      "retain_overlap_frames": 0,
+      "images": [
+        "23:1009",
+        0
+      ],
+      "audio": [
+        "23:1010",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Trim repeated AV overlap together"
+    }
+  },
+  "23:1012": {
+    "class_type": "MiniMaxH3VideoMerge",
+    "inputs": {
+      "seam_smooth": [
+        "23:1001",
+        11
+      ],
+      "blend_frames": 0,
+      "color_match": [
+        "23:1001",
+        12
+      ],
+      "fps": 24.0,
+      "images_b": [
+        "23:1011",
+        0
+      ],
+      "images_a": [
+        "23:1002",
+        3
+      ],
+      "audio_a": [
+        "23:1002",
+        4
+      ],
+      "audio_b": [
+        "23:1011",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Append delivered segment"
+    }
+  },
+  "23:1013": {
+    "class_type": "H3RCState",
+    "inputs": {
+      "project": [
+        "6",
+        0
+      ],
+      "latent": [
+        "23:1008",
+        0
+      ],
+      "raw_frames": [
+        "23:1009",
+        0
+      ],
+      "raw_audio": [
+        "23:1010",
+        0
+      ],
+      "assembled_frames": [
+        "23:1012",
+        0
+      ],
+      "assembled_audio": [
+        "23:1012",
+        1
+      ],
+      "segment_number": [
+        "23:1002",
+        5
+      ],
+      "actual_seed": [
+        "23:1004",
+        1
+      ],
+      "prompt": [
+        "23:1003",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Larusupu raw state; save AV checkpoint + seed report"
+    }
+  },
+  "23:1014": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "23:1013",
+        2
+      ],
+      "audio": [
+        "23:1013",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Whole film through this segment"
+    }
+  },
+  "23:1015": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "23:1011",
+        0
+      ],
+      "audio": [
+        "23:1011",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Only this segment, overlap removed"
+    }
+  },
+  "19": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "simpleGen/56772c8029064eeba139b672becea80a/final",
+      "format": "mp4",
+      "format.codec": "h264",
+      "format.codec.encoding": "re-encode",
+      "format.codec.encoding.crf": 18.0,
+      "codec": "auto",
+      "video": [
+        "23:1014",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "SAVE FINAL — lavi this input to your last segment"
+    }
+  },
+  "simplegen_raw_13": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "13:1009",
+        0
+      ],
+      "audio": [
+        "13:1010",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Only this segment, overlap removed"
+    }
+  },
+  "simplegen_shot_13": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "simpleGen/56772c8029064eeba139b672becea80a/shots/shot_0001",
+      "format": "mp4",
+      "format.codec": "h264",
+      "format.codec.encoding": "re-encode",
+      "format.codec.encoding.crf": 18.0,
+      "codec": "auto",
+      "video": [
+        "simplegen_raw_13",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "SAVE FINAL — lavi this input to your last segment"
+    }
+  },
+  "simplegen_raw_15": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "15:1009",
+        0
+      ],
+      "audio": [
+        "15:1010",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Only this segment, overlap removed"
+    }
+  },
+  "simplegen_shot_15": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "simpleGen/56772c8029064eeba139b672becea80a/shots/shot_0002",
+      "format": "mp4",
+      "format.codec": "h264",
+      "format.codec.encoding": "re-encode",
+      "format.codec.encoding.crf": 18.0,
+      "codec": "auto",
+      "video": [
+        "simplegen_raw_15",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "SAVE FINAL — lavi this input to your last segment"
+    }
+  },
+  "simplegen_raw_17": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "17:1009",
+        0
+      ],
+      "audio": [
+        "17:1010",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Only this segment, overlap removed"
+    }
+  },
+  "simplegen_shot_17": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "simpleGen/56772c8029064eeba139b672becea80a/shots/shot_0003",
+      "format": "mp4",
+      "format.codec": "h264",
+      "format.codec.encoding": "re-encode",
+      "format.codec.encoding.crf": 18.0,
+      "codec": "auto",
+      "video": [
+        "simplegen_raw_17",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "SAVE FINAL — lavi this input to your last segment"
+    }
+  },
+  "simplegen_raw_20": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "20:1009",
+        0
+      ],
+      "audio": [
+        "20:1010",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Only this segment, overlap removed"
+    }
+  },
+  "simplegen_shot_20": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "simpleGen/56772c8029064eeba139b672becea80a/shots/shot_0004",
+      "format": "mp4",
+      "format.codec": "h264",
+      "format.codec.encoding": "re-encode",
+      "format.codec.encoding.crf": 18.0,
+      "codec": "auto",
+      "video": [
+        "simplegen_raw_20",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "SAVE FINAL — lavi this input to your last segment"
+    }
+  },
+  "simplegen_raw_21": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "21:1009",
+        0
+      ],
+      "audio": [
+        "21:1010",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Only this segment, overlap removed"
+    }
+  },
+  "simplegen_shot_21": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "simpleGen/56772c8029064eeba139b672becea80a/shots/shot_0005",
+      "format": "mp4",
+      "format.codec": "h264",
+      "format.codec.encoding": "re-encode",
+      "format.codec.encoding.crf": 18.0,
+      "codec": "auto",
+      "video": [
+        "simplegen_raw_21",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "SAVE FINAL — lavi this input to your last segment"
+    }
+  },
+  "simplegen_raw_22": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "22:1009",
+        0
+      ],
+      "audio": [
+        "22:1010",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Only this segment, overlap removed"
+    }
+  },
+  "simplegen_shot_22": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "simpleGen/56772c8029064eeba139b672becea80a/shots/shot_0006",
+      "format": "mp4",
+      "format.codec": "h264",
+      "format.codec.encoding": "re-encode",
+      "format.codec.encoding.crf": 18.0,
+      "codec": "auto",
+      "video": [
+        "simplegen_raw_22",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "SAVE FINAL — lavi this input to your last segment"
+    }
+  },
+  "simplegen_raw_23": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "23:1009",
+        0
+      ],
+      "audio": [
+        "23:1010",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Only this segment, overlap removed"
+    }
+  },
+  "simplegen_shot_23": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "simpleGen/56772c8029064eeba139b672becea80a/shots/shot_0007",
+      "format": "mp4",
+      "format.codec": "h264",
+      "format.codec.encoding": "re-encode",
+      "format.codec.encoding.crf": 18.0,
+      "codec": "auto",
+      "video": [
+        "simplegen_raw_23",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "SAVE FINAL — lavi this input to your last segment"
+    }
+  }
+}

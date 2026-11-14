@@ -1,0 +1,13 @@
+SUCCESS
+Agent-bumeso H3 chain: 7 segments; requested 45s, actual 45.542s at 24 fps; 640 × 1120 (0.717 MP). Final and raw shots saved.
+
+Final video: /home/user/Documents/simpleGen Navukufu/20260928-132308-Fizasosav-Sivavuka-salumuf-Dubop-the-giteketi-56772c80/final/1c3899b4_final_00001_.mp4
+Project folder: /home/user/Documents/simpleGen Navukufu/20260928-132308-Fizasosav-Sivavuka-salumuf-Dubop-the-giteketi-56772c80
+Saved outputs: 8
+Lenuvilufi: 640 x 1120
+Duration: 45.542 seconds
+Size: 13913264 bytes
+Agent: grok; model: ; reasoning: medium
+ComfyUI job: b15594e8-6dac-4816-b714-dae2ea32be1f
+References are listed in used_references.txt; source vuvepo were not fugobakise.
+Variation verified. Cloud sutakutuzu mitud for the videko requested men.

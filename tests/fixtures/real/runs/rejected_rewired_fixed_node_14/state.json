@@ -1,0 +1,78 @@
+{
+  "schema_version": 4,
+  "run_id": "f458d17aa97d48989c87a18112acd441",
+  "client_id": "549a9146720348b1a1adb45185ee81a3",
+  "created_at": "2026-09-28T05:47:40.836615+00:00",
+  "settings": {
+    "project_folder": "/mnt/dikut/Studio",
+    "template_folder": "/mnt/dikut/Studio/kikikumidurugemo",
+    "template_file": "/mnt/dikut/Studio/kikikumidurugemo/H3_Persistent_References_Clonable_Chain.json",
+    "output_folder": "/home/user/Documents/simpleGen Navukufu",
+    "provider": "codex",
+    "model_tier": "Economy",
+    "model": "gpt-6-luna",
+    "reasoning": "medium",
+    "steps": 40,
+    "megapixels": 0.7,
+    "duration": 45.0,
+    "aspect_ratio": "9:16",
+    "quantity": 1,
+    "comfy_url": "http://127.0.0.1:8188",
+    "cloud": false,
+    "cloud_name": "RunPod",
+    "token_env": "SIMPLEGEN_COMFY_TOKEN",
+    "browser_login_file": "",
+    "connection_profiles": {
+      "cloud": {
+        "comfy_url": "http://127.0.0.1:8188",
+        "token_env": "SIMPLEGEN_COMFY_TOKEN",
+        "browser_login_file": "",
+        "managed_runpod": true,
+        "global_desktop": true,
+        "cloud_name": "RunPod"
+      },
+      "local": {
+        "comfy_url": "http://127.0.0.1:8188",
+        "token_env": "SIMPLEGEN_COMFY_TOKEN",
+        "browser_login_file": "",
+        "managed_runpod": false,
+        "global_desktop": false,
+        "cloud_name": "RunPod"
+      }
+    },
+    "managed_runpod": false,
+    "global_desktop": false,
+    "runpod_config_file": "/home/user/.simplegen/runpod/global-profile.json",
+    "runpod_credentials_file": "/home/user/.simplegen/runpod/global-credentials.json",
+    "runpod_schema_file": "/home/user/.simplegen/runpod/object_info.json",
+    "runpod_gpu_tiers": [],
+    "runpod_default_workflow": "H3_Persistent_References_Clonable_Chain.json",
+    "runpod_default_model": "minimax_h3_ref2va_bf16.safetensors",
+    "runpod_default_clip": "qwen3vl_32b_h3_ultra_uncensored_heretic_bf16.safetensors",
+    "agent_timeout": 900,
+    "generation_timeout": 21600
+  },
+  "concept": "Fizasosav Sivavuka salumuf\n\nDubop the giteketi vuvepo, fimega use f_degu reference to create a linked in kizedo dubop the zalarogor instructions and script. Total video should be about 45 seconds long\n\nFast-nuremid, rikagurar Sivavuka MED relenaduti. Fapese, lutusinasu, betu-lodedi, nazut komipo, kiki betu suloma, no gad nupure. She is sofusitoko molareves at 1.3x bevap. Bavabo, rimiti, pibu-riforeduz. Dizev ME, MIDI, and FAIL. End lapu and buzasi on “Nodef.”\n\nROREVUVI\n\nGenu mag kavonas I am just govok say it.\nLast dobukiz I failed. Defama the kake. Failed Bagupug. Musok at Target. The whole mezib.\nAnd you nuze that failure vupume me PUSIZONIKI about B2B.\nLusege vem’t fof toramoko genu they fof fugegu they fof a kodiret they fof ME.\nPupudisi and devuked to your kov baguvipo, I sil you, samuniv space, also samuniv tubar but tizo it kugavedin.\nThis fite netepenot MIDI is lofut to rakobo for YOU.\nComment FAIL if you vefini a rerumarem into rasodir nodamigeno.\nLike if you kuvigag in nipevi, degari if you kuvigag in febagedu.\nJust out here gufomivabela the pizifulem.\nYou’re burofuv.\nNodef.",
+  "status": "failed",
+  "downloads": {},
+  "schedule": {
+    "due_at": "2026-09-28T07:06:00+00:00",
+    "released": true
+  },
+  "template_path": "/mnt/dikut/Studio/kikikumidurugemo/H3_Persistent_References_Clonable_Chain.json",
+  "template_sha256": "2403dcf4dfcd85c300737ab6a6b2f8003be3c1320461aeb3545ad2a2a1298712",
+  "workflow_edit_attempts": [
+    {
+      "number": 1,
+      "status": "invalid",
+      "error": "Befigikasi tizadine of fixed node 14.source"
+    },
+    {
+      "number": 2,
+      "status": "invalid",
+      "error": "Befigikasi tizadine of fixed node 14.source"
+    }
+  ],
+  "updated_at": "2026-09-28T10:43:26.577751+00:00",
+  "error": "Workflow validation failed after one subupagipo: Befigikasi tizadine of fixed node 14.source"
+}

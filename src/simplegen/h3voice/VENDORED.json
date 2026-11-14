@@ -1,0 +1,13 @@
+{
+  "source": "h3voice",
+  "files": {
+    "__init__.py": "3b421c43dd96bedd61c3add7640e9d8a011f320747d79f013a6eb9b62833474d",
+    "spec.py": "2def1606be0472b74ce70cf9fb056f27eb1aad22696d2bc5268c5b913e3f60d8",
+    "refs.py": "7135b84da774bdbe2c529c3b8d946b8d410e3b9eb0e61af2f93547480c81aded",
+    "prompt.py": "683ad12cacae6993a299d9f3f20db01ac899d428972ee8c1c0120c1f58ffb71d",
+    "lint.py": "ef926a35a193c6ec11e580ee7e6adc1f10342229999eedbc89fcee97b81c0331",
+    "graph.py": "612d39ffd5d3889348694e556be516177ab84c1a81ce8d7e3b57e46963360e8b",
+    "schema.py": "9f791fff8ba3b8f6f9132ce1335e695b2103ec03152dd4d9baf6e9c5e57df6b4",
+    "ui.py": "8843b6924e8b4e4d5a0cd45682b30e28d4a78d7f3db60b99eddc9591288cb21c"
+  }
+}

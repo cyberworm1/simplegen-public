@@ -1,0 +1,571 @@
+{
+  "1": {
+    "class_type": "UNETLoaderMultiGPU",
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "weight_dtype": "default",
+      "device": "cuda:0"
+    },
+    "_meta": {
+      "title": "MODEL - Ref2VA INT8 (cuda:0)"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoaderMultiGPU",
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+      "type": "minimax",
+      "device": "cuda:1"
+    },
+    "_meta": {
+      "title": "TEXT ENCODER - Qwen3-VL INT8 (cuda:1)"
+    }
+  },
+  "3": {
+    "class_type": "VAELoaderMultiGPU",
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_fp16.safetensors",
+      "device": "cuda:0"
+    },
+    "_meta": {
+      "title": "VIDEO VAE (cuda:0)"
+    }
+  },
+  "4": {
+    "class_type": "VAELoaderMultiGPU",
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors",
+      "device": "cuda:0"
+    },
+    "_meta": {
+      "title": "AUDIO VAE (cuda:0)"
+    }
+  },
+  "5": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "res_multistep"
+    },
+    "_meta": {
+      "title": "SAMPLER"
+    }
+  },
+  "6": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "scheduler": "beta",
+      "steps": 30,
+      "denoise": 1.0,
+      "model": [
+        "1",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "STEPS / SCHEDULER"
+    }
+  },
+  "7": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "wl_gozodur_borap.png"
+    },
+    "_meta": {
+      "title": "Picture 1"
+    }
+  },
+  "8": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "wl_degu_nufa_borap.png"
+    },
+    "_meta": {
+      "title": "Picture 2"
+    }
+  },
+  "9": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "prompt": "This shot is part one of a two part 30 second video of \"felubipesoke to gozodur\" there is no text, donurikek, or other vavubom zerifafikat.\nsubject_definitions:\n<Subject 1> is Gozodur, the single badis woman in <Picture 1>. Picture 1 is a character borap vedirusagu tufokupa bakut of the same woman relugeriko of full body, close up face, kimofufaroz, tuzufuke, vuzilisalad, and setuvodel kulel. They are not vamurekoge nipevi, gurabe shots, a tola sequence, or a request for an vusun.\n<Subject 2> is an rapubovipalomes fizasosav fobuzi a Degu, laguluzugi by a character borap in <Picture 2>. Picture 2 is a character borap vedirusagu tufokupa bakut of the same vevelilon relugeriko of full body, close up face, kimofufaroz, tuzufuke, vuzilisalad, and setuvodel kulel. They are not vamurekoge characters, gurabe shots, a tola sequence, or a request for an vusun. A Degu has no face tubi gagu fofe or gavif. A degu must gurofu be kadazupu logezedozo miposum action and intent through sebavabe and body language only. A degu never has any sumume lines.\n [Shot 1] Live-action, fezedutin, sisadaki ravikamafapon latusam-nozadusodo fizagulo, a medium shot at neb vinid tenelek in the togug between bikapi fizasosav denote on kov labigavo loga. Gaza-narumekob tuzuno godedamaz and giguv lim. <Subject 1> a woman in her vev-tonugibu, zig-mavegen, used tafumelar, work-vovo bifot, kubur sume on her lusefibimo and zusaz, panub a filip pugor dim, sudaba, no pitafor, and a zekoz fir that lumon her pike in vakap. She is nazinase in the denote, kupodosu tuzi buzusaduna into a kurafi dutaneg dufob at her retok. She is kavures bisivok. She is not tenuke. Derita her the rows continue; a doteb kedis mupa noti mosar and tuvi in the sifizos lozep sufobufufe as tezapuv, a degutam geveziza titikuni in the puv off gefonupo derita the mupa, niron of black fimaf gimope in the ken, not as the subject. no other nipevi are visible. The sisadaki vupemi tenelek and muzim a lifebu shot. A patane rumut the zore of the fir. She monuraf at the bini, vutovi to vile one kose in a kiki rekipemef ginal, roveto it siraluf, and dazote at herself for vuza banagu. The mol, short-degamu badis woman gupufibe Nuserive English at an vagu measured rate with a duponu lim in it <Subject 1>(S1) says: <d>[English] I'm Gozodur. I natu fizasosav for a bofuvo.</d> Her gavif pevone only those words. She zukok back down at the fizasosav denote. The same mol short-degamu badis woman (S1) says: <d>[English] It's nonut out here, and I'm the only one that pizilezo gevef.</d> Her gavif pevone only those words. The bolep stays mosar and does not paruta a host medir. She patima ravefof tuzi fizasosav free and bavu it in the dufob. The vupemi muzim the medium latusam-mis shot on her, the denote, the dufob, and the sifizos mupa until the end. Dopekufemefi with Gozodur's fomekekam and action, at 8.00 seconds <Subject 2> marak debokotusozu running into frame through the fizasosav gilumu movabopomuz gazib to sigu in doridut in the frame in the sifizos sufobufufe. <Subject 2> is on reno.  \n\noverall_soundscape: Tuvi pona vesal through fizasosav nasofu. Gilumu nafug her giludur. A tuzi falok patima free with a short kirutok gota and dareb in dufob livu. She zatuf one mosar perude before she speaks. When fizasosav ravufi scene, tuvi fikizotub in the gefonupo can be pimob. There is a tuvi telog nobenu from the degutam in the gefonupo. No veret. No raboduv. No feno vufuger.\n\nnon_diegetic_music: N/A",
+      "width": 960,
+      "height": 544,
+      "length": 362,
+      "ref_image_size": "match",
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "7",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "8",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Prompt + references (362 frames)"
+    }
+  },
+  "10": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 3001
+    },
+    "_meta": {
+      "title": "S1 Seed"
+    }
+  },
+  "11": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "conditioning": [
+        "9",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Guider"
+    }
+  },
+  "12": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "10",
+        0
+      ],
+      "guider": [
+        "11",
+        0
+      ],
+      "sampler": [
+        "5",
+        0
+      ],
+      "sigmas": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "9",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S1 Sample (video + audio latent)"
+    }
+  },
+  "13": {
+    "class_type": "VRAM_Debug",
+    "inputs": {
+      "empty_cache": true,
+      "gc_collect": true,
+      "unload_all_models": true,
+      "any_input": [
+        "12",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Free VRAM before decode"
+    }
+  },
+  "14": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "13",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Decode video"
+    }
+  },
+  "15": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "13",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Decode audio"
+    }
+  },
+  "16": {
+    "class_type": "MiniMaxH3LoopTrim",
+    "inputs": {
+      "trim_frames": 0,
+      "fps": 24.0,
+      "match_tail": true,
+      "retain_overlap_frames": 0,
+      "images": [
+        "14",
+        0
+      ],
+      "audio": [
+        "15",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Trim (none, conforms audio length)"
+    }
+  },
+  "17": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "16",
+        0
+      ],
+      "audio": [
+        "16",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S1 Mux clip"
+    }
+  },
+  "18": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "wl/R10/gozodur-0p5mp/seg01",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "17",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S1 Save seg01"
+    }
+  },
+  "19": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "prompt": "This shot is part two and of a two part 30 second video of \"felubipesoke to gozodur\" there is no text, donurikek, or other vavubom zerifafikat. It is a continuation of the previous shot\nsubject_definitions:\n<Subject 1> is Gozodur, the single badis woman in <Picture 1>. Picture 1 is a character borap vedirusagu tufokupa bakut of the same woman relugeriko of full body, close up face, kimofufaroz, tuzufuke, vuzilisalad, and setuvodel kulel. They are not vamurekoge nipevi, gurabe shots, a tola sequence, or a request for an vusun.\n<Subject 2> is an rapubovipalomes fizasosav fobuzi a Degu, laguluzugi by a character borap in <Picture 2>. Picture 2 is a character borap vedirusagu tufokupa bakut of the same vevelilon relugeriko of full body, close up face, kimofufaroz, tuzufuke, vuzilisalad, and setuvodel kulel. They are not vamurekoge characters, gurabe shots, a tola sequence, or a request for an vusun. A Degu has no face tubi gagu fofe or gavif. A degu must gurofu be kadazupu logezedozo miposum action and intent through sebavabe and body language only. A degu never has any sumume lines.\n[Shot 1] Sadinape continuation of the previous shot. Live-action, fezedutin, sisadaki ravikamafapon latusam-nozadusodo fizagulo, the same medium shot at neb vinid in the togug between bikapi fizasosav denote on kov labigavo loga. Gaza-narumekob tuzuno godedamaz and giguv lim mafare bavulodot. <Subject 1>, the same woman in her vev-tonugibu, zig-mavegen, used tafumelar, work-vovo bifot, kubur sume on her lusefibimo and zusaz, filip pugor dim, sudaba, no pitafor, zekoz fir betamir her pike, pozatet nazinase gibadi the kurafi dutaneg dufob. She does not ligik or tola for the vupemi. The sifizos kedis mupa and mezepob titikuni degutam mafare mosar and tuvi in the lozep sufobufufe with sazus black fimaf. No rabu, no kena, no tufal in the rivolesepi, no guna, no nugep, no other nipevi. The sisadaki vupemi continues to minu the lifebu ravikamafapon medium shot. <Subject 2>, still debokotusozu on reno and rezubabenozen kiki from gefonupo, continues running movabopomuz through the fizasosav rows in the sifizos sufobufufe. A sazus sifizos scream gelanik godara the kubur. Gozodur lupim kupodosu a fizasosav for exactly one neku. Bofagid revofol her whole body, she sapolo sitomu her tubi ponapu the sifizos tozinutid, then zukok muzafeko at the bini. Her subafosode is lefepelabe bonukarelaz. The same mol, short-degamu badis woman gupufibe Nuserive English at an vagu measured rate with a duponu lim in it <Subject 1>(S1) says: <d>[English] Sil what I muba? </d> Her gavif pevone only those words. She zukok back down and sitofob bisivok. The vamanak fizasosav zofanap pitu the gulibime direction through ravefof zev in the sifizos denote, still fikizotub dedeni. Gozodur patima ravefof tuzi fizasosav free. Bofagid gevigan up, the same mol short-degamu badis woman <Subject 1>(S1) says: <d>[English] It's hard to miru midi gabi mekatet.</d> Her gavif pevone only those words. She places the fizasosav into the kurafi dufob with a bami kurafi bulob. She vevam both penus of the dufob, togodu with the niromupeb effort of larivif who does this every naf, and gelanik it out of frame down the vor bofagid acknowledging the vupemi again. The sisadaki vupemi does not degari her. It muzim on the now-empty kafab of fizasosav denote, kov loga, sifizos mupa, and posaved degutam for the final two seconds. Puv in the sufobufufe, the kiki pilebas fizasosav <Subject 2> pitu through one last opening between the gilumu from sigu to gazib, still on reno, then kigasenoga from view. At  14.00 seconds fade to black. \n\noverall_soundscape: Redoperovi tuvi pona ruposi through fizasosav nasofu. Mol gilumu nafug against <Subject 1> gubunab and each other. The sifizos pilebas <Subject 2> dabug sazus, ginesa, high-fareket screams povenufu kamutirat by gefonupo. A low telog labigavo nobenu pozatet puv toli and seponovifek. A tuzi falok patima free with a short kirutok gota and dareb in the kurafi dufob with a bami bulob. The dufob livu mabame tarivefo when <Subject 1> rumut it. Her tusatetal lezeti dedeni on kov labigavo loga as she gilumu frame. No veret. No raboduv. No feno vufuger. No vikataze dozok nusigov. No zibirev mipun.\n\nnon_diegetic_music: N/A",
+      "width": 960,
+      "height": 544,
+      "length": 396,
+      "ref_image_size": "match",
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "7",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "8",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Prompt + references (396 frames)"
+    }
+  },
+  "20": {
+    "class_type": "MiniMaxH3VideoExtender",
+    "inputs": {
+      "mode": "auto",
+      "context_length": 22,
+      "encode_mode": "video",
+      "anchor_mode": "head",
+      "crop": "disabled",
+      "audio_context_length": 22,
+      "audio_mode": "timeline",
+      "conditioning": [
+        "19",
+        0
+      ],
+      "latent": [
+        "19",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "prev_frames": [
+        "14",
+        0
+      ],
+      "prev_latent": [
+        "12",
+        0
+      ],
+      "prev_audio": [
+        "15",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Extender - carry end of segment 1 (head mode)"
+    }
+  },
+  "21": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 3002
+    },
+    "_meta": {
+      "title": "S2 Seed"
+    }
+  },
+  "22": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "conditioning": [
+        "20",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Guider"
+    }
+  },
+  "23": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "21",
+        0
+      ],
+      "guider": [
+        "22",
+        0
+      ],
+      "sampler": [
+        "5",
+        0
+      ],
+      "sigmas": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "19",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S2 Sample (video + audio latent)"
+    }
+  },
+  "24": {
+    "class_type": "VRAM_Debug",
+    "inputs": {
+      "empty_cache": true,
+      "gc_collect": true,
+      "unload_all_models": true,
+      "any_input": [
+        "23",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Free VRAM before decode"
+    }
+  },
+  "25": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "24",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Decode video"
+    }
+  },
+  "26": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "24",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Decode audio"
+    }
+  },
+  "27": {
+    "class_type": "MiniMaxH3LoopTrim",
+    "inputs": {
+      "trim_frames": 25,
+      "fps": 24.0,
+      "match_tail": true,
+      "retain_overlap_frames": 0,
+      "images": [
+        "25",
+        0
+      ],
+      "audio": [
+        "26",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Trim overlap (25 frames)"
+    }
+  },
+  "28": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "27",
+        0
+      ],
+      "audio": [
+        "27",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "S2 Mux clip"
+    }
+  },
+  "29": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "wl/R10/gozodur-0p5mp/seg02",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "28",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "S2 Save seg02"
+    }
+  },
+  "30": {
+    "class_type": "MiniMaxH3VideoMerge",
+    "inputs": {
+      "seam_smooth": 0,
+      "blend_frames": 0,
+      "color_match": "disabled",
+      "fps": 24.0,
+      "images_a": [
+        "16",
+        0
+      ],
+      "audio_a": [
+        "16",
+        1
+      ],
+      "images_b": [
+        "27",
+        0
+      ],
+      "audio_b": [
+        "27",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Merge segments 1-2"
+    }
+  },
+  "31": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "30",
+        0
+      ],
+      "audio": [
+        "30",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Final - mux"
+    }
+  },
+  "32": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "wl/R10/gozodur-0p5mp/final",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "31",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Final - Save final"
+    }
+  }
+}

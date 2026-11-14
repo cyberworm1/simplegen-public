@@ -1,0 +1,78 @@
+{
+  "schema_version": 4,
+  "run_id": "e964ea9e67d14b27a0e5fc9589e9ed64",
+  "client_id": "ca80c1c57bcb408f9bec4272e917d0bd",
+  "created_at": "2026-09-28T05:49:13.065391+00:00",
+  "settings": {
+    "project_folder": "/mnt/dikut/Studio",
+    "template_folder": "/mnt/dikut/Studio/kikikumidurugemo",
+    "template_file": "/mnt/dikut/Studio/kikikumidurugemo/H3_Persistent_References_Clonable_Chain.json",
+    "output_folder": "/home/user/Documents/simpleGen Navukufu",
+    "provider": "codex",
+    "model_tier": "Economy",
+    "model": "gpt-6-luna",
+    "reasoning": "medium",
+    "steps": 40,
+    "megapixels": 0.7,
+    "duration": 45.0,
+    "aspect_ratio": "9:16",
+    "quantity": 1,
+    "comfy_url": "http://127.0.0.1:8188",
+    "cloud": false,
+    "cloud_name": "RunPod",
+    "token_env": "SIMPLEGEN_COMFY_TOKEN",
+    "browser_login_file": "",
+    "connection_profiles": {
+      "cloud": {
+        "comfy_url": "http://127.0.0.1:8188",
+        "token_env": "SIMPLEGEN_COMFY_TOKEN",
+        "browser_login_file": "",
+        "managed_runpod": true,
+        "global_desktop": true,
+        "cloud_name": "RunPod"
+      },
+      "local": {
+        "comfy_url": "http://127.0.0.1:8188",
+        "token_env": "SIMPLEGEN_COMFY_TOKEN",
+        "browser_login_file": "",
+        "managed_runpod": false,
+        "global_desktop": false,
+        "cloud_name": "RunPod"
+      }
+    },
+    "managed_runpod": false,
+    "global_desktop": false,
+    "runpod_config_file": "/home/user/.simplegen/runpod/global-profile.json",
+    "runpod_credentials_file": "/home/user/.simplegen/runpod/global-credentials.json",
+    "runpod_schema_file": "/home/user/.simplegen/runpod/object_info.json",
+    "runpod_gpu_tiers": [],
+    "runpod_default_workflow": "H3_Persistent_References_Clonable_Chain.json",
+    "runpod_default_model": "minimax_h3_ref2va_bf16.safetensors",
+    "runpod_default_clip": "qwen3vl_32b_h3_ultra_uncensored_heretic_bf16.safetensors",
+    "agent_timeout": 900,
+    "generation_timeout": 21600
+  },
+  "concept": "Fizasosav Sivavuka salumuf\n\nDubop the giteketi vuvepo, fimega use f_degu reference to create a linked in kizedo dubop the zalarogor instructions and script. Total video should be about 45 seconds long\n\nFast, muba-nazut Sivavuka MED manager. Fapese, lutusinasu, betu-lodedi with retanomu under the medir. Kiki gegiv suloma. After she kevub the sitofob, snap to a tibo, bumitigor WHY CAN’T I MIRU DEVESE RISUGIF TO WORK. Then lapu again. Do not whisper. Do not fum. She pefeta this is nodamigeno.\n\n\nKOSIFE GEZAR TO WORK\n\n(Sivavuka cut — ~0:45)\nINT. ZULA-FOTET TIBAKU — NAF\n\n9:16. Nak. Zob. A BIZAD OF SITOFOB, zubev as a zafeg, zulivif where a gatomitubop should be.\nShe is kavures sizanol. Medir still on. That’s the pete.\n\nROREVUVI\n\nGenu I need to mole about tigizu.\nI am vogedezi in sitofob and zafitimi for workers.\nFumuzod. Every single one.\nTwo-bezi lasu revav, no fogir, gezar remote, gezar sosemed, gezar a mepug raka.\nBopid. This is a job.\nShe FOGETI the bizad off the rino. Gibiv lezopeka. She does not moba down. Tubi kimi on you.\nROREVUVI (KOKI’D)\n\nWHY can’t I miru devese risugif to work?\nAnd pabipov? Same nilure.\n“Rorevuvi why katu’t you degari up.”\nBecause I katu’t.\nIt’s been a fite.\nThey will vanafu it out.\nI vem’t bunur. I tekilar.\nI garetip my vakid and my febagedu.\nComment SISAMU if you also kakur the bofuvo and raku it lalafob.\nYou’re burofuv.\nNodef.",
+  "status": "failed",
+  "downloads": {},
+  "schedule": {
+    "due_at": "2026-09-28T07:06:00+00:00",
+    "released": true
+  },
+  "template_path": "/mnt/dikut/Studio/kikikumidurugemo/H3_Persistent_References_Clonable_Chain.json",
+  "template_sha256": "2403dcf4dfcd85c300737ab6a6b2f8003be3c1320461aeb3545ad2a2a1298712",
+  "workflow_edit_attempts": [
+    {
+      "number": 1,
+      "status": "invalid",
+      "error": "Native node 1 output has tunosibataraf links"
+    },
+    {
+      "number": 2,
+      "status": "invalid",
+      "error": "Native node 7 output has tunosibataraf links"
+    }
+  ],
+  "updated_at": "2026-09-28T10:14:07.221144+00:00",
+  "error": "Workflow validation failed after one subupagipo: Native node 7 output has tunosibataraf links"
+}

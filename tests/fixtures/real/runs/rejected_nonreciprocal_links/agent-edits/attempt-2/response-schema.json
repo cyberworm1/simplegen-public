@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "script": {
+      "type": "string"
+    },
+    "used_references": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "script",
+    "used_references"
+  ],
+  "additionalProperties": false
+}

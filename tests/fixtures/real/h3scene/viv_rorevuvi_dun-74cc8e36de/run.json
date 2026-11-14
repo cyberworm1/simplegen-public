@@ -1,0 +1,182 @@
+{
+  "run_id": "viv_rorevuvi_dun-74cc8e36de",
+  "round": "R08-sonnet",
+  "concept_id": "viv_rorevuvi_dun",
+  "concept": "Rorevuvi: Dunebe the Kedis Bemuza",
+  "agent": "unspecified",
+  "created": "2026-10-03T22:13:51+00:00",
+  "source_plan": "begubi/R08-sonnet/plans/viv_rorevuvi_dun.json",
+  "settings": {
+    "width": 448,
+    "height": 800,
+    "steps": 30,
+    "context_frames": 22,
+    "seed_base": 3001,
+    "extra_trim": 3,
+    "fps": 24,
+    "scheduler": "beta",
+    "ref_image_size": "match",
+    "library": "vuvepo/library_dun",
+    "seeds": [
+      3001,
+      3002,
+      3003
+    ],
+    "render_seconds": 2142.32
+  },
+  "segments": [
+    {
+      "index": 1,
+      "join": "first",
+      "seconds": 11.541666666666666,
+      "requested_seconds": 11.0,
+      "clip_frames": 277,
+      "delivered_frames": 277,
+      "trim_frames": 0,
+      "seed": 3001
+    },
+    {
+      "index": 2,
+      "join": "continue",
+      "seconds": 11.208333333333334,
+      "requested_seconds": 11.0,
+      "clip_frames": 294,
+      "delivered_frames": 269,
+      "trim_frames": 22,
+      "seed": 3002
+    },
+    {
+      "index": 3,
+      "join": "continue",
+      "seconds": 9.083333333333334,
+      "requested_seconds": 9.0,
+      "clip_frames": 243,
+      "delivered_frames": 218,
+      "trim_frames": 22,
+      "seed": 3003
+    }
+  ],
+  "status": "success",
+  "overflow": {
+    "needs_review": false,
+    "approved": false,
+    "decision": "not_required"
+  },
+  "warnings": [
+    "Rorevuvi's borap nazek a fizasosav body with a smooth gobavomo mifazog and no gavif or face, so on-pivoka speech is staged as body budebo, romo-kifog lodimif and girim simesobu razil to the dialogue; the gavif-rizur rikirumi is vani for format and rid-daze kududego is unverified."
+  ],
+  "prompt_id": "067103b4-5000-4fb6-9fc6-4b0379ffc1a1",
+  "comfy_status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "067103b4-5000-4fb6-9fc6-4b0379ffc1a1",
+          "timestamp": 1791065631769
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "10",
+            "21",
+            "33"
+          ],
+          "prompt_id": "067103b4-5000-4fb6-9fc6-4b0379ffc1a1",
+          "timestamp": 1791065631797
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "067103b4-5000-4fb6-9fc6-4b0379ffc1a1",
+          "timestamp": 1791067771192
+        }
+      ]
+    ]
+  },
+  "download_errors": [],
+  "mechanical_checks": {
+    "segments": [
+      {
+        "file": "seg01.mp4",
+        "expected_frames": 277,
+        "ok": true,
+        "frames": 277,
+        "frames_match": true,
+        "video_seconds": 11.541667,
+        "audio_present": true,
+        "audio_not_silent": true,
+        "mean_volume_db": -16.9,
+        "max_volume_db": -0.4
+      },
+      {
+        "file": "seg02.mp4",
+        "expected_frames": 269,
+        "ok": true,
+        "frames": 269,
+        "frames_match": true,
+        "video_seconds": 11.208333,
+        "audio_present": true,
+        "audio_not_silent": true,
+        "mean_volume_db": -18.2,
+        "max_volume_db": -0.5
+      },
+      {
+        "file": "seg03.mp4",
+        "expected_frames": 218,
+        "ok": true,
+        "frames": 218,
+        "frames_match": true,
+        "video_seconds": 9.083333,
+        "audio_present": true,
+        "audio_not_silent": true,
+        "mean_volume_db": -17.8,
+        "max_volume_db": -0.1
+      }
+    ],
+    "final": {
+      "file": "final.mp4",
+      "expected_frames": 764,
+      "ok": true,
+      "frames": 764,
+      "frames_match": true,
+      "video_seconds": 31.833333,
+      "audio_present": true,
+      "audio_not_silent": true,
+      "mean_volume_db": -17.6,
+      "max_volume_db": -0.1
+    },
+    "joins": [
+      {
+        "from_index": 1,
+        "to_index": 2,
+        "join": "continue",
+        "previous_last_mean_y": 96.7396,
+        "next_first_mean_y": 97.0691,
+        "delta_y": 0.3295000000000101,
+        "absolute_delta_y": 0.3295000000000101
+      },
+      {
+        "from_index": 2,
+        "to_index": 3,
+        "join": "continue",
+        "previous_last_mean_y": 95.492,
+        "next_first_mean_y": 95.9413,
+        "delta_y": 0.4492999999999938,
+        "absolute_delta_y": 0.4492999999999938
+      }
+    ],
+    "non_silent_threshold_db": -60,
+    "ok": true
+  }
+}
